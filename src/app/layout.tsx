@@ -11,8 +11,8 @@ const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 // const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
-  title: "FRNZ",
-  description: "Frenzz Official Website",
+  title: "vivekcse",
+  description: "A Portfolio Website for vivekcse",
   icons: "favicon.png",
 };
 
