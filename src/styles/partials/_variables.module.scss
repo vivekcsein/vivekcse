@@ -1,0 +1,218 @@
+// @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+// @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+
+$primary_color1: #010100;
+/* color: 30%;; */
+$primary_color2: #d1903b;
+/* color: 10%;; */
+// $primary_color3: rgba(122, 133, 255, 0.7);
+$primary_color3: rgba(189, 78, 196, 1);
+/* color: 1%;; */
+$primary_color4: rgb(127, 223, 59);
+
+$primary_alt_color1: #c4c4f6;
+$primary_alt_color2: #4827db;
+$primary_alt_color3: #df8a3b;
+
+$text_color: rgb(236, 86, 27);
+$text_color_onHover: #e5bb23;
+$text_color_heading: rgb(255, 106, 0);
+$text_color_para: orange;
+$text_color_highlighted: #ff6f00;
+$bg_text_color: black;
+
+// button color
+$button_color: #f90c0cca;
+$button_color_onHover: #e43535;
+$border_color: #c32ef9dc;
+$border_color_onHover: #eb5d3aeb;
+
+$black: #000000;
+$black_dim: #2b2929ea;
+
+$white: #ffffff;
+$red: #ff0000;
+$blue_fav: #4e4ee3;
+$pink_fav: #b4238e;
+$purple_fav: #ff9ff3;
+$orange_fav: #d36c6c;
+$color1: #ffd000;
+$color2: #dc6249;
+$color3: #bd4ec4;
+$color4: #5f27cd;
+$color5: #69e9f5;
+
+$bg_color1: #ffd000;
+$bg_color2: #dc6249;
+$bg_color3: #bd4ec4;
+$bg_color4: #5f27cd;
+$bg_color5: #69e9f5;
+$bg_color6: #7a85ffb3;
+$bg_color7: #fb5b53;
+
+/* gradients */
+$box_shadow: rgba(0, 0, 0, 0.2);
+$primary_gradient_color1: #e2b0ff;
+$primary_gradient_color2: #9f44d3;
+$gradient: linear-gradient(
+  135deg,
+  primary_gradient_color1 10%,
+  primary_gradient_color2 100%
+);
+
+$gradient_input1: #f1dcdc;
+$gradient_input2: #000000a5;
+$gradient_input: linear-gradient(
+  90deg,
+  gradient_input1 10%,
+  gradient_input2 100%
+);
+
+$color_scheme: light dark;
+$dark_mode: #1a1a1a;
+$light_mode: #cccccc;
+$night_mode: #213547;
+
+$colorPallet: (
+  "primary": $primary_color1,
+  "secondary": $primary_color2,
+  "special": $primary_color3,
+  "error": $primary_color4,
+  "gradient": $gradient,
+  "text": $text_color,
+  "textonHover": $text_color_onHover,
+  "text_highlight": $text_color_highlighted,
+  "button": $button_color,
+  "buttononHover": $button_color_onHover,
+);
+
+$primary_color: (
+  $primary_color1,
+  $primary_color2,
+  $primary_color3,
+  $primary_color4
+);
+
+$bg_color: (
+  $black,
+  $primary_color3,
+  $bg_color1,
+  $bg_color2,
+  $bg_color3,
+  $bg_color4,
+  $bg_color5
+);
+
+$bg_gradient: ($gradient, $gradient_input);
+
+$colorRange: ($color1, $color2, $color3, $color4, $color5);
+
+$colorFav: ($blue_fav, $pink_fav, $purple_fav, $orange_fav);
+
+$colorBtn: ($button_color, $button_color_onHover, $gradient);
+
+$toggle_text_color: ($primary_color3, $bg_text_color, $black_dim);
+
+$toggle_btn_color: ($primary_color3, $bg_text_color, $gradient_input);
+
+$toggle_loadinganim_color: ($blue_fav, $pink_fav, $purple_fav, $orange_fav);
+
+// $text_shadow_onHover: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+//   0 0 100px #03e9f4;
+$text_shadow_onHover: 0 0 5px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 25px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 50px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 100px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    );
+
+$text_shadow_onHover_P: 0 0 5px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 25px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 50px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    ),
+  0 0 100px
+    nth(
+      $list: $bg_color,
+      $n: 2,
+    );
+
+$toggle_stroke_color: (
+  $black,
+  $white,
+  $blue_fav,
+  $pink_fav,
+  $purple_fav,
+  $orange_fav
+);
+
+$Header_height: 5rem;
+
+$ff1: "Roboto";
+$ff2: "Poppins";
+$ff3: "Nunito";
+$ff4: "Catamaran";
+$ff5: "Cabin";
+$ff6: "Overpass";
+$ff7: "Work Sans";
+$ff8: "Open Sans";
+$font_size_default: 1.2rem;
+$font_size_onHover: 1.5rem;
+
+$font_family: ($ff1, $ff2, $ff3, $ff4, $ff5, $ff6, $ff7, $ff8);
+
+$font_size: (
+  "nodisplay": 8px,
+  "phone": 16px,
+  "mobile": 20px,
+  "tablet": 24px,
+  "laptop": 28px,
+  "desktop": 32px,
+);
+
+@keyframes animateNavLikeButton {
+  0% {
+    background-color: nth($colorBtn, 1);
+    border-radius: 0;
+  }
+  100% {
+    background-color: nth($colorBtn, 2);
+    border-radius: 2rem;
+  }
+}
+
+@keyframes gayab {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// @forward "./Partials/variables.scss";

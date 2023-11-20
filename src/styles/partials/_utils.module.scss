@@ -1,0 +1,178 @@
+@use "./variables.module" as *;
+@use "./breakpoint.module" as *;
+
+@mixin toggle_hide($show) {
+  display: $show;
+}
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin toggleColor {
+  color: nth($list: $toggle_text_color, $n: 1);
+  background-color: nth($list: $toggle_text_color, $n: 2);
+}
+
+@mixin toggle_phone_show {
+  @include res_desktop {
+    @include toggle_hide(none);
+  }
+  @include res_phone {
+    @include toggle_hide("block");
+  }
+}
+
+@mixin toggle_desktop_show {
+  @include res_desktop {
+    @include toggle_hide("block");
+  }
+  @include res_phone {
+    @include toggle_hide(none);
+  }
+}
+
+@mixin btn_navbar {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  color: nth($list: $toggle_text_color, $n: 1);
+  > div,
+  span {
+    color: nth($list: $toggle_text_color, $n: 1);
+  }
+  &:hover {
+    @include Anim_animateNavLikeButton;
+    scale: 1.1;
+    color: nth($list: $toggle_text_color, $n: 2);
+    > div,
+    span {
+      color: nth($list: $toggle_text_color, $n: 2);
+    }
+  }
+  &:active {
+    @include Active_animateNavLikeButton;
+  }
+  &:after {
+    @include Active_animateNavLikeButton;
+  }
+  &:visited {
+    @include Active_animateNavLikeButton;
+  }
+}
+
+@mixin Anim_animateNavLikeButton {
+  background-color: nth($list: $toggle_text_color, $n: 1);
+  border-radius: 2rem;
+  animation: animateNavLikeButton 0.1s linear;
+}
+
+@mixin Active_animateNavLikeButton {
+  box-shadow: $text_shadow_onHover;
+  // background-color: nth($list: $bg_color, $n: 3);
+  border-radius: 2rem;
+}
+
+@mixin btn_info {
+  cursor: pointer;
+  background-color: $white;
+  padding: 0rem 0.5rem;
+  color: #000000;
+}
+
+@mixin inputBox {
+  // padding: 0.7rem;
+  border: none;
+  box-shadow: 2px 5px $box_shadow;
+  box-sizing: border-box;
+  background-color: nth($list: $bg_color, $n: 2);
+}
+
+@mixin inputText {
+  color: nth($list: $toggle_text_color, $n: 2);
+  font-weight: 600;
+  font-family: nth($list: $font_family, $n: 3);
+  font-size: calc($font_size_default * 1);
+}
+@mixin placeholder {
+  @include inputText;
+  font-family: nth($list: $font_family, $n: 5);
+  color: nth($list: $toggle_text_color, $n: 3);
+}
+
+input::placeholder {
+  @include placeholder;
+}
+input[type="text"] {
+  @include inputText;
+}
+input[type="password"] {
+  @include inputText;
+}
+
+@keyframes animateNavLikeButton {
+  0% {
+    background-color: nth($list: $toggle_text_color, $n: 2);
+    border-radius: 0;
+  }
+  100% {
+    background-color: nth($list: $toggle_text_color, $n: 1);
+    border-radius: 2rem;
+  }
+}
+
+@keyframes gayab {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@mixin Loading_Screen {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 100%;
+  height: 25%;
+  transform: translateY(150%);
+  display: grid;
+  place-items: center;
+}
+
+@mixin errorShow {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  > div {
+    border: 2px solid black;
+    margin: auto;
+    width: 40%;
+    min-width: 400px;
+    height: 40%;
+    background-color: nth($list: $bg_gradient, $n: 1);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    @include res_phone {
+      width: 60%;
+      min-width: 250px;
+    }
+  }
+  h1 {
+    color: red;
+    text-align: center;
+    font-size: 3rem;
+    @include res_phone {
+      @include phone {
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "../Vars.scss" as *;
+@use "../Styles.scss" as *;
+
+.Header {
+  width: 100%;
+  height: $Header_height;
+  background-color: nth($list: $bg_color, $n: 1);
+  position: relative;
+
+  @include res_desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include res_phone {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Header_logo {
+    margin: 0 2rem;
+    z-index: 10000;
+    Image {
+      width: 100%;
+    }
+    @include res_phone {
+      @include phone {
+        width: 200px;
+        height: auto;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+
+  .Navbar {
+    width: 50%;
+    height: $Header_height;
+
+    @include res_desktop {
+      width: 50%;
+      display: block;
+      @include laptop {
+        width: 65%;
+      }
+      @include desktop2k {
+        width: 40%;
+      }
+    }
+
+    @include res_phone {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      position: absolute;
+    }
+  }
+}

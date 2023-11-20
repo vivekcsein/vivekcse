@@ -1,0 +1,47 @@
+@use "../Styles.scss" as *;
+@use "../Vars.scss" as *;
+
+.button_component {
+  width: fit-content !important ;
+  background: nth($list: $toggle_btn_color, $n: 1);
+  padding: 0.5rem 1rem;
+  border: none;
+
+  h1,
+  p {
+    color: nth($list: $toggle_btn_color, $n: 2);
+    font-family: nth($list: $font-family, $n: 3);
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  &:active,
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s linear;
+    background: nth($list: $toggle_btn_color, $n: 2);
+    h1,
+    p {
+      color: nth($list: $toggle_btn_color, $n: 1);
+    }
+  }
+}
+
+.button_component_1 {
+  border-radius: 0%;
+  border: 2px solid;
+  border-color: nth($list: $toggle_btn_color, $n: 1);
+  &:active,
+  &:hover {
+    border-radius: 10%;
+    border-color: nth($list: $toggle_btn_color, $n: 3);
+  }
+}
+
+.button_component_2 {
+  box-shadow: 0px 6px nth($list: $toggle_btn_color, $n: 3);
+  &:active,
+  &:hover {
+    box-shadow: 0px 6px nth($list: $toggle_btn_color, $n: 1);
+  }
+}

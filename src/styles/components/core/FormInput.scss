@@ -1,0 +1,46 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+
+.inputDiv {
+  position: relative;
+  width: 100%;
+  input {
+    width: 100%;
+    padding: 0.2rem 1rem;
+    @include inputBox;
+  }
+  .passwordVisibleIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    cursor: pointer;
+    color: nth($list: $toggle_text_color, $n: 3);
+  }
+}
+
+.formInput {
+  width: 80% !important;
+  position: relative;
+  margin: auto;
+}
+
+.formInput_default {
+  margin-top: 1rem;
+  .passwordVisibleIcon {
+    position: absolute;
+    right: 15px;
+    top: 30%;
+  }
+}
+
+.formInput_1 {
+  label {
+    @include inputText;
+    color: nth($list: $toggle_text_color, $n: 3);
+  }
+  .passwordVisibleIcon {
+    position: absolute;
+    right: 15px;
+    top: 55%;
+  }
+}

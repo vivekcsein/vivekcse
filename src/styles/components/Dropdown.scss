@@ -1,0 +1,15 @@
+@use "../Vars.scss" as *;
+@use "../Styles.scss" as *;
+
+.dropdown_ul {
+  background-color: nth($list: $bg_color, $n: 1);
+  width: 100%;
+  z-index: 10000000;
+
+  @include res_desktop {
+    width: auto;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+    margin: 0 -2rem;
+  }
+}

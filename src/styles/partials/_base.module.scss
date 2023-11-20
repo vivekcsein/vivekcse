@@ -1,0 +1,61 @@
+@use "./variables.module" as *;
+@use "./utils.module" as *;
+
+.flex_center {
+  @include flex_center;
+}
+
+.button_navbar {
+  @include btn_navbar;
+}
+
+.toggle_phone_show {
+  @include toggle_phone_show;
+}
+
+.toggle_desktop_show {
+  @include toggle_desktop_show;
+}
+
+.fullScreen {
+  width: 100%;
+  height: 88vh;
+}
+
+.SubscribeNow {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  > h3 {
+    font-size: large;
+  }
+  > input {
+    padding: 0.5rem 0;
+  }
+  button {
+    width: 100%;
+    padding: 0.25rem 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(159, 0, 159);
+    color: black;
+    font-size: large;
+    > span {
+      width: 20%;
+      font-size: xx-large;
+    }
+
+    &:hover {
+      background-color: rgb(227, 56, 227);
+    }
+  }
+}
+
+.Loading_Screen {
+  @include Loading_Screen;
+}
+
+.errorShow {
+  @include errorShow;
+}
