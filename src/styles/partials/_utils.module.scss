@@ -36,9 +36,14 @@
 
 @mixin btn_navbar {
   cursor: pointer;
-  padding: 1rem 2rem;
   font-weight: bold;
   color: nth($list: $toggle_text_color, $n: 1);
+  > a {
+    // background-color: aqua;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+  }
   > div,
   span {
     color: nth($list: $toggle_text_color, $n: 1);

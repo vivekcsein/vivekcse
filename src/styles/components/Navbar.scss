@@ -8,7 +8,7 @@
 
   @include res_desktop {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
   }
 
@@ -25,7 +25,6 @@
   > li {
     @include res_desktop {
       padding: 1rem 0.5rem;
-      // position: relative;
     }
 
     &:hover {

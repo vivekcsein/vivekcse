@@ -69,7 +69,10 @@ const Navbar = ({
   const NavItem_dropdown = (item: nav_Links) => {
     return (
       <>
-        <div className="flex_center button_navbar" onClick={dropdownClicked}>
+        <div
+          className="flex_center button_navbar navbar_product"
+          onClick={dropdownClicked}
+        >
           {item.label}
           <span className="material-symbols-sharp toggleArrow ">
             {toggleArrow_text}
