@@ -8,7 +8,7 @@
       },
       "navbar": {
         "nav_Links": [
-          { "id": 1, "href": "./", "label": "Home", "dropdown": false },
+          { "id": 1, "href": "/", "label": "Home", "dropdown": false },
           {
             "id": 2,
             "href": "#products",
@@ -34,7 +34,7 @@
     },
     "FooterData": {
       "footer_logo": "",
-      "copyright_message": "Copyright © 2024 FRENZZ Pvt. Ltd All Right are Reserved",
+      "copyright_message": "Copyright © 2024 VivekCSE All Right are Reserved",
 
       "footer_Links": [
         {
@@ -67,8 +67,8 @@
           "links": [
             {
               "id": 1,
-              "label": "customer@frnz.com",
-              "href": "mailto:customer@frnz.com"
+              "label": "vivekcse",
+              "href": "mailto:ivivekcse@gmail.com"
             },
             {
               "id": 2,

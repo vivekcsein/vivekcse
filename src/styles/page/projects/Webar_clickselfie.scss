@@ -1,0 +1,90 @@
+@use "../../Vars.scss";
+@use "../../Styles.scss";
+
+.webar_camera_container {
+  width: 100%;
+  max-width: var(--constainerSize);
+  margin: 0 auto;
+}
+
+.container_video {
+  padding: 8px 12px 12px 12px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+.container_camera {
+  position: relative;
+}
+.camera_image {
+  position: relative;
+}
+
+#camera_video {
+  background-color: rgba(44, 44, 77, 0.5);
+  position: absolute;
+  transform-origin: 50% 100px;
+}
+
+#camera_canvas {
+  position: absolute;
+}
+
+#camera_canvas_img {
+  position: absolute;
+}
+
+#snapBtn {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  width: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 400px;
+}
+
+#cancelBtn {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  width: 10%;
+  right: 1rem;
+  top: 1rem;
+}
+
+#saveBtn {
+  cursor: pointer;
+}
+
+// save button
+.container_input {
+  margin-top: 1rem;
+}
+
+.webInputForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container_input input {
+  width: 80%;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.container_input button {
+  width: 30%;
+  border: none;
+  padding-top: 1rem;
+  background: transparent;
+}
+
+.container_input button img {
+  width: 100%;
+  background: transparent;
+}

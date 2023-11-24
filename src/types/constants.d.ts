@@ -16,3 +16,10 @@ type productsArr = {
     imgUrl: string,
     description: string,
 }
+
+type ImageProperties = {
+    src: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+};

@@ -62,3 +62,12 @@
 .errorShow {
   @include errorShow;
 }
+
+.card_menu {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

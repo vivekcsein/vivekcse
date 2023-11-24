@@ -22,6 +22,22 @@ import AR_Instagram from "../page/products/AugmentedReality/AR_Instagram";
 import AR_Snapchat from "../page/products/AugmentedReality/AR_Snapchat";
 import AR_webar from "../page/products/AugmentedReality/AR_webar";
 
+export const createImageElement = (imageProps: ImageProperties): HTMLImageElement => {
+    const imgElement = document.createElement('img');
+    imgElement.src = imageProps.src;
+    if (imageProps.alt) {
+        imgElement.alt = imageProps.alt;
+    }
+    if (imageProps.width) {
+        imgElement.width = imageProps.width;
+    }
+    if (imageProps.height) {
+        imgElement.height = imageProps.height;
+    }
+    return imgElement;
+}
+
+
 export const burgerIconNum = Math.floor(Math.random() * 4);
 
 export const burgerIDFinder = () => {

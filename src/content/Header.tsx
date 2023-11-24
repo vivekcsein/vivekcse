@@ -22,8 +22,8 @@ const Header = ({
         <Link className="Header_logo flex_center" href={header_Logo.href}>
           <Image
             src={`/${header_Logo.src}`}
-            width={250}
-            height={5}
+            width={256}
+            height={256}
             alt={header_Logo.alt}
           />
         </Link>

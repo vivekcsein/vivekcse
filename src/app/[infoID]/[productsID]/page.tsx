@@ -9,14 +9,18 @@ type props = {
 };
 
 const page = ({ params: { infoID, productsID } }: props) => {
+  const serachItem = () => {
+    return infoArr.filter(
+      (infoElem) => String(infoID).toLocaleLowerCase() === infoElem.title
+    );
+  };
   const searchParam = () => {
-    return infoArr
-      .filter(
-        (infoElem) => String(infoID).toLocaleLowerCase() === infoElem.title
-      )[0]
-      .productsArr?.filter(
+    const resultsArr = serachItem();
+    if (resultsArr.length != 0) {
+      return resultsArr[0].productsArr?.filter(
         (prodElem) => String(productsID).toLocaleLowerCase() === prodElem.title
       );
+    }
   };
 
   const fileServe = () => {
