@@ -16,7 +16,7 @@ const fetchAPI = async (endpoint: string) => {
     try {
         let res = await fetch(`${endpoint}`, {
             method: "GET",
-            cache: "default",
+            cache: "no-cache",
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
             },
