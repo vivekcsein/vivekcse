@@ -1,0 +1,9 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+
+.InputChatbox_variant1 {
+  @include chatbox;
+}
+.InputChatbox_variant2 {
+  @include chatbox($borderType: 1rem 0rem 1rem 1rem);
+}

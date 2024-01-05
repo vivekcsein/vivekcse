@@ -1,0 +1,67 @@
+@use "../Vars.scss" as *;
+@use "../Styles.scss" as *;
+
+.Header {
+  width: 100%;
+  height: $Header_height;
+  background-color: nth($list: $togglecp, $n: 1);
+  //   position: relative;
+  // z-index: 10000;
+  @include res_desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include res_phone {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .Header_logo {
+    height: $Header_height;
+    z-index: inherit;
+    Image {
+      min-width: 200px;
+      width: 100%;
+      height: auto;
+    }
+    svg {
+      min-width: 250px;
+      width: 100%;
+      height: auto;
+      @include res_phone {
+        @include iphone {
+          min-width: 200px;
+        }
+      }
+    }
+    @include res_phone {
+      width: 0.001px;
+      transform: translateX(120px);
+      @include iphone {
+        transform: translateX(85px);
+      }
+    }
+  }
+
+  .Navbar {
+    height: $Header_height;
+    @include res_desktop {
+      width: 50%;
+      display: block;
+      @include laptop {
+        width: 70%;
+      }
+      @include desktop2k {
+        width: 40%;
+      }
+    }
+
+    @include res_phone {
+      position: relative;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

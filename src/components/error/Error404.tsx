@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Button from "../Button";
+import Button from "../ui/buttons/Button";
 
 const Error404 = () => {
   const onClickFunc = () => {

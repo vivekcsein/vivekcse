@@ -1,0 +1,107 @@
+{
+  "layoutdata": {
+    "HeaderData": {
+      "header_Logo": {
+        "src": "logo.png",
+        "alt": "header_logo",
+        "href": "/"
+      },
+      "navbar": {
+        "nav_Links": [
+          { "id": 1, "href": "/", "label": "Home", "special": false },
+          {
+            "id": 2,
+            "href": "#products",
+            "label": "Products",
+            "special": true,
+            "details": "dropdown"
+          },
+          {
+            "id": 3,
+            "href": "/projects",
+            "label": "Projects",
+            "special": false
+          },
+
+          {
+            "id": 4,
+            "href": "/ContactUS",
+            "label": "ContactUS",
+            "special": false
+          }
+        ]
+      }
+    },
+    "FooterData": {
+      "footer_logo": "",
+      "copyright_message": "Copyright © 2024 VivekCSE All Right are Reserved",
+
+      "footer_Links": [
+        {
+          "id": 1,
+          "title": "Top Products",
+          "links": "productsData"
+        },
+        {
+          "id": 2,
+          "title": "About US",
+          "links": [
+            { "id": 1, "label": "About us", "href": "/AboutUS" },
+            { "id": 2, "label": "FAQs", "href": "/FAQs" },
+            { "id": 3, "label": "How It Works", "href": "/HowItWorks" },
+            {
+              "id": 4,
+              "label": "Privacy Policy",
+              "href": "/PrivacyPolicy"
+            },
+            {
+              "id": 5,
+              "label": "Payment Policy",
+              "href": "/PaymentPolicy"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Get in touch",
+          "links": [
+            {
+              "id": 1,
+              "label": "Subscribe Now",
+              "href": "/"
+            }
+          ]
+        }
+      ]
+    },
+    "productsData": [
+      {
+        "id": 1,
+        "label": "Web Development",
+        "href": "/WebDevelopment"
+      },
+      {
+        "id": 2,
+        "label": "Augmented Reality",
+        "href": "/AugmentedReality"
+      },
+      { "id": 3, "label": "Gaming", "href": "/Gaming" }
+    ],
+
+    "gameData": [
+      { "id": 1, "label": "Valorant", "href": "/Gaming/Valorant" },
+      {
+        "id": 2,
+        "label": "Counter Strike",
+        "href": "/Gaming/CounterStrike"
+      },
+      { "id": 3, "label": "BGMI", "href": "/Gaming/BGMI" },
+      {
+        "id": 4,
+        "label": "Farlight 84",
+        "href": "/Gaming/Farlight84"
+      },
+      { "id": 5, "label": "GTA 5", "href": "/Gaming/GTA" }
+    ]
+  }
+}

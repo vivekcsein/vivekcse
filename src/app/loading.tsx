@@ -1,13 +1,7 @@
 import React from "react";
-import LoadingScreen from "../components/LoadingScreen";
-import { loadingSceneLoader } from "../libs/constants";
 
-const loading = () => {
-  return (
-    <div className="Loading_Screen">
-      <LoadingScreen loadingSceneLoader={loadingSceneLoader} />
-    </div>
-  );
+const Loading = () => {
+  return <div className="bg-bg">loading</div>;
 };
 
-export default loading;
+export default Loading;

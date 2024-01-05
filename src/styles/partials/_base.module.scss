@@ -5,8 +5,44 @@
   @include flex_center;
 }
 
+.flex_left {
+  @include flex_left;
+}
+
+.toggle_show {
+  display: block;
+}
+.toggle_hide {
+  display: none;
+}
+
 .button_navbar {
   @include btn_navbar;
+  @include btn_navbar_animate;
+}
+
+.button_navbar_special {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 2),
+    nth($list: $togglecp, $n: 1)
+  );
+  @include btn_navbar_animate_special($danger, $textLight);
+}
+
+.button_submit_variant1 {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 2),
+    nth($list: $togglecp, $n: 1)
+  );
+  @include btn_navbar_animate_special($secondary, $textLight);
+}
+
+.button_submit_variant2 {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 1),
+    nth($list: $togglecp, $n: 2)
+  );
+  @include btn_navbar_animate_special($secondary, $textLight);
 }
 
 .toggle_phone_show {
@@ -17,42 +53,19 @@
   @include toggle_desktop_show;
 }
 
-.fullScreen {
-  width: 100%;
-  height: 88vh;
+.fullscreen {
+  @include fullscreen_res;
 }
-.navbar_product {
-  padding: 1rem 2rem;
+
+.sticky {
+  /* Safari */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .SubscribeNow {
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  > h3 {
-    font-size: large;
-  }
-  > input {
-    padding: 0.5rem 0;
-  }
-  button {
-    width: 100%;
-    padding: 0.25rem 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(159, 0, 159);
-    color: black;
-    font-size: large;
-    > span {
-      width: 20%;
-      font-size: xx-large;
-    }
-
-    &:hover {
-      background-color: rgb(227, 56, 227);
-    }
-  }
+  @include subscribeNow;
 }
 
 .Loading_Screen {
@@ -63,11 +76,47 @@
   @include errorShow;
 }
 
-.card_menu {
+.cursorPointer {
+  cursor: pointer;
+}
+
+.box_shadow {
+  box-shadow: $text_shadow_onHover;
+}
+
+.md-icon {
+  font-size: 1.3em !important;
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  color: nth($list: $togglecp, $n: 2);
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  @include textInput;
+}
+input::placeholder {
+  color: nth($list: $togglecp, $n: 2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  margin: auto 1rem;
+  padding: 1.5rem;
+  border-radius: 100%;
+  color: nth($list: $togglecp, $n: 4);
+  align-items: center;
+  justify-content: center;
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 2rem;
+  border: 2px solid nth($list: $togglecp, $n: 4);
+  transition: all ease 0.1s;
+  &:hover {
+    background-color: nth($list: $togglecp, $n: 2);
+  }
+}
+
+.swiperslider {
+  @include swiperSlider;
 }

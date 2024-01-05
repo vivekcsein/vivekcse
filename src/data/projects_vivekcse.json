@@ -1,0 +1,198 @@
+{
+  "projectdata": [
+    {
+      "id": "company_01",
+      "company": "Alivenow",
+      "title": "Alivé Now,inc",
+      "website": "https://alivenow.in",
+      "description": "A Bengaluru based company which work on web solutions & social ar",
+      "startData": "19nov2019",
+      "endData": "25may2022",
+      "totalExperience": "2.8 years",
+      "role": [
+        "junior software developer",
+        "front-end developer",
+        "augmented reality developer",
+        "game developer"
+      ],
+      "myreview": "As alivenow is my first company to joined as fresher & it was a best experience to work with alivenow specially @anil, @faiyaz, @maha & @jeet in an awesome team",
+      "tools": ["HTML", "CSS", "Javascript", "Spark AR", "Lens Studio"],
+      "platform": ["instagram", "snapchat", "web"],
+      "projects": [
+        {
+          "id": "alivenow_01",
+          "name": "Retro Run",
+          "description": "An Ar game on snapchat which i created & make the power of gaming",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/alivenow/retro_run.png",
+          "link": "https://www.snapchat.com/lens/80f946497b0741d4af49647eed220931",
+          "client": "",
+          "videolink": "",
+          "platform": ["instagram", "snapchat"],
+          "tags": ["gaming", "retro"],
+          "special": ""
+        },
+        {
+          "id": "alivenow_02",
+          "name": "Flipkart Football Game",
+          "description": "AR game for flikart which integrates into feature section of flipkart app in ar camera",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/alivenow/flipkart_football_game.png",
+          "link": "https://www.flipkart.com/camera-filters?lensId=7314b6a2-8e42-4399-9d9c-c0ed236ded99",
+          "client": "Flipkart",
+          "videolink": "",
+          "platform": ["snapchat"],
+          "tags": ["snap camera acess"],
+          "special": "snap camera "
+        },
+        {
+          "id": "alivenow_03",
+          "name": "Pineapple Run",
+          "description": "A game simmilar to mario & flip bottal",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/alivenow/pineapple_run.png",
+          "link": "https://www.snapchat.com/lens/a21eb1ab36df4a74bf31c522be8b031f",
+          "client": "",
+          "videolink": "",
+          "platform": ["snapchat", "instagram"],
+          "tags": ["javascript"],
+          "special": ""
+        },
+        {
+          "id": "alivenow_04",
+          "name": "Cadbury Hand tracking game",
+          "description": "A game simillar to catching falling game but with a cache, User have to show dairy milk product to track image, hence no product no game",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/alivenow/cadbury_game.png",
+          "link": "",
+          "client": "",
+          "videolink": "",
+          "platform": ["snapchat"],
+          "tags": ["hand tracking"],
+          "special": ""
+        }
+      ]
+    },
+    {
+      "id": "company_02",
+      "company": "SpotAR",
+      "title": "SpotAR,inc",
+      "website": "https://spotar.in",
+      "description": "Spotar was intial startup & later combined into Techkilla Technologies",
+      "startData": "",
+      "endData": "",
+      "totalExperience": "4 months",
+      "role": [
+        "senior software developer",
+        "front-end developer",
+        "augmented reality developer",
+        "game developer"
+      ],
+      "myreview": "It was goa based startup work for social-popularity",
+      "tools": ["Javascript", "Spark AR", "Lens Studio", "WebAR"],
+      "platform": ["instagram", "snapchat", "web"],
+      "projects": [
+        {
+          "id": "spotar_01",
+          "name": "Lets learn ASL",
+          "description": "A sign language project in which user can interact defen peoples  ",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/spotar/sign_lang.png",
+          "link": "https://www.snapchat.com/lens/b10d8a39964d40a8b2218da3b3007933",
+          "client": "",
+          "videolink": "",
+          "platform": ["snapchat"],
+          "tags": ["fingure tracking"],
+          "special": " "
+        }
+      ]
+    },
+    {
+      "id": "company_03",
+      "company": "Techkilla",
+      "title": "Techkilla Technologies,inc",
+      "website": "https://techkilla.com",
+      "description": "A startup to work on web solutions",
+      "startData": "",
+      "endData": "",
+      "totalExperience": "",
+      "role": ["senior software developer", "front-end developer"],
+      "myreview": "Techkilla givenme chance to work on Nodejs, React & Nextjs ",
+      "tools": ["Javascript", "reactjs", "NextJS", "ThreeJS", "Cocos-Creator"],
+      "platform": ["Nodejs"],
+      "projects": [
+        {
+          "id": "tk_01",
+          "name": "Metaverse_TK",
+          "description": "A metaverse project to showcase video & image gallery",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/techkilla/metawalk_tk.png",
+          "link": "https://youtu.be/i2lSu9ZnRtc",
+          "client": "",
+          "videolink": "",
+          "platform": ["web"],
+          "tags": ["cocos", "metaverse"],
+          "special": " "
+        }
+      ]
+    },
+    {
+      "id": "company_04",
+      "company": "Frenzz",
+      "title": "Frenzz",
+      "website": "https://frenzz.in",
+      "description": "A Social media platform for gamers & coders & currently project is running",
+      "startData": "",
+      "endData": "",
+      "totalExperience": "",
+      "role": ["full-stack developer"],
+      "myreview": "I dont have to review my company ",
+      "tools": ["Javascript", "reactjs", "NextJS", "ThreeJS"],
+      "platform": ["Nodejs"],
+      "projects": [
+        {
+          "id": "frnz_01",
+          "name": "AR_WebCamera",
+          "description": "A web camera for augmented reality",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/vivekcse/projects/ar_web_camera.png",
+          "link": "https://vivekcsein.github.io/arwebcamera/",
+          "client": "",
+          "videolink": "",
+          "platform": ["web"],
+          "tags": ["mediaDevices", "javascript"],
+          "special": " "
+        },
+        {
+          "id": "frnz_02",
+          "name": "Next_Auth",
+          "description": "Sign-In & Sign-out feature",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/vivekcse/projects/auth_image.png",
+          "link": "https://github.com/vivekcsein/next-login",
+          "client": "",
+          "videolink": "",
+          "platform": ["web"],
+          "tags": ["next-auth", "supabase", "postgres"],
+          "special": " "
+        },
+        {
+          "id": "frnz_03",
+          "name": "GSAP",
+          "description": "smooth scroller & swiper animations",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/vivekcse/projects/swiper_anim.png",
+          "link": "https://vivekcsein.github.io/gsap-animations",
+          "client": "",
+          "videolink": "",
+          "platform": ["web"],
+          "tags": ["gsap", "swiper"],
+          "special": " "
+        },
+        {
+          "id": "frnz_04",
+          "name": "Frenzz",
+          "description": "Creating, Designing, Developing from scratch",
+          "image": "https://raw.githubusercontent.com/vivekcsein/githost/main/images/frnz/fav_icon.png",
+          "link": "https://frenzz.in",
+          "client": "",
+          "videolink": "",
+          "platform": ["web"],
+          "tags": ["gaming", "social media", "nextjs"],
+          "special": " "
+        }
+      ]
+    }
+  ]
+}

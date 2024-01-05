@@ -25,8 +25,8 @@ interface nav_Links {
     "id": number;
     "href": string;
     "label": string;
-    "dropdown": boolean;
-    details?: Array<links> | string | undefined;
+    "special": boolean;
+    details?: string | undefined;
 }
 //footer data type
 type FooterData = {

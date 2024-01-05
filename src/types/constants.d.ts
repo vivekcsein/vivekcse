@@ -1,25 +1,24 @@
-type infoArr = {
-    id: number,
-    title: string,
-    urlLink: string,
-    filename: JSX.Element,
-    imgUrl: string,
-    description: string,
-    productsArr?: Array<productsArr> | string | undefined
+interface inputField {
+    id: number;
+    name: string;
+    type?: string;
+    label?: string;
+    placeholder?: string;
+    variant?: number;
+    required?: boolean;
 }
 
-type productsArr = {
-    id: number,
-    title: string,
-    urlLink: string,
-    filename: JSX.Element,
-    imgUrl: string,
-    description: string,
+type workExperience = Array<workList>;
+
+interface workList {
+    id: number;
+    TechnologyTitle: string;
+    TechnologyList: Array<Technology>;
 }
 
-type ImageProperties = {
-    src: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-};
+interface Technology {
+    id: string;
+    TechnologyName: string;
+    totalEx: string;
+    link: string;
+}

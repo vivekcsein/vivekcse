@@ -1,0 +1,15 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+.inputField {
+  width: 90%;
+  position: relative;
+  margin: 1rem 0;
+
+  .passwordIcon {
+    @include passIcon;
+  }
+
+  > input {
+    width: 100%;
+  }
+}

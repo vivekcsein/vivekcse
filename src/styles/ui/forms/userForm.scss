@@ -1,0 +1,27 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+
+.userForm {
+  width: 50%;
+  margin: 2rem auto;
+  padding: 2rem;
+  //   background-color: nth($list: $bg_gradient, $n: 2);
+  background-color: rgb(217, 124, 248);
+  border: 2px solid nth($list: $border_color, $n: 1);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 1rem;
+  @include res_phone {
+    width: 90%;
+    padding: 1rem;
+    @include phone {
+      padding: 1rem 0.25rem;
+    }
+  }
+
+  .FormBtn {
+    padding-top: 1rem;
+    margin: auto;
+  }
+}

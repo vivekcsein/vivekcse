@@ -1,0 +1,87 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+
+.Navbar_ul {
+  width: 100%;
+  height: $Header_height;
+  z-index: 1000;
+
+  @include res_desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include res_phone {
+    width: 100%;
+    height: auto;
+    padding-top: $Header_height;
+    display: none;
+    flex-direction: column;
+    background-color: nth($list: $togglecp, $n: 1);
+  }
+  > li {
+    @include res_desktop {
+      padding: 1rem 0.5rem;
+      position: relative;
+    }
+
+    &:hover {
+      .dropdown {
+        display: block;
+      }
+      @include res_phone {
+        .dropdown {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.button_info {
+  @include btn_info;
+  @include toggle_hide(none);
+  position: absolute;
+  opacity: 0.8;
+  //   margin-top: -2rem;
+  // margin-right: -12rem;
+}
+
+.BurgerIcon {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 0;
+  height: $Header_height;
+  display: none;
+  @include toggle_phone_show;
+
+  @include res_desktop {
+    z-index: -100;
+  }
+
+  @include res_phone {
+    z-index: 10;
+    @include breakpoint_phone("390px") {
+      scale: 0.8;
+      right: -1rem;
+    }
+  }
+}
+
+.toggle_BurgerIcon {
+  @include toggle_phone_show;
+}
+
+.dropdown {
+  display: none;
+  @include res_desktop {
+    position: absolute;
+    // top: 100%;
+  }
+}
+
+.Navbar_ul.nav_hide {
+  display: flex;
+}

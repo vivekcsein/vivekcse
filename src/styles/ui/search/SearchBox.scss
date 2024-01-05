@@ -1,0 +1,22 @@
+@use "../../Vars.scss" as *;
+@use "../../Styles.scss" as *;
+.SearchBox {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: nth($list: $toggle_text_color, $n: 1);
+  display: flex;
+
+  padding: 1rem 0;
+  input {
+    @include inputText;
+    padding: 0 1rem;
+    background-color: nth($list: $toggle_text_color, $n: 1);
+
+    width: 80%;
+  }
+
+  .searchBoxBtn {
+    background-color: nth($list: $toggle_text_color, $n: 1);
+    margin: auto;
+  }
+}
