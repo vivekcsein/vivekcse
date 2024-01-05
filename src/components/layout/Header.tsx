@@ -24,7 +24,7 @@ const Header = ({
           <Image
             src={"/logo.png"}
             width={250}
-            height={5}
+            height={250}
             alt={header_Logo.alt}
             className="w-[200px] h-auto md:w-[250px] Animate_logo"
           />

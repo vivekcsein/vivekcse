@@ -200,14 +200,17 @@ const Introduction = () => {
           className="w-full min-h-screen bg-black relative overflow-hidden"
           ref={initialLoaderRef}
         >
-          <h1 ref={IntialTextRef} className="text-8xl text-green-500 hidden">
+          <h1
+            ref={IntialTextRef}
+            className="text-3xl md:text-8xl text-green-500 hidden"
+          >
             Hello Friend You are Hacked...
           </h1>
           <div className=" absolute w-full min-h-screen  translate-x-1/2  translate-y-40 md:translate-y-1/2 ">
             <button
               ref={IntialBtnRef}
               onClick={userClicked}
-              className=" -translate-x-1/2 -translate-y-1/2 px-7 py-5 text-3xl text-white bg-red-500 hover:bg-green-500 hover:text-black hidden"
+              className=" -translate-x-1/2 translate-y-1/2 px-7 py-5 text-3xl text-white bg-red-500 hover:bg-green-500 hover:text-black hidden"
             >
               warning : click to proceed
             </button>
@@ -226,7 +229,10 @@ const Introduction = () => {
           ref={introLoaderRef}
           className="w-full min-h-screen bg-black relative overflow-hidden flex justify-center items-center "
         >
-          <h1 ref={IntroTextRef} className="text-8xl text-green-500">
+          <h1
+            ref={IntroTextRef}
+            className="text-4xl md:text-8xl text-green-500"
+          >
             I am Vivek
           </h1>
         </div>
