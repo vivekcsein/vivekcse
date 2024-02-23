@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import "../../../styles/ui/Navbar/navbar.scss";
+import "../../../styles/ui/Navbar_/navbar.scss";
 import NavbarItem from "./NavbarItem";
 import { arrowDown, arrowUp } from "../../../libs/utils/images";
 import Dropdown from "./Dropdown";

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/ui/MenuBar/MenuBar.scss";
+import "../../../styles/ui/MenuBar_/MenuBar.scss";
 import MenuNav from "./MenuNav";
 import { getMenubarAPI } from "../../../libs/apis/serverlessAPI";
 import { Loader } from "frnz-ui";

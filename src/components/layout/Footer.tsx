@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/layout/Footer.scss";
 import Link from "next/link";
-import ProductsList from "../ui/Products/ProductsList";
+import ProductsList from "../ui/Products_/ProductsList";
 // import ProductsList from "../products/ProductsList";
 // import SubscribeForm from "../ui/forms/SubscribeForm";
 // import Animate_Header from "../ui/animation/Animate_Header";

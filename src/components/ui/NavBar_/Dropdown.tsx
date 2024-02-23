@@ -1,5 +1,5 @@
 import { Children } from "react";
-import "../../../styles/ui/navbar/Dropdown.scss";
+import "../../../styles/ui/Navbar_/Dropdown.scss";
 import NavbarItem from "./NavbarItem";
 
 type Dropdown = {
