@@ -1,5 +1,5 @@
 import React from "react";
-import { getProjectsAPI } from "../../../libs/api/serverlessAPI";
+import { getProjectsAPI } from "../../../libs/apis/serverlessAPI";
 import ProjectCard from "../../ui/Cards/ProjectCard";
 type projdata = {
   title: string;

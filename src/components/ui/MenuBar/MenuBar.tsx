@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../styles/ui/MenuBar/MenuBar.scss";
 import MenuNav from "./MenuNav";
-import { getMenubarAPI } from "../../../libs/api/serverlessAPI";
+import { getMenubarAPI } from "../../../libs/apis/serverlessAPI";
 import { Loader } from "frnz-ui";
 
 // let menuData: MenuData;

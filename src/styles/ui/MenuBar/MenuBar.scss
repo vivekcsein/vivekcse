@@ -1,11 +1,5 @@
 @use "../../styles.scss" as *;
 
-:root {
-  --pagination_bgc: white;
-  // --primary: #dd00ff;
-  // --secondary: #6600ff;
-  --bg_special: #0f172a;
-}
 @mixin MenuNav_List_effect {
   text-decoration: underline;
   text-underline-offset: calc(0.7rem + 3px);
@@ -117,10 +111,10 @@
 .boxShadow_gray {
   &:hover {
     box-shadow:
-      0 0 10px var(--bg_special),
-      0 0 calc(1px * 2) var(--bg_special),
+      0 0 10px var(--fav_gray),
+      0 0 calc(1px * 2) var(--fav_gray),
       0 0 calc(2px * 2) var(--primary),
-      0 0 calc(3px * 2) var(--bg_special);
+      0 0 calc(3px * 2) var(--fav_gray);
   }
 }
 
@@ -238,7 +232,7 @@
   border-bottom: 1px solid var(--fav_gray_shade);
   border-radius: 8px;
   border-bottom-color: var(--fav_gray);
-  background-color: var(--bg_special);
+  background-color: var(--fav_gray);
   .MenuNav_List {
     display: flex;
     flex-direction: row;
@@ -248,7 +242,8 @@
     li {
       list-style: none;
       font-size: 14px;
-      color: var(--fav_gray_shade);
+      color: red;
+      color: var(--textLight);
 
       &:hover {
         @include MenuNav_List_effect;
@@ -299,7 +294,7 @@
 }
 
 .MenuCard_Item {
-  background-color: var(--bg_special);
+  background-color: var(--fav_gray);
   $bgcolor: #dd00ff;
   width: 100%;
   opacity: 0;
@@ -405,7 +400,6 @@
   margin-top: 1rem;
   max-width: 650px;
   scale: 1;
-  // background-color: var(--pagination_bgc);
   padding: 1rem;
   border-radius: 3rem;
   @media only screen and (width<= 600px) {
@@ -433,7 +427,7 @@
   transition: all 0.3s ease-out;
   &:hover {
     background-color: var(--primary);
-    color: var(--pagination_bgc);
+    color: var(--textLight);
   }
 }
 .pageBtn.disabled {
@@ -461,14 +455,14 @@
   transition: all 0.3s ease-out;
   &:hover {
     background-color: var(--primary);
-    color: var(--pagination_bgc);
+    color: var(--textLight);
   }
 }
 
 .pageNumBtn.active {
   scale: 1.1;
   background-color: var(--primary);
-  color: var(--pagination_bgc);
+  color: var(--textLight);
   cursor: auto;
 }
 

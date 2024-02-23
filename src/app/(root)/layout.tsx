@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
-import { getRootLayoutAPI } from "../../libs/api/serverlessAPI";
+import { getRootLayoutAPI } from "../../libs/apis/serverlessAPI";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const rootLayoutJson: Promise<rootLayoutData> = getRootLayoutAPI();
