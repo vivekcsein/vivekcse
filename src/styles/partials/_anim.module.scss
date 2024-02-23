@@ -1,0 +1,46 @@
+@use "./variables.module" as *;
+
+//default animations
+
+//hide opacity
+@keyframes gayab {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+//360Spin
+@keyframes Anim_Spin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//project animations
+
+//left to right animation
+@keyframes left2Right {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wing {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    width: 100%;
+  }
+}

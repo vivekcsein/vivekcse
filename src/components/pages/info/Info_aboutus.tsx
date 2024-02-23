@@ -1,4 +1,4 @@
-import ListingItems from "../../../components/products/ListingItems";
+// import ListingItems from "../../../components/products/ListingItems";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -18,7 +18,7 @@ const Info_aboutus = () => {
               </h2>
               <div className="max-w-lg mt-3 text-xl leading-relaxed  md:mt-8 text-textDark">
                 {/* {introText} */}
-                <span className="text-red-800">
+                {/* <span className="text-red-800">
                   💡 Welcome to a digital frontier where innovation meets code
                   and user experiences are elevated to new heights.
                 </span>
@@ -27,7 +27,7 @@ const Info_aboutus = () => {
                   🎓 As a JavaScript developer, I embrace the challenge of
                   crafting seamless, responsive, and visually stunning web
                   applications.
-                </span>
+                </span> */}
                 <br />
                 <span className="text-blue-800">
                   🌱 I use Nextjs for creating stunning websites and web
@@ -38,12 +38,11 @@ const Info_aboutus = () => {
                   ✍️ In my free time, I pursue YouTube and Gaming as my hobby.
                 </span>
 
-                <ListingItems />
+                {/* <ListingItems /> */}
               </div>
 
-              <p className="mt-4 text-xl  md:mt-8">
+              {/* <p className="mt-4 text-xl  md:mt-8">
                 <span className="relative inline-block">
-                  {/* <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span> */}
                   <span className="relative text-textDark">
                     {" "}
                     Have a question?{" "}
@@ -53,13 +52,13 @@ const Info_aboutus = () => {
                 Ask me on{" "}
                 <Link
                   target="_blank"
-                  href="https://www.linkedin.com/in/vivekcsein/"
+                  href="https://about.me/vivekcsein"
                   title=""
                   className="transition-all duration-200 text-textLight hover:text-textDark hover:underline"
                 >
-                  LinkedIN
+                  Aboutme
                 </Link>
-              </p>
+              </p> */}
             </div>
 
             <div className="relative">
@@ -87,3 +86,7 @@ const Info_aboutus = () => {
   );
 };
 export default Info_aboutus;
+
+{
+  /* <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span> */
+}

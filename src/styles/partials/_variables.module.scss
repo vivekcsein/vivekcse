@@ -16,13 +16,23 @@ $textLight: var(--textLight);
 $textMuted: var(--textMuted);
 /*global shadow on borders */
 $shadow: var(--shadow);
+$shadowLight: var(--shadowLight);
 /* --gradient: */
 $gradient: var(--gradient);
+
+$gradientc1: var(--gradientc1);
+$gradientc2: var(--gradientc2);
+$gradient: linear-gradient(90deg, $gradientc1 10%, $gradientc2 100%);
 
 $color_scheme: light dark;
 $dark_mode: #1a1a1a;
 $night_mode: #213547;
 $light_mode: #cccccc;
+
+$font_family: (var(--ff0), var(--ff1));
+$font_size_default: 1rem;
+$font_size_onHover: 1.25rem;
+$Header_height: 5rem;
 
 /* toggle color pallet(cp) */
 $togglecp: (
@@ -33,8 +43,11 @@ $togglecp: (
   $danger,
   $textDark,
   $textLight,
-  $textMuted
+  $textMuted,
+  $shadow,
+  $shadowLight
 );
+
 /* toggle background color pallet(bg) */
 $togglebg: ($bgc, $dark_mode, $night_mode, $light_mode);
 /* toggle favourite color pallet(tc) */
@@ -42,76 +55,16 @@ $togglefav: (
   var(--fav_blue),
   var(--fav_pink),
   var(--fav_purple),
-  var(--fav_orange),
   var(--fav_sky),
-  var(--fav_bhagwa),
-  var(--fav_marron),
+  var(--fav_sun),
   var(--fav_gray)
 );
 
-$font_family: (var(--ff1), var(--ff2), var(--ff3), var(--ff4));
-$font_size_default: 1.2rem;
-$font_size_onHover: 1.5rem;
-$Header_height: 5rem;
-
-@keyframes animateNavLikeButton {
-  0% {
-    background-color: nth($togglecp, 3);
-    border-radius: 0;
-  }
-  100% {
-    background-color: nth($togglecp, 4);
-    border-radius: 2rem;
-  }
-}
-
-@keyframes gayab {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-$text_shadow_onHover: 0 0 5px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 25px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 50px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 100px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    );
-
-$text_shadow_onHover_P: 0 0 5px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 25px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 50px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    ),
-  0 0 100px
-    nth(
-      $list: $togglecp,
-      $n: 2,
-    );
+$togglefavShade: (
+  var(--fav_blue_shade),
+  var(--fav_pink_shade),
+  var(--fav_purple_shade),
+  var(--fav_sky_shade),
+  var(--fav_sun_shade),
+  var(--fav_gray_shade)
+);

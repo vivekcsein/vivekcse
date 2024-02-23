@@ -1,21 +1,25 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 type LayoutToggleProps = {
-  show: string;
+  show: "show" | "hide";
 };
 const LayoutToggle = ({ show }: LayoutToggleProps) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const header = document.querySelector("#headerLoader") as HTMLDivElement;
     const footer = document.querySelector("#footerLoader") as HTMLDivElement;
-    if (show == "show") {
-      header.style.display = "flex";
-      footer.style.display = "block";
+    if (header && footer) {
+      if (show == "show") {
+        header.style.display = "flex";
+        footer.style.display = "block";
+      }
+      if (show == "hide") {
+        header.style.display = "none";
+        footer.style.display = "none";
+      }
     }
-    if (show == "hide") {
-      header.style.display = "none";
-      footer.style.display = "none";
-    }
-  });
+
+    return () => {};
+  }, [show]);
 
   return <></>;
 };

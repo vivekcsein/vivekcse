@@ -1,17 +1,19 @@
-import Link from "next/link";
+import { Children } from "react";
 import "../../../styles/ui/navbar/Dropdown.scss";
+import NavbarItem from "./NavbarItem";
 
-type props = {
+type Dropdown = {
   dropdownData: Array<links>;
+  effect: string;
 };
 
-const Dropdown = ({ dropdownData }: props) => {
+const Dropdown = ({ dropdownData, effect }: Dropdown) => {
   return (
     <ul className="dropdown_ul">
       {dropdownData?.map((item) => {
         return (
-          <li key={item.id} className="dropdown_Item flex_center button_navbar">
-            <Link href={item.href}>{item.label}</Link>
+          <li key={item.id}>
+            <NavbarItem item={item} effect={effect} />
           </li>
         );
       })}

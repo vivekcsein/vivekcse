@@ -1,96 +1,138 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  @media (prefers-color-scheme: dark) {
     :root {
-        /* backgound color: 60% */
-        --bgc: #010000;
-        /* primary color: 30% */
-        --primary: rgb(196, 66, 205);
-        /* secondary color: 9% */
-        --secondary: rgb(98, 0, 255);
-        /* success color: 1% */
-        --success: rgb(166, 255, 187);
-        /* --success: rgb(127, 223, 59); */
-        --danger: red;
-        /* text colors  */
-        --textDark: rgb(208, 245, 24);
-        --textLight: rgb(255, 255, 238);
-        --textMuted: rgb(237, 237, 155);
-        /*global shadow on borders */
-        --shadow: rgba(0, 0, 0, 0.2);
-        /* --gradient: */
-        --gradientc1: #e2b0ff;
-        --gradientc2: #9f44d3;
-        --gradient: linear-gradient(90deg, var(--gradientc1) 10%, var(--gradientc2) 100%);
-
-        --gradientp1: var(--primary);
-        --gradientp2: var(--secondary);
-        --gradientbgc: linear-gradient(90deg, var(--gradientp1) 10%, var(--gradientp2) 100%);
-
-        --fav_blue: #4e4ee3;
-        --fav_pink: #ff9ff3;
-        --fav_purple: #b4238e;
-        --fav_sky: #69e9f5;
-        --fav_sunrise: #ff6700;
-        --fav_marron: #5f27cd;
-
-        --ff0: var(--font-roboto);
-        --ff1: var(--font-poppins);
-        --ff2: var(--font-nunito);
-        --ff3: var(--font-cabin);
-        --ff4: var(--font-lora);
+      /* backgound color: 60% */
+      --bgc: #000000;
+      /* primary color: 30% */
+      --primary: #dd00ff;
+      /* secondary color: 9% */
+      --secondary: #6600ff;
+      /* success color: 1% */
+      --success: #10ff10;
+      /* danger color 0.01 */
+      --danger: #ff0000;
+      /* text colors  */
+      --textDark: #eeaaaa;
+      --textLight: #ffddff;
+      --textMuted: #ededed;
     }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      /* backgound color: 60% */
+      --bgc: #000000;
+      /* primary color: 30% */
+      --primary: #dd00ff;
+      /* secondary color: 9% */
+      --secondary: #6600ff;
+      /* success color: 1% */
+      --success: #10ff10;
+      /* danger color 0.01 */
+      --danger: #ff0000;
+      /* text colors  */
+      --textDark: #00eeff;
+      --textLight: #ffddff;
+      --textMuted: #ededed;
+    }
+  }
+
+  :root {
+    --fav_gray: #0f1122;
+    --fav_blue: #4e4ee3;
+    --fav_pink: #ff9ff3;
+    --fav_purple: #b4238e;
+    --fav_sky: #69e9f5;
+    --fav_sun: #ff6700;
+    --fav_gold: #ffdd00;
+    --fav_green: #39aa69;
+
+    --fav_gray_shade: #0f1122d6;
+    --fav_blue_shade: #4e4ee3d6;
+    --fav_pink_shade: #ff9ff3d6;
+    --fav_purple_shade: #b4238ed6;
+    --fav_sky_shade: #69e9f5d6;
+    --fav_sun_shade: #ff6700d6;
+    --fav_gold_shade: #ffdd00b6;
+    --fav_green_shade: #38aa69;
+
+    /*global shadow on borders */
+    --shadow: #00000033;
+    --shadowLight: #ffccff;
+    /* --gradient: */
+    --gradientc1: #eebbff;
+    --gradientc2: #ff44dd;
+    --gradient: linear-gradient(90deg,
+        var(--gradientc1) 10%,
+        var(--gradientc2) 100%);
+
+    --color_scheme: light dark;
+    --dark_mode: #1a1a1a;
+    --night_mode: #212142;
+    --light_mode: #cccccc;
+
+    --gradientp1: var(--primary);
+    --gradientp2: var(--secondary);
+    --gradientbgc: linear-gradient(90deg,
+        var(--gradientp1) 10%,
+        var(--gradientp2) 100%);
+  }
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: var(--primary);
-    background: var(--secondary);
-    /* overflow-x: hidden; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--primary);
+  background: var(--bgc);
+  font-size: 20px;
+  /* overflow-x: hidden; */
 }
 
 /* Code for Firefox */
 ::-moz-selection {
-    color: var(--success);
-    background: red;
+  color: var(--success);
+  background: #ff0000;
 }
 
 ::selection {
-    color: var(--success);
-    background: red;
+  color: var(--success);
+  background: #ff0000;
 }
 
-
-.circle {
-    position: fixed;
-    transform: translate(-50%, -50%);
-    top: 0;
-    left: 0;
-    opacity: 0.6;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-.circle.sm {
-    width: 30px;
-    height: 30px;
+h1 {
+  font-size: 3.25rem;
 }
 
-.circle.md {
-    width: 60px;
-    height: 60px;
+h2 {
+  font-size: 2.5rem;
 }
 
-.circle.lg {
-    width: 90px;
-    height: 90px;
+h3 {
+  font-size: 2.074rem;
+}
+
+h4 {
+  font-size: 1.728rem;
+}
+
+h5 {
+  font-size: 1.44rem;
+}
+
+h6 {
+  font-size: 1.2rem;
 }
 
 h1,
@@ -99,20 +141,87 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--primary);
-    font-family: var(--ff3);
+  color: var(--textDark);
+  line-height: 1.25;
+  font-weight: 700;
+  text-wrap: pretty;
 }
 
+p,
+div,
+span {
+  font-size: 1rem;
+}
+
+p.small {
+  font-size: 0.833rem;
+}
+
+div,
+span,
 p {
-    color: var(--primary);
-    font-size: 1rem;
-    font-family: var(--ff0);
+  color: var(--textLight);
+  line-height: 1.6;
+  font-weight: 500;
+  text-wrap: pretty;
 }
 
 .textDark {
-    color: var(--textDark);
+  color: var(--textDark);
 }
 
-.specialHeading {
-    font-family: var(--font-lora);
+.textLight {
+  color: var(--textLight);
+}
+
+.bg_awesome {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-45deg,
+      var(--primary),
+      var(--secondary),
+      var(--primary),
+      var(--secondary));
+  background-size: 400% 400%;
+  animation: bg__gradient 20s ease infinite;
+  height: 100vh;
+}
+
+@keyframes bg__gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--fav_gray);
+  color: var(--textDark);
+}
+
+input::placeholder {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  text-decoration: none;
+  background-color: var(--fav_gray);
+  color: var(--textDark)
 }

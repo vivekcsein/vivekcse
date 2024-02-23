@@ -40,7 +40,7 @@ export default async function OGImage({
         }}
         tw={lora.className}
       >
-        VivekCSE personal portfolio for full stack developer
+        A NextJS starter template for creating large scale applications
       </div>
       // {
       //   ...size,

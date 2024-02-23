@@ -1,74 +1,31 @@
 "use client";
-import "../../../styles/ui/navbar/BurgerIcon.scss";
-import { burgerIconNum } from "../../../libs/utils/contants";
-type prop = {
-  onClick: () => void;
+import { Hamburger } from "frnz-ui";
+import React, { useCallback } from "react";
+type BurgerIconProps = {
+  iconType?: string;
 };
-const BurgerIcon = ({ onClick }: prop) => {
-  const burgerIconClicked = () => {
-    onClick();
-  };
-  switch (burgerIconNum) {
-    case 1:
-      return (
-        <div
-          id="burgerIcon1"
-          className="toggle_BurgerIcon"
-          onClick={burgerIconClicked}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      );
-      break;
-
-    case 2:
-      return (
-        <div
-          id="burgerIcon2"
-          className="toggle_BurgerIcon"
-          onClick={burgerIconClicked}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      );
-      break;
-
-    case 3:
-      return (
-        <div
-          id="burgerIcon3"
-          className="toggle_BurgerIcon"
-          onClick={burgerIconClicked}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      );
-      break;
-
-    default:
-      return (
-        <div
-          id="burgerIcon0"
-          className="toggle_BurgerIcon"
-          onClick={burgerIconClicked}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      );
-      break;
-  }
+const BurgerIcon: React.FunctionComponent<BurgerIconProps> = ({ iconType }) => {
+  const clickFunc = useCallback(() => {
+    const Navbar = document.getElementsByClassName(
+      "Navbar_ul"
+    )[0] as HTMLDivElement;
+    Navbar?.classList.toggle("nav_hide");
+    const dropdownItems = document.getElementsByClassName("nav_dropdown");
+    Array.from(dropdownItems).map((item) => {
+      item.classList.remove("showflex");
+    });
+  }, []);
+  return (
+    <>
+      <Hamburger
+        variant="Snowy"
+        fxc={{
+          primary: "var(--primary)",
+        }}
+        onClick={clickFunc}
+      />
+    </>
+  );
 };
 
 export default BurgerIcon;

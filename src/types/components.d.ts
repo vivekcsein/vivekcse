@@ -1,24 +1,27 @@
-
-type sliderData = Array<sliderElement>
-
-interface sliderElement {
-    id: String;
-    styleClass: string;
-    imgSrc: string;
-    alt: string;
-    color: string;
-    imgWidth: number;
-    imgHeight: number;
+// menubar types decleration
+type MenuData = {
+  title: string;
+  desc: string;
+  navbar: Array<navbarData>;
 };
 
-type gsapData = Array<GsapElement>
-interface GsapElement {
-    id: String;
-    styleClass?: string;
-    imgSrc?: string;
-    alt?: string;
-    color?: string;
-    variant?: string;
-    imgWidth?: number;
-    imgHeight?: number;
-};
+interface navbarData {
+  id: string;
+  title: string;
+  category: string;
+  product: Array<menuProductData>;
+}
+
+interface menuProductData {
+  id: string;
+  title: string;
+  category: string;
+  desc: string;
+  image?: string;
+  level?: string;
+  author?: string;
+  rating?: number;
+  totalRating?: number;
+  totalReviews?: number;
+  color?: string;
+}

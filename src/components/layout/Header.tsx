@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../ui/navbar/Navbar";
+import Navbar from "../ui/Navbar/Navbar";
 import "../../styles/layout/Header.scss";
 // import SVG_FRNZ from "../ui/svgImg/SVG_FRNZ";
 
@@ -19,7 +19,7 @@ const Header = ({
   return (
     <>
       <header className="Header">
-        <Link className="Header_logo flex_center" href={header_Logo.href}>
+        <Link className="Header_logo flexCenter" href={header_Logo.href}>
           {/* <SVG_FRNZ /> */}
           <Image
             src={"/logo.png"}

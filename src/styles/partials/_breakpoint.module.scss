@@ -1,6 +1,6 @@
 $breakpoints: (
   "nodisplay": 0,
-  "iphone": 390px,
+  "keypad": 360px,
   "mobile": 480px,
   "phone": 720px,
   "tablet": 960px,
@@ -9,32 +9,14 @@ $breakpoints: (
   "desktop2k": 2160,
 );
 
-@mixin res_desktop {
-  @media (width>960px) {
-    @content;
-  }
-}
-
-@mixin res_phone {
-  @media (width<=960px) {
-    @content;
-  }
-}
-
-@mixin res_phone_custom {
-  @media (width<=720px) {
-    @content;
-  }
-}
-
-@mixin iphone {
-  @media ((min-width: map-get($breakpoints,"nodisplay") ) and  (max-width: map-get($breakpoints,"iphone"))) {
+@mixin keypad {
+  @media ((min-width: map-get($breakpoints,"nodisplay") ) and  (max-width: map-get($breakpoints,"keypad"))) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media ((min-width: map-get($breakpoints,"iphone") ) and  (max-width: map-get($breakpoints,"mobile"))) {
+  @media ((min-width: map-get($breakpoints,"keypad") ) and  (max-width: map-get($breakpoints,"mobile"))) {
     @content;
   }
 }
@@ -45,7 +27,7 @@ $breakpoints: (
 }
 
 @mixin tablet {
-  @media ((min-width: map-get($breakpoints,"mobile") ) and  (max-width: map-get($breakpoints,"tablet"))) {
+  @media ((min-width: map-get($breakpoints,"phone") ) and  (max-width: map-get($breakpoints,"tablet"))) {
     @content;
   }
 }
@@ -68,19 +50,26 @@ $breakpoints: (
   }
 }
 
-@mixin breakpoint($bp: 1920px) {
-  @media (min-width: $bp) {
+@mixin res_desktop {
+  @media (width>960px) {
     @content;
   }
 }
-@mixin breakpoint_phone($bp: 720px) {
+
+@mixin res_phone {
+  @media (width<=960px) {
+    @content;
+  }
+}
+
+@mixin res_phone_custom($bp: 720px) {
   @media (width<=$bp) {
     @content;
   }
 }
 
-@mixin res_phone_custom {
-  @media (width<=720px) {
+@mixin breakpoint($bp: 1920px) {
+  @media (min-width: $bp) {
     @content;
   }
 }

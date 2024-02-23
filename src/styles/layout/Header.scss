@@ -1,12 +1,11 @@
-@use "../Vars.scss" as *;
-@use "../Styles.scss" as *;
+@use "../styles.scss" as *;
 
 .Header {
   width: 100%;
   height: $Header_height;
   background-color: nth($list: $togglecp, $n: 1);
   //   position: relative;
-  // z-index: 10000;
+  z-index: 10000;
   @include res_desktop {
     display: flex;
     justify-content: space-between;
@@ -21,13 +20,17 @@
   .Header_logo {
     height: $Header_height;
     z-index: inherit;
-    img,
+    img {
+      min-width: 200px;
+      width: 100%;
+      height: auto;
+    }
     svg {
       min-width: 250px;
       width: 100%;
       height: auto;
       @include res_phone {
-        @include iphone {
+        @include phone {
           min-width: 200px;
         }
       }
@@ -35,8 +38,8 @@
     @include res_phone {
       width: 0.001px;
       transform: translateX(120px);
-      @include iphone {
-        transform: translateX(100px);
+      @include keypad {
+        transform: translateX(85px);
       }
     }
   }

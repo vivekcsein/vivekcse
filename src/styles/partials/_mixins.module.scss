@@ -1,0 +1,177 @@
+@use "./variables.module" as *;
+@use "./breakpoint.module" as *;
+@use "./anim.module" as *;
+
+//default mixins
+@mixin toggle_hide($show) {
+  display: $show;
+}
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex_left {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+@mixin toggleColor {
+  color: nth($list: $togglecp, $n: 1);
+  background-color: nth($list: $togglecp, $n: 2);
+}
+
+@mixin toggle_phone_show {
+  @include res_desktop {
+    @include toggle_hide(none);
+  }
+  @include res_phone {
+    @include toggle_hide("block");
+  }
+}
+
+@mixin toggle_desktop_show {
+  @include res_desktop {
+    @include toggle_hide("block");
+  }
+  @include res_phone {
+    @include toggle_hide(none);
+  }
+}
+
+@mixin fullscreen {
+  min-width: 100%;
+  min-height: 88vh;
+}
+
+@mixin toggle_color(
+  $textcolor: nth($list: $togglecp, $n: 2),
+  $bgcolor: nth($list: $togglecp, $n: 1)
+) {
+  color: $textcolor;
+  background-color: $bgcolor;
+}
+
+@mixin toggle_color_onHover(
+  $bgcolor: nth($list: $togglecp, $n: 1),
+  $textcolor: nth($list: $togglecp, $n: 2)
+) {
+  color: $textcolor;
+  background-color: $bgcolor;
+  &:hover {
+    color: $bgcolor;
+    background-color: $textcolor;
+  }
+}
+
+@mixin boxShadow($color: nth($list: $togglecp, $n: 2), $size: 5px) {
+  box-shadow:
+    0 0 $size $color,
+    0 0 calc($size * 2) $color,
+    0 0 calc($size * 2) $color,
+    0 0 calc($size * 2) $color;
+}
+
+@mixin textShadow($color: nth($list: $togglecp, $n: 2), $size: 5px) {
+  text-shadow:
+    0 0 $size $color,
+    0 0 calc($size * 2) $color,
+    0 0 calc($size * 2) $color,
+    0 0 calc($size * 2) $color;
+}
+
+@mixin textInput(
+  $textcolor: nth($list: $togglecp, $n: 2),
+  $bgcolor: nth($list: $togglecp, $n: 1)
+) {
+  border: none;
+  outline: none;
+  font-size: $font_size_default;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  color: $textcolor;
+  background-color: $bgcolor;
+}
+
+@mixin navItemIcon(
+  $bgcolor: nth($list: $togglecp, $n: 1),
+  $textcolor: nth($list: $togglecp, $n: 7)
+) {
+  > span {
+    svg {
+      path {
+        fill: $textcolor;
+      }
+    }
+  }
+  &:hover {
+    > span {
+      svg {
+        path {
+          fill: $bgcolor;
+        }
+      }
+    }
+  }
+}
+
+//project mixins
+
+@mixin mixin_navbar(
+  $bgcolor: nth($list: $togglecp, $n: 1),
+  $textcolor: nth($list: $togglecp, $n: 7)
+) {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: $textcolor;
+  background-color: $bgcolor;
+  > div,
+  span {
+    color: $textcolor;
+  }
+}
+
+@mixin mixin_navbar_hover(
+  $bgcolor: nth($list: $togglecp, $n: 1),
+  $textcolor: nth($list: $togglecp, $n: 7)
+) {
+  &:hover {
+    background-color: $textcolor;
+    border-radius: 2rem;
+    scale: 1.1;
+    color: $bgcolor;
+    > div,
+    span,
+    svg {
+      color: $bgcolor;
+    }
+    @include Anim_LikeButton;
+  }
+  &:active {
+    @include boxShadow(nth($list: $togglecp, $n: 7));
+  }
+  // &:after {
+  //   @include Active_animateNavLikeButton;
+  // }
+  // &:visited {
+  //   @include Active_animateNavLikeButton;
+  // }
+}
+@mixin Anim_LikeButton {
+  animation: animateLikeButton 0.05s ease-out;
+}
+
+@keyframes animateLikeButton {
+  0% {
+    // background-color: nth($list: $togglecp, $n: 2);
+    border-radius: 0;
+  }
+  100% {
+    background-color: nth($list: $togglecp, $n: 1);
+    border-radius: 2rem;
+  }
+}

@@ -1,6 +1,4 @@
-@use "../../Vars.scss" as *;
-@use "../../Styles.scss" as *;
-
+@use "../../styles.scss" as *;
 .dropdown_ul {
   background-color: nth($list: $togglebg, $n: 1);
   width: 100%;
@@ -11,6 +9,27 @@
     text-align: center;
     padding: 0 0.75rem;
     padding-bottom: 1rem;
-    margin: 0.5rem -2rem;
+    margin-top: 0.2rem;
+    transform: translateX(50%);
+    animation: dropdownUP 0.2s ease-out;
+  }
+
+  @include res_phone {
+    text-align: center;
+    overflow-x: hidden;
+  }
+  @include res_phone {
+    animation: left2Right 0.3s ease-in-out;
+    animation-iteration-count: 1;
+    overflow: hidden;
+  }
+}
+
+@keyframes dropdownUP {
+  0% {
+    margin-top: 0.75rem;
+  }
+  100% {
+    margin-top: 0rem;
   }
 }

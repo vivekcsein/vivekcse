@@ -1,11 +1,10 @@
 import React from "react";
-import Projects_show from "../../components/pages/projects/Projects_show";
 import LayoutToggle from "../../components/content/LayoutToggle";
-
+import Projects from "../../components/pages/projects/Projects";
 const page = () => {
   return (
     <div className="fullScreen">
-      <Projects_show />
+      <Projects />
       <LayoutToggle show={"show"} />
     </div>
   );

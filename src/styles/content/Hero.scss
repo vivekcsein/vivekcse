@@ -1,0 +1,69 @@
+@use "../styles.scss" as *;
+
+.Hero {
+  width: 100%;
+  // cursor: none;
+  .Header_animate {
+    width: fit-content;
+    // background-color: aqua;
+  }
+
+  h3.Hero_Intro,
+  h1.Hero_Headline {
+    width: fit-content;
+    display: flex;
+    color: var(--textDark);
+    font-size: 65px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-wrap: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    // background-color: red;
+  }
+
+  h3.Hero_Intro > div.char,
+  h1.Hero_Headline > div.char {
+    // width: fit-content;
+    color: var(--textDark) !important;
+    display: flex;
+    color: var(--textDark);
+    font-size: 65px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-wrap: nowrap;
+  }
+
+  .flowers {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.butterfly {
+  width: 400;
+  height: 200;
+}
+
+.Spline_vivekcse3d {
+  position: absolute;
+  // background-color: red;
+  @include res_desktop {
+    top: 0;
+    right: 0;
+    width: 600px;
+    transform: translate(-20%, -10%);
+    overflow: hidden;
+  }
+
+  @include res_phone {
+    top: 25%;
+    left: 10%;
+    min-width: 600px;
+    overflow: hidden;
+    @include mobile {
+      top: 30%;
+      left: -20%;
+    }
+  }
+}

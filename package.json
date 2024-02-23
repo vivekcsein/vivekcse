@@ -1,19 +1,22 @@
 {
   "name": "vivekcse",
-  "version": "0.1.0",
+  "version": "v1.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write .",
+    "migrate": "dlx prisma migrate dev --name init"
   },
   "dependencies": {
-    "gsap": "^3.12.4",
-    "next": "14.0.4",
+    "@splinetool/react-spline": "^2.2.6",
+    "frnz-ui": "^0.0.4",
+    "gsap": "^3.12.5",
+    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.12.0",
     "split-type": "^0.3.4"
   },
   "devDependencies": {
@@ -22,9 +25,10 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4",
+    "eslint-config-next": "14.1.0",
     "postcss": "^8",
-    "sass": "^1.69.6",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
