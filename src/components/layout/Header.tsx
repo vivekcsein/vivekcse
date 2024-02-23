@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../ui/NavBar/Navbar";
+import Navbar from "../ui/NavBar_/Navbar";
 import "../../styles/layout/Header.scss";
 // import SVG_FRNZ from "../ui/svgImg/SVG_FRNZ";
 

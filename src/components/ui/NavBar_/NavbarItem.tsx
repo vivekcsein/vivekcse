@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import SVG_icon from "../svg/SVG_icon";
+import SVG_icon from "../svg_/SVG_icon";
 import { arrowDown, arrowUp } from "../../../libs/utils/images";
 
 type NavbarItemProps = {

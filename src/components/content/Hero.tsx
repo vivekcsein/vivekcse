@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/content/Hero.scss";
-import Anim_Intro from "../ui/Animations/Anim_Intro";
-import Anim_cursorFollower from "../ui/Animations/Anim_cursorFollower";
-import Spline_vivekcse from "../../styles/ui/Spline/Spline_vivekcse";
+import Anim_Intro from "../ui/Animations_/Anim_Intro";
+// import Anim_cursorFollower from "../ui/Animations/Anim_cursorFollower";
+import Spline_vivekcse from "../ui/Spline_/Spline_vivekcse";
 import { poppins } from "../../libs/utils/style";
 
 const Hero = () => {

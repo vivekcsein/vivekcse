@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { roboto } from "../libs/utils/style";
 import "../styles/globals.css";
-import "../styles/styles.scss";
+import "../styles/style.scss";
 import "../styles/utils.scss";
 import Font from "../components/content/Font";
 import "frnz-ui/dist/styles/styles_ui.css";

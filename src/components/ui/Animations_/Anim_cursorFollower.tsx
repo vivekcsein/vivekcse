@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import SVG_anim_butterfly from "../svg/SVG_anim_butterfly";
+import SVG_anim_butterfly from "../svg_/SVG_anim_butterfly";
 const Anim_cursorFollower = () => {
   useEffect(() => {
     const cursor = document.getElementById("cursor");

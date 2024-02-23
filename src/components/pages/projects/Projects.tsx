@@ -1,6 +1,6 @@
 import React from "react";
 import { getProjectsAPI } from "../../../libs/apis/serverlessAPI";
-import ProjectCard from "../../ui/Cards/ProjectCard";
+import ProjectCard from "../../ui/Cards_/ProjectCard";
 type projdata = {
   title: string;
   projList: projectsList;
