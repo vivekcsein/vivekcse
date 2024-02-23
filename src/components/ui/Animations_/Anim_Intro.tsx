@@ -2,24 +2,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import SplitType from "split-type";
 import gsap from "gsap";
+import { Names } from "../../../libs/utils/constants";
 type Anim_IntroProps = {
   selector: string;
   textSelector?: string;
 };
-const Names = [
-  "Javascript",
-  "ReactJS",
-  "NextJS",
-  "SparkAR",
-  "Lens-Studio",
-  "Frontend",
-];
 const Anim_Intro = ({ selector }: Anim_IntroProps) => {
   const [textNum, setTextNum] = useState<number>(5);
-  const headTL = gsap.timeline({
-    paused: true,
-    repeatRefresh: true,
-  });
   useEffect(() => {
     setTextNum(0);
     const timer = setInterval(() => {
@@ -32,9 +21,13 @@ const Anim_Intro = ({ selector }: Anim_IntroProps) => {
       });
     }, 4000);
     return () => clearInterval(timer);
-  }, [headTL, selector]);
+  }, [selector]);
 
   useEffect(() => {
+    const headTL = gsap.timeline({
+      paused: true,
+      repeatRefresh: true,
+    });
     const item = document.querySelector(selector) as HTMLHeadingElement;
     const text = Names[textNum];
     headTL.add("start").to(item, {
@@ -66,7 +59,7 @@ const Anim_Intro = ({ selector }: Anim_IntroProps) => {
     return () => {
       headTL.kill();
     };
-  }, [textNum, headTL, selector]);
+  }, [textNum, selector]);
 
   return <></>;
 };

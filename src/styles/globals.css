@@ -225,3 +225,14 @@ input::placeholder {
   background-color: var(--fav_gray);
   color: var(--textDark)
 }
+
+.Line {
+  @apply w-full h-1;
+  background-image: linear-gradient(-45deg,
+      var(--primary),
+      var(--secondary),
+      var(--primary),
+      var(--secondary));
+  animation: bg__gradient 20s ease infinite;
+
+}

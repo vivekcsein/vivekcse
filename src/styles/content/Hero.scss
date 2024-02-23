@@ -2,10 +2,10 @@
 
 .Hero {
   width: 100%;
+  background-color: var(--fav_gray);
   // cursor: none;
   .Header_animate {
     width: fit-content;
-    // background-color: aqua;
   }
 
   h3.Hero_Intro,
@@ -13,12 +13,15 @@
     width: fit-content;
     display: flex;
     color: var(--textDark);
-    font-size: 65px;
+    font-size: 100px;
     line-height: 1.2;
     font-weight: bold;
     text-wrap: nowrap;
     overflow: hidden;
     opacity: 0;
+    @include res_phone {
+      font-size: 60px;
+    }
     // background-color: red;
   }
 
@@ -28,10 +31,13 @@
     color: var(--textDark) !important;
     display: flex;
     color: var(--textDark);
-    font-size: 65px;
+    font-size: 100px;
     line-height: 1.2;
     font-weight: bold;
     text-wrap: nowrap;
+    @include res_phone {
+      font-size: 60px;
+    }
   }
 
   .flowers {

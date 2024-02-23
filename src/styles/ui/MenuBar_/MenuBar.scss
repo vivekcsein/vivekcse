@@ -362,10 +362,13 @@
       font-weight: 500;
       color: var(--textLight);
     }
+    h3:hover ~ p {
+      color: var(--textLight);
+    }
     p {
       margin-top: 8px;
       font-size: 14px;
-      color: var(--fav_gray);
+      color: var(--textDark);
     }
   }
 }

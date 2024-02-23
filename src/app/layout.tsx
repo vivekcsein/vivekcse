@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     default: "VivekCSE",
     template: `%s | VivekCSE`,
   },
-  description:
-    "A NextJS template for creating full production based application",
+  description: "Software Engineer portfolio  of Vivek CSE.",
   icons: "favicon.png",
   verification: {
     google: process.env.GOOGLE_VERIFICATION,
