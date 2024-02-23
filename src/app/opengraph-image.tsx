@@ -11,7 +11,7 @@ const lora = Lora({
   subsets: ["latin"],
   display: "swap",
   weight: ["700"],
-  // variable: "--font-lora",
+  variable: "--font-Lora",
 });
 
 export const contentType = "image/png";
@@ -38,8 +38,8 @@ export default async function OGImage({
             "linear-gradient(60deg, #dd00ff, #6600ff,#dd00ff,#6600ff)",
           fontSize: 32,
           fontWeight: 600,
+          fontFamily: `${lora.variable}`,
         }}
-        tw={lora.className}
       >
         <h1 style={{ marginTop: 50, color: "#eeaaaa", fontSize: "3rem" }}>
           👋VivekCSE
