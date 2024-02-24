@@ -1,5 +1,6 @@
 import React from "react";
 import MenuCard from "./MenuCard";
+import MenuCard_anim from "./MenuCard_anim";
 
 type MenuCardListProps = {
   cardListData: Array<menuProductData>;

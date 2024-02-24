@@ -45,11 +45,6 @@ const MenuPagination = ({
 
   return (
     <>
-      <MenuCardList
-        cardListData={pageData}
-        cardListCurrentPage={currentPage}
-        cardListShowData={showCount}
-      />
       <div className="MenuPagination">
         {
           //prev button
@@ -217,6 +212,11 @@ const MenuPagination = ({
           )
         }
       </div>
+      <MenuCardList
+        cardListData={pageData}
+        cardListCurrentPage={currentPage}
+        cardListShowData={showCount}
+      />
       <MenuCard_anim
         selector={".MenuCard_Item"}
         depedency={[category ? category : "All", currentPage]}
