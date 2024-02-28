@@ -66,9 +66,11 @@
     /* --gradient: */
     --gradientc1: #eebbff;
     --gradientc2: #ff44dd;
-    --gradient: linear-gradient(90deg,
-        var(--gradientc1) 10%,
-        var(--gradientc2) 100%);
+    --gradient: linear-gradient(
+      90deg,
+      var(--gradientc1) 10%,
+      var(--gradientc2) 100%
+    );
 
     --color_scheme: light dark;
     --dark_mode: #1a1a1a;
@@ -77,9 +79,11 @@
 
     --gradientp1: var(--primary);
     --gradientp2: var(--secondary);
-    --gradientbgc: linear-gradient(90deg,
-        var(--gradientp1) 10%,
-        var(--gradientp2) 100%);
+    --gradientbgc: linear-gradient(
+      90deg,
+      var(--gradientp1) 10%,
+      var(--gradientp2) 100%
+    );
   }
 }
 
@@ -153,6 +157,14 @@ span {
   font-size: 1rem;
 }
 
+@media only screen and (max-width: 600px) {
+  p,
+  div,
+  span {
+    font-size: 0.8rem;
+  }
+}
+
 p.small {
   font-size: 0.833rem;
 }
@@ -177,11 +189,13 @@ p {
 .bg_awesome {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg,
-      var(--primary),
-      var(--secondary),
-      var(--primary),
-      var(--secondary));
+  background: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary),
+    var(--secondary)
+  );
   background-size: 400% 400%;
   animation: bg__gradient 20s ease infinite;
   height: 100vh;
@@ -223,16 +237,17 @@ input::placeholder {
   padding: 0.5rem;
   text-decoration: none;
   background-color: var(--fav_gray);
-  color: var(--textDark)
+  color: var(--textDark);
 }
 
 .Line {
   @apply w-full h-1;
-  background-image: linear-gradient(-45deg,
-      var(--primary),
-      var(--secondary),
-      var(--primary),
-      var(--secondary));
+  background-image: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary),
+    var(--secondary)
+  );
   animation: bg__gradient 20s ease infinite;
-
 }

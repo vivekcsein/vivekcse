@@ -78,3 +78,18 @@
     }
   }
 }
+
+.effect__gradient_headline {
+  @include effect__gradient(black, white, white, black);
+  text-shadow: -3px 0 var(--textDark);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  @include res_phone {
+    font-size: 2.5rem;
+  }
+  @include res_desktop {
+    font-size: 3rem;
+    margin: auto;
+  }
+}

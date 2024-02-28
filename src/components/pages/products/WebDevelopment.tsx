@@ -1,7 +1,12 @@
 import React from "react";
+import Pages_ParentUI from "./ui/Pages_ParentUI";
 
 const WebDevelopment = () => {
-  return <div className="fullscreen">i love WebDevelopment</div>;
+  return (
+    <>
+      <Pages_ParentUI apislug={"webdevelopment"} />
+    </>
+  );
 };
 
 export default WebDevelopment;

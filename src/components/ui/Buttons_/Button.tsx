@@ -19,6 +19,20 @@ const Button = ({ variant, label }: ButtonProps) => {
         />
       );
 
+    case 2:
+      return (
+        <FrnzBtn
+          label={label}
+          variant="Spotlight"
+          fx={{
+            height: "40px",
+            width: "100px",
+            backgroundColor: "var(--fav_gray)",
+            borderColor: "var(--secondary)",
+          }}
+        />
+      );
+
     default:
       break;
   }

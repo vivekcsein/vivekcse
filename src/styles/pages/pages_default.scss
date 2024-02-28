@@ -1,0 +1,32 @@
+@use "../style.scss" as *;
+.pages_wrapper {
+  width: 100%;
+  //   height: calc(100vh - #{$header-height + $footer-height});
+  //   background-color: nth($list: $togglecp, $n: 2);
+  background-color: var(--fav_gray);
+
+  padding: 0 5rem;
+  padding-bottom: 2rem;
+  @include res_phone {
+    padding: 0 1rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.pagesBoxList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  > span {
+    color: var(--textDark);
+  }
+  > ul {
+    list-style: disc;
+    padding: 1rem 0 0 0;
+    > li {
+      padding-left: 0.5rem;
+    }
+  }
+}

@@ -1,6 +1,12 @@
 import React from "react";
 import LayoutToggle from "../../components/content/LayoutToggle";
-import Projects from "../../components/pages/projects/Projects";
+import dynamic from "next/dynamic";
+const Projects = dynamic(
+  () => import("../../components/pages/projects/Projects"),
+  {
+    ssr: true,
+  }
+);
 const page = () => {
   return (
     <div className="fullScreen">

@@ -16,31 +16,6 @@
   color: $textcolor;
 }
 
-@mixin effect__gradient(
-  $color1: rgb(57, 31, 105),
-  $color2: rgb(115, 43, 155),
-  $color3: rgb(231, 75, 184),
-  $color4: rgb(57, 31, 105)
-) {
-  width: fit-content;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  user-select: none;
-  font-weight: 900;
-  font-size: 5rem;
-  @include res_phone {
-    font-size: 3rem;
-  }
-  letter-spacing: 0.125rem;
-  cursor: pointer;
-  color: transparent;
-  background-image: linear-gradient(100deg, $color1, $color2, $color3, $color4);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: effect__gradient_move 5s linear infinite;
-}
-
 .rating {
   display: flex;
   align-items: center;
@@ -150,31 +125,6 @@
   @include content_custom();
 }
 
-@-webkit-keyframes effect__gradient_move {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-@-moz-keyframes effect__gradient_move {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-@keyframes effect__gradient_move {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-
 .MenuBar_heading {
   display: flex;
   justify-content: center;
@@ -183,6 +133,10 @@
   position: relative;
   h1 {
     @include effect__gradient;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
   }
 }
 
@@ -319,6 +273,10 @@
       place-content: center;
       h1 {
         @include effect__gradient(black, white, white, black);
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-size: 5rem;
         text-shadow: -3px 0 var(--fav_pink);
         font-size: 2.5rem;
       }

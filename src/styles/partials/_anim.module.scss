@@ -44,3 +44,29 @@
     width: 100%;
   }
 }
+
+// effect__gradient
+@-webkit-keyframes effect__gradient_move {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+@-moz-keyframes effect__gradient_move {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+@keyframes effect__gradient_move {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}

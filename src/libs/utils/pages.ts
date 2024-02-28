@@ -1,3 +1,132 @@
+import dynamic from "next/dynamic";
+// import { ComponentType } from "react";
+
+// export const Info_aboutus = dynamic(
+//   () => import("../../components/pages/info/Info_aboutus"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Info_contactus = dynamic(
+//   () => import("../../components/pages/info/Info_contactus"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Info_faqs = dynamic(
+//   () => import("../../components/pages/info/Info_faqs"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Info_howitworks = dynamic(
+//   () => import("../../components/pages/info/Info_howitworks"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Info_paymentpolicy = dynamic(
+//   () => import("../../components/pages/info/Info_paymentpolicy"),
+//   {
+//     ssr: true,
+//   }
+// );
+
+// export const Info_privacypolicy = dynamic(
+//   () => import("../../components/pages/info/Info_privacypolicy"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Gaming = dynamic(
+//   () => import("../../components/pages/products/Gaming"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const AugmentedReality = dynamic(
+//   () => import("../../components/pages/products/AugmentedReality"),
+//   {
+//     ssr: true,
+//   }
+// );
+
+// export const WebDevelopment = dynamic(
+//   () => import("../../components/pages/products/WebDevelopment"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const BGMI = dynamic(
+//   () => import("../../components/pages/products/Gaming/BGMI"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const CounterStrike = dynamic(
+//   () => import("../../components/pages/products/Gaming/CounterStrike"),
+//   {
+//     ssr: true,
+//   }
+// );
+
+// export const Farlight84 = dynamic(
+//   () => import("../../components/pages/products/Gaming/Farlight84"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const GTA = dynamic(
+//   () => import("../../components/pages/products/Gaming/GTA"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const Valorant = dynamic(
+//   () => import("../../components/pages/products/Gaming/Valorant"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const WD_Nextjs = dynamic(
+//   () => import("../../components/pages/products/WebDevelopment/WD_Nextjs"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const WD_Reactjs = dynamic(
+//   () => import("../../components/pages/products/WebDevelopment/WD_Reactjs"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const WD_Javascript = dynamic(
+//   () => import("../../components/pages/products/WebDevelopment/WD_Javascript"),
+//   {
+//     ssr: true,
+//   }
+// );
+
+// export const AR_Instagram = dynamic(
+//   () => import("../../components/pages/products/AugmentedReality/AR_Instagram"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const AR_Snapchat = dynamic(
+//   () => import("../../components/pages/products/AugmentedReality/AR_Snapchat"),
+//   {
+//     ssr: true,
+//   }
+// );
+// export const AR_webar = dynamic(
+//   () => import("../../components/pages/products/AugmentedReality/AR_webar"),
+//   {
+//     ssr: true,
+//   }
+// );
+
+
 import Info_aboutus from "../../components/pages/info/Info_aboutus";
 import Info_contactus from "../../components/pages/info/Info_contactus";
 import Info_faqs from "../../components/pages/info/Info_faqs";
@@ -17,12 +146,14 @@ import Valorant from "../../components/pages/products/Gaming/Valorant";
 
 import WD_Nextjs from "../../components/pages/products/WebDevelopment/WD_Nextjs";
 import WD_Reactjs from "../../components/pages/products/WebDevelopment/WD_Reactjs";
+import WD_Javascript from "../../components/pages/products/WebDevelopment/WD_Javascript";
 
 import AR_Instagram from "../../components/pages/products/AugmentedReality/AR_Instagram";
 import AR_Snapchat from "../../components/pages/products/AugmentedReality/AR_Snapchat";
 import AR_webar from "../../components/pages/products/AugmentedReality/AR_webar";
 
-export const layoutInfo = [
+
+export const pagesInfo: pagesInfo = [
   {
     id: 1,
     title: "webdevelopment",
@@ -33,6 +164,14 @@ export const layoutInfo = [
     productsArr: [
       {
         id: 11,
+        title: "javascript",
+        urlLink: "javascript",
+        filename: WD_Javascript,
+        imgUrl: "",
+        description: `I'm a javascript Developer`,
+      },
+      {
+        id: 12,
         title: "reactjs",
         urlLink: "ReactJS",
         filename: WD_Reactjs,
@@ -40,7 +179,7 @@ export const layoutInfo = [
         description: `I'm a ReactJS Web Developer`,
       },
       {
-        id: 12,
+        id: 13,
         title: "nextjs",
         urlLink: "NextJS",
         filename: WD_Nextjs,

@@ -2,13 +2,17 @@ import {
   endpoint_rootLayout,
   endpoint_menubar,
   endpoint_projects,
+  endpoint_pages,
 } from "../utils/endpoints";
+// export const revalidateTime = 24 * 3600;
 
 const fetchAPI = async (endpoint: string) => {
   try {
     let res = await fetch(`${endpoint}`, {
       method: "GET",
       cache: "no-cache",
+      // Revalidate every 60 seconds
+      // next: { revalidate: revalidateTime },
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -33,4 +37,9 @@ export const getMenubarAPI = async () => {
 export const getProjectsAPI = async () => {
   const data = await fetchAPI(endpoint_projects);
   return data.projectdata;
+};
+
+export const getPagesAPI = async (params: string) => {
+  const data = await fetchAPI(`${endpoint_pages}/${params}`);
+  return data.infoPages;
 };

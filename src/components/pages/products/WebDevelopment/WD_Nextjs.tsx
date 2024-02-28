@@ -1,7 +1,12 @@
 import React from "react";
+import Pages_mainUI from "../ui/Pages_mainUI";
 
 const WD_Nextjs = () => {
-  return <div className="fullscreen">WD_Nextjs</div>;
+  return (
+    <>
+      <Pages_mainUI apislug={"nextjs"} />
+    </>
+  );
 };
 
 export default WD_Nextjs;

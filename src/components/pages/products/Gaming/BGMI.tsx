@@ -1,7 +1,12 @@
 import React from "react";
+import Pages_mainUI from "../ui/Pages_mainUI";
 
 const BGMI = () => {
-  return <div className="fullscreen">Hello BGMI</div>;
+  return (
+    <div>
+      <Pages_mainUI apislug={"bgmi"} />
+    </div>
+  );
 };
 
 export default BGMI;

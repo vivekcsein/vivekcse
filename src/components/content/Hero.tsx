@@ -21,23 +21,9 @@ const Hero = () => {
       <div className="flex gap-5">
         <Link href={"/projects"} target="_blank">
           <Button variant={1} label="projects" />
-          {/* <Button
-            label="projects"
-            variant="Gradient"
-            fx={{
-              width: "150px",
-            }}
-          /> */}
         </Link>
-        <Link href={"/aboutUS"} target="_blank">
-          <Button variant={1} label="aboutUS" />
-          {/* <Button
-            label="aboutME"
-            variant="Gradient"
-            fx={{
-              width: "150px",
-            }}
-          /> */}
+        <Link href={"/WebDevelopment/Nextjs"} target="_blank">
+          <Button variant={1} label="NextJS" />
         </Link>
       </div>
       <Anim_Intro selector={".Hero_Intro"} />
