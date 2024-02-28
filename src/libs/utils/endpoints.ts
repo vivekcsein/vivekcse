@@ -14,5 +14,5 @@ export const endpoint_menubar =
   "https://vivekcsein.github.io/githost/api/vivekcse/menubar_vivekcse.json";
 
 //pages endpoint localhost
-export const endpoint_pages = "http://127.0.0.1:3000/api/pagesapi";
-// export const endpoint_pages = "http://vivekcse.in/api/pagesapi";
+// export const endpoint_pages = "http://127.0.0.1:3000/api/pagesapi";
+export const endpoint_pages = "http://vivekcse.in/api/pagesapi";
