@@ -1,16 +1,15 @@
 import React from "react";
-import { getPagesAPI } from "../../../../libs/apis/serverlessAPI";
-import Pages_Item from "../ui/Pages_Item";
-import Pages_backBtn from "../ui/Pages_backBtn";
+import { getPagesAPI } from "../../../libs/apis/serverlessAPI";
+import Pages_Item from "./Pages_Item";
+import Pages_backBtn from "./Pages_backBtn";
 import Pages_notFound from "./Pages_notFound";
-
 type Pages_mainUIProps = {
   apislug: string;
 };
 const Pages_mainUI = async ({ apislug }: Pages_mainUIProps) => {
   const pagesJson: Promise<any> = getPagesAPI(apislug);
   const pagesData = await pagesJson;
-  if (pagesData.length <= 0) return <Pages_notFound title={apislug} />;
+  if (!pagesData.length) return <Pages_notFound title={apislug} />;
   const { title, category, desc, infoArr } = pagesData[0];
   return (
     <>
@@ -18,6 +17,9 @@ const Pages_mainUI = async ({ apislug }: Pages_mainUIProps) => {
         <Pages_backBtn href="./" />
         <div className=" w-full">
           <h1 className=" effect__gradient_headline flexCenter ">{title}</h1>
+          {/* <h1 className=" effect__gradient_headline flexCenter ">
+              {"title"}
+            </h1> */}
         </div>
       </div>
       <div className="Line"></div>

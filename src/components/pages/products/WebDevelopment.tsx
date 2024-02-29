@@ -1,5 +1,5 @@
 import React from "react";
-import Pages_ParentUI from "./ui/Pages_ParentUI";
+import Pages_ParentUI from "../pagesui/Pages_ParentUI";
 
 const WebDevelopment = () => {
   return (

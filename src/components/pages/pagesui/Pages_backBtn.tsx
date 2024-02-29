@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import Button from "../../../ui/Buttons_/Button";
+import Button from "../../ui/Buttons_/Button";
 type Pages_backProps = {
   href: string;
 };

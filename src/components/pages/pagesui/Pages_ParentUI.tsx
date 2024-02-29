@@ -1,13 +1,15 @@
 import React from "react";
-import { getPagesAPI } from "../../../../libs/apis/serverlessAPI";
+import { getPagesAPI } from "../../../libs/apis/serverlessAPI";
 import Pages_Item from "./Pages_Item";
 import Pages_Button from "./Pages_Button";
+import Pages_notFound from "./Pages_notFound";
 type Pages_ParentUIprops = {
   apislug: string;
 };
 const Pages_ParentUI = async ({ apislug }: Pages_ParentUIprops) => {
   const pagesJson: Promise<any> = getPagesAPI(apislug);
   const pagesData = await pagesJson;
+  if (!pagesData.length) return <Pages_notFound title={apislug} />;
   const { title, category, desc, buttons, infoArr } = pagesData[0];
   return (
     <>

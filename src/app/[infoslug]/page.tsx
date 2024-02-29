@@ -16,9 +16,8 @@ const page = ({ params: { infoslug } }: props) => {
 
   const currentPage = () => {
     const result = searchParam();
-    if (searchParam().length > 0) {
-      return result[0].filename();
-    }
+    if (!result.length) return;
+    return result[0].filename();
   };
 
   return (

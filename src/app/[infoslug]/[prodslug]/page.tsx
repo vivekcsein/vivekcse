@@ -18,18 +18,16 @@ const page = ({ params: { infoslug, prodslug } }: props) => {
 
   const prodSeachItem = () => {
     const searchProd = serachItem();
-    if (searchProd.length > 0) {
-      return searchProd[0].productsArr?.filter(
-        (prodElem) => String(prodslug).toLocaleLowerCase() === prodElem.title
-      );
-    }
+    if (!searchProd.length) return;
+    return searchProd[0].productsArr?.filter(
+      (prodElem) => String(prodslug).toLocaleLowerCase() === prodElem.title
+    );
   };
 
   const currentPage = () => {
     const currentprod = prodSeachItem();
-    if (currentprod && currentprod.length > 0) {
-      return currentprod[0].filename();
-    }
+    if (!currentprod?.length) return;
+    return currentprod[0].filename();
   };
 
   return (

@@ -1,7 +1,12 @@
 import React from "react";
+import Pages_notFound from "../pagesui/Pages_notFound";
 
 const Info_howitworks = () => {
-  return <div className="fullscreen">We are working on the page...</div>;
+  return (
+    <>
+      <Pages_notFound title={"About work"} />
+    </>
+  );
 };
 
 export default Info_howitworks;
