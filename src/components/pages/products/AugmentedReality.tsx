@@ -1,10 +1,13 @@
 import React from "react";
-import Pages_ParentUI from "../pagesui/Pages_ParentUI";
+import Pages_productUI from "../../ui/Pages_/Pages_ProductUI";
 
-const AugmentedReality = () => {
+type AugmentedRealityProps = {
+  apislug: pagesRouteProductsElem;
+};
+const AugmentedReality = ({ apislug }: AugmentedRealityProps) => {
   return (
     <>
-      <Pages_ParentUI apislug={"augmentedreality"} />
+      <Pages_productUI apislug={apislug} />
     </>
   );
 };

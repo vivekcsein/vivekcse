@@ -1,0 +1,700 @@
+{
+  "pagesRouteData": [
+    {
+      "title": "",
+      "category": "",
+      "desc": "",
+      "buttons": [
+        {
+          "id": "",
+          "label": "",
+          "href": ""
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "",
+          "url": "",
+          "category": "none",
+          "fullform": "",
+          "desc": "",
+          "color": "",
+          "tags": [""],
+          "image": "",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Web Development",
+      "category": "webdevelopment",
+      "desc": "How i focused towards web developent",
+      "buttons": [
+        {
+          "id": "webd_btn01",
+          "label": "Javascript",
+          "href": "./WebDevelopment/Javascript"
+        },
+        {
+          "id": "webd_btn02",
+          "label": "ReactJS",
+          "href": "./WebDevelopment/Reactjs"
+        },
+        {
+          "id": "webd_btn03",
+          "label": "NextJS",
+          "href": "./WebDevelopment/Nextjs"
+        },
+        {
+          "id": "webd_btn03",
+          "label": "NestJS",
+          "href": "./WebDevelopment/Nestjs"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "HTML",
+          "url": "https://www.w3schools.com/html/",
+          "category": "webdevelopment",
+          "fullform": "Hyper Text markup language",
+          "desc": "The World Wide Web's most popular programming language.",
+          "tags": ["Markup Language"],
+          "code": false,
+          "details": [
+            {
+              "id": "webd_html01",
+              "type": "quote",
+              "content": "I started learning HTML from w3schools boring stuff with patience and readout all the basics of HTML."
+            },
+            {
+              "id": "webd_02",
+              "type": "quote",
+              "content": "You can relate with exampe of a book to understand easily, when reading a book has a heading and some content in form of paragraphs and images."
+            }
+          ]
+        },
+        {
+          "title": "CSS",
+          "url": "https://www.w3schools.com/css/",
+          "category": "webdevelopment",
+          "fullform": "Casceding style sheet",
+          "desc": "",
+          "code": false,
+          "details": [
+            {
+              "id": "css01",
+              "type": "quote",
+              "content": "Every book without colors and styling is boring to read."
+            },
+            {
+              "id": "css02",
+              "type": "quote",
+              "content": "simmilarly CSS is the most importance for every web application to achive how ui will look like."
+            },
+            {
+              "id": "css03",
+              "type": "quote",
+              "content": "I started learning from w3school and switched to youtube tutorials and practising basic css styles."
+            },
+            {
+              "id": "css04",
+              "type": "quote",
+              "content": "Initially i work on heading, paragraphs, images and then smaller layouts."
+            },
+            {
+              "id": "css05",
+              "type": "quote",
+              "content": "Flexbox, Grid layouts are often used in the most projects and it gives me so confidence to writing css."
+            }
+          ]
+        },
+        {
+          "title": "SASS",
+          "url": "https://www.w3schools.com/sass/",
+          "category": "webdevelopment",
+          "fullform": "Sass",
+          "code": false,
+          "details": [
+            {
+              "id": "sass01",
+              "type": "quote",
+              "content": "I am using sass for layouts, reusable css variables, responsiveness, css utilities, animations &  hover effects etc.."
+            },
+            {
+              "id": "sass02",
+              "type": "quote",
+              "content": "sass provides me freedom to generate css with nextjs for a large scale production grade web-application"
+            }
+          ]
+        },
+        {
+          "title": "Tailwind css",
+          "category": "webdevelopment",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I love using tailwind css and class based utility css with react and sass"
+            }
+          ]
+        },
+        {
+          "title": "Bootstrap",
+          "url": "https://getbootstrap.com/",
+          "category": "webdevelopment",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "content": "Initialy i start creating clones of bootstrap ui clones but now i have better understanding how to work with Bootsrap"
+            }
+          ]
+        },
+        {
+          "title": "ShadCN",
+          "url": "https://ui.shadcn.com",
+          "category": "webdevelopment",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "ShadCN",
+              "content": "Shadcn & tailwind is just absolutely a god level development for the frontend"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Customization",
+              "content": "I prefer shadcn over mui because it gives indepedent comp"
+            }
+          ]
+        },
+        {
+          "title": "Material UI",
+          "url": "https://mui.com/material-ui",
+          "category": "webdevelopment",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "content": "I have used material ui in few projects where client need to build faster ui with classic loos & user experience"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "MUI provides a better features, clean ui and faster development process with react projects without writing a lot of css"
+            }
+          ]
+        },
+        {
+          "title": "FRNZ-UI",
+          "url": "https://www.npmjs.com/package/frnz-ui",
+          "category": "webdevelopment",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "I created frnz-ui",
+              "content": "I need a usefull ui but for react, I made my own react ui library so that simple ui will be easy to use "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Gaming",
+      "category": "gaming",
+      "desc": "How i started developing games & playing games",
+      "buttons": [
+        {
+          "id": "gaming_btn01",
+          "label": "BGMI",
+          "href": "./Gaming/BGMI"
+        },
+        {
+          "id": "gaming_btn02",
+          "label": "CounterStrike",
+          "href": "./Gaming/CounterStrike"
+        },
+        {
+          "id": "gaming_btn03",
+          "label": "Farlight84",
+          "href": "./Gaming/Farlight84"
+        },
+        {
+          "id": "gaming_btn03",
+          "label": "GTA",
+          "href": "./Gaming/GTA"
+        },
+        {
+          "id": "gaming_btn03",
+          "label": "Valorant",
+          "href": "./Gaming/Valorant"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "My gaming story",
+          "url": "",
+          "category": "none",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I am not a Coding Keeda, I know my responsibilites towards work is priority. I Love to play games on free time."
+            }
+          ]
+        },
+        {
+          "title": "Cocos Creator",
+          "url": "https://www.w3schools.com/html/",
+          "category": "gaming",
+          "fullform": "Cocos Creator",
+          "tags": ["Markup Language"],
+          "code": false,
+          "details": [
+            {
+              "id": "cococ_01",
+              "type": "quote",
+              "content": "Initialy it was hard to learn cocos creator but well being patience I started learning slowly slowly"
+            },
+            {
+              "id": "cococ_02",
+              "type": "quote",
+              "content": "It is a node based system to add any type of content in the scene"
+            }
+          ]
+        },
+        {
+          "title": "BGMI",
+          "url": "",
+          "category": "gaming",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I played a lot of BGMI during lockdown periods on week days and streams my games"
+            }
+          ]
+        },
+        {
+          "title": "Counter-Strike",
+          "url": "",
+          "category": "gaming",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "My college seniors used to play counter-strike so i participated for the first time with them"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I am very pro player and played on many lan events in IIT rourkee & IIT Amethi"
+            }
+          ]
+        },
+        {
+          "title": "valorant",
+          "url": "",
+          "category": "gaming",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I Love the characters and vibes of this games. Even you should try this"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I love Sage as it was my first agent but i am not a professional sage"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "My role is to lead teams and play with minds and entertain audience, I am a initiator & controller mixed "
+            }
+          ]
+        },
+        {
+          "title": "Farlight84",
+          "url": "",
+          "category": "gaming",
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "",
+              "content": "I used to play pc games like farlight so that i can have idea how games works behind the scene"
+            }
+          ]
+        },
+        {
+          "title": "GTA",
+          "url": "",
+          "category": "none",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "GTA 5",
+              "content": "OMG, how i can leave this game which made a lot of careers of many youtubers in INDIA"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "GTA 6",
+              "content": "I am waiting for GTA 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Augmented Reality",
+      "category": "augmentedreality",
+      "desc": "How augmented reality changed my life",
+      "buttons": [
+        {
+          "id": "ar_btn01",
+          "label": "Instagram",
+          "href": "./AugmentedReality/Instagram"
+        },
+        {
+          "id": "ar_btn02",
+          "label": "Snapchat",
+          "href": "./AugmentedReality/Snapchat"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "Spark Ar studio",
+          "url": "",
+          "category": "augmentedreality",
+          "fullform": "Spark  AR Studio",
+          "desc": "Spark Ar studio is an application development platform where you can create various filters & games using javascript & typescript",
+          "tags": ["Augmented Reality"],
+          "image": "",
+          "code": false,
+          "details": [
+            {
+              "id": "sparkar_01",
+              "type": "quote",
+              "headline": "Face mesh Filters",
+              "content": "I can create Instagram face filters, hand tracking filters, gamification"
+            },
+            {
+              "id": "sparkar_02",
+              "type": "quote",
+              "headline": "Gamification",
+              "content": "I am good in reseach and implement new features which instagram provides "
+            }
+          ]
+        },
+        {
+          "title": "Lens Studio",
+          "url": "",
+          "category": "augmentedreality",
+          "fullform": "Snap chat lens studio",
+          "desc": "Lens studio is alternative to spark ar but for snapchat application",
+          "tags": ["lens studio"],
+          "code": false,
+          "details": [
+            {
+              "id": "lensstudio_01",
+              "type": "quote",
+              "headline": "Lidar filters",
+              "content": "i can create 3d world mesh lidar for lens studio"
+            },
+            {
+              "id": "lensstudio_02",
+              "type": "quote",
+              "headline": "3d gamification",
+              "content": "I created most of the games on lens studio with 3d simulation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "NextJS",
+      "category": "nextjs",
+      "desc": "NextJS is a full stack framework for building modern, efficient, and scalable web applications using react",
+      "buttons": [
+        {
+          "id": "nextjs_btn01",
+          "label": "interview",
+          "href": "/WebDevelopment/Nextjs/InterviewQuestions"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "What we offer you",
+          "url": "",
+          "category": "NextJS",
+          "code": false,
+          "details": [
+            {
+              "id": "nextjs_01",
+              "type": "quote",
+              "headline": "Server-Side Rendering (SSR)",
+              "content": "It enables faster reload time and better serach optimization for (SEO)."
+            },
+            {
+              "id": "nextjs_02",
+              "type": "quote",
+              "headline": "Static Site Generation (SSG)",
+              "content": "It enables developer can pre-render pages at build time so that optimaztion can be improved for user experience"
+            },
+            {
+              "id": "nextjs_03",
+              "type": "quote",
+              "headline": "API Routes",
+              "content": "We can setup easily for dynamic api's routes for incoming Http requests."
+            },
+            {
+              "id": "nextjs_04",
+              "type": "quote",
+              "headline": "Customizable CMS",
+              "content": "You have the freedom to customize your own CMS or use our inbuilt CMS."
+            },
+            {
+              "id": "nextjs_05",
+              "type": "quote",
+              "headline": "Authentication & Authorization",
+              "content": "With built-in authentication features using next-auth, we can manage users with large amount of data flow for the users."
+            },
+            {
+              "id": "nextjs_06",
+              "type": "quote",
+              "headline": "Data Fetching & caching",
+              "content": "NextJS enables to fetch data both client and server side but whenever possible use server site data fetching and caching to deply faster during build time "
+            },
+            {
+              "id": "nextjs_07",
+              "type": "quote",
+              "headline": "Layout & Responsive Design",
+              "content": "File based app router can helps to manage layouts and components."
+            },
+            {
+              "id": "nextjs_08",
+              "type": "quote",
+              "headline": "Tailwind & Sass Support",
+              "content": "I use mixed of Tailwind CSS and SASS for styling. Sass is better for styling responsiveness and tailwind css is good for design layouts and smaller chunks. ultimatly everything will be convertd into CSS."
+            },
+            {
+              "id": "nextjs_09",
+              "type": "quote",
+              "headline": "",
+              "content": ""
+            },
+            {
+              "id": "nextjs_10",
+              "type": "quote",
+              "headline": "",
+              "content": ""
+            },
+            {
+              "id": "nextjs_10",
+              "type": "quote",
+              "headline": "",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ReactJS",
+      "category": "reactjs",
+      "desc": "React is a JavaScript open-source library for building user interfaces created by Facebook.",
+      "buttons": [
+        {
+          "id": "reactjs_btn01",
+          "label": "interview",
+          "href": "/WebDevelopment/Reactjs/InterviewQuestions"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "How i started working on ReactJS",
+          "url": "",
+          "category": "none",
+          "code": false,
+          "details": [
+            {
+              "id": "react_01",
+              "type": "quote",
+              "headline": "Reusable components",
+              "content": "React allows to create a components & use whenever required with sme changes of props conditions"
+            },
+            {
+              "id": "react_02",
+              "type": "quote",
+              "headline": "JSX",
+              "content": "Javascript inside HTMl with condtional rendering and modyifying structure of ui"
+            },
+            {
+              "id": "react_03",
+              "type": "quote",
+              "headline": "Lifecycle methods",
+              "content": "I have worked on reactlifecycles methods in react functional components in useefect hooks"
+            },
+            {
+              "id": "react_04",
+              "type": "quote",
+              "headline": "React Hooks",
+              "content": "Efficiently working with react hooks like useState, useEffect, useReducer, useMemo, useCallback hooks & creating complex custom hooks"
+            },
+            {
+              "id": "react_05",
+              "type": "quote",
+              "headline": "Redux & redux toolkit",
+              "content": "I have been worked on redux toolkit to manage state of the component"
+            },
+            {
+              "id": "react_06",
+              "type": "quote",
+              "headline": "React Query",
+              "content": "When data fetching need to a be a client side component then i use tanstack react query to efficiently fetch the data"
+            },
+            {
+              "id": "react_07",
+              "type": "quote",
+              "headline": "",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Javascript",
+      "category": "javascript",
+      "desc": "I am using javascript from last 4 years",
+      "buttons": [
+        {
+          "id": "javascript_btn01",
+          "label": "interview",
+          "href": "/WebDevelopment/Javascript/InterviewQuestions"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "Javascript Basics",
+          "url": "",
+          "category": "none",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Basics",
+              "content": "Start from varibles, data type, functions, operators, & string  "
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Loops",
+              "content": "for loop, while loop, forEach, Map, filter & reduce, these looping techniques and when to apply."
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Conditional Logics",
+              "content": "if else, Switch case, ternary opertor these techniques usefull in react"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Javascript running behaviour in browser",
+              "content": "How javascript start compiling code and create execution context & setTimeout setInterval works  "
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Hoisting, closures, functions in deep, recursive functions",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Data Structure",
+          "url": "",
+          "category": "none",
+          "code": false,
+          "details": [
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "String methods",
+              "content": "Length, Slice, substring, charAT, charCodeAT, trim, split, replace, replaceALl"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Arrays",
+              "content": "Manupulating arrays using loops, map filter, join, push, pop, shift, unsift, splice"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Objects",
+              "content": "Creating objects, keys/values/entries, object destructing, call, bind , apply,  JSON"
+            },
+            {
+              "id": "",
+              "type": "quote",
+              "headline": "Combination of both Arrays & Object JSON techniques",
+              "content": "I just love to play  with mixing of array and objects combine to make usefull json to apply complex logics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nestjs",
+      "category": "nextjs",
+      "desc": "I am using Nestjs from last 6 months",
+      "buttons": [
+        {
+          "id": "nestjs_btn01",
+          "label": "interview",
+          "href": "/WebDevelopment/Nestjs/InterviewQuestions"
+        }
+      ],
+      "infoArr": [
+        {
+          "title": "How i started working on ReactJS"
+        }
+      ]
+    }
+  ]
+}

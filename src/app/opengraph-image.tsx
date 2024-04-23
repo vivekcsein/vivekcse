@@ -36,12 +36,12 @@ export default async function OGImage({
           justifyContent: "center",
           backgroundImage:
             "linear-gradient(60deg, #dd00ff, #6600ff,#dd00ff,#6600ff)",
-          fontSize: 32,
+          fontSize: 40,
           fontWeight: 600,
           fontFamily: `${lora.variable}`,
         }}
       >
-        <h1 style={{ marginTop: 50, color: "#eeaaaa", fontSize: "3rem" }}>
+        <h1 style={{ marginTop: 20, color: "#eeaaaa", fontSize: "6rem" }}>
           👋VivekCSE
         </h1>
         <h3 style={{ marginTop: 0, color: "#ffddff" }}>

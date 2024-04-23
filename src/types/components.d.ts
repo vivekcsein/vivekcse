@@ -1,17 +1,5 @@
 // menubar types decleration
-type MenuData = {
-  title: string;
-  desc: string;
-  navbar: Array<navbarData>;
-};
-
-interface navbarData {
-  id: string;
-  title: string;
-  category: string;
-  product: Array<menuProductData>;
-}
-
+// menu product data
 interface menuProductData {
   id: string;
   title: string;
@@ -26,43 +14,83 @@ interface menuProductData {
   color?: string;
 }
 
-interface layoutInfoElem {
+interface navbarData {
+  id: string;
+  title: string;
+  category: string;
+  product: Array<menuProductData>;
+}
+
+type MenuData = {
+  title: string;
+  desc: string;
+  navbar: Array<navbarData>;
+};
+
+//pagesRouteInfo type define
+
+type PagesRouteElemCategory = "Info" | "Product" | "Item";
+interface PagesRouteElem {
   id: number;
   title: string;
   urlLink: string;
-  imgUrl: string;
-  description: string;
-  filename: ComponentType<{}>;
+  category: PagesRouteElemCategory;
+  desc?: string;
+  imgUrl?: string;
+  jsonData?: string;
+  filename?: ComponentType<{}>;
 }
 
-type productsArr = Array<layoutInfoElem>;
-interface pagesInfoItem extends layoutInfoElem {
-  productsArr?: productsArr;
-}
-type pagesInfo = Array<pagesInfoItem>;
+interface pagesRouteItemElem extends PagesRouteElem {}
+type pagesRouteItemArr = Array<pagesRouteItemElem>;
 
-interface pagesInfoElem {
+interface pagesRouteProductsElem extends PagesRouteElem {
+  itemArr?: pagesRouteItemArr;
+}
+
+type pagesRouteProductsArr = Array<pagesRouteProductsElem>;
+
+interface PagesRouteInfoElem extends PagesRouteElem {
+  productsArr?: pagesRouteProductsArr;
+}
+
+type pagesRouteInfo = Array<PagesRouteInfoElem>;
+
+//pagesRouteJson type define
+interface pagesRoutesInfoArrDetails {
+  id: number | string;
+  type: string;
+  headline: string;
+  content: string;
+}
+interface pagesRoutesInfoArr {
+  id?: number | string;
   title: string;
+  desc: string;
   category: string;
   url?: string;
   fullform?: string;
-  desc?: string;
   color?: string;
-  tags?: Array<string>;
   image?: string;
   code?: boolean;
-  details?: Array<pagesInfoDetails>;
+  tags?: Array<string> | string;
+  details?: Array<pagesRoutesInfoArrDetails>;
 }
 
-interface pagesInfoDetails {
-  id: string;
-  type: string;
-  headline?: string;
-  content: string;
-}
-
-interface pagesInfoButtons {
+interface pagesRoutesButtons {
   id: string;
   label: string;
   href: string;
 }
+
+interface pagesRoutesDataMain {
+  id?: number;
+  title: string;
+  desc: string;
+  category: string;
+  buttons?: Array<pagesRoutesButtons>;
+  infoArr?: Array<pagesRoutesInfoArr>;
+}
+
+type pagesRoutesData = Array<pagesRoutesDataMain>;
+type promisePagesRouteData = pagesRoutesData | [];

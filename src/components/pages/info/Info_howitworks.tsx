@@ -1,5 +1,5 @@
 import React from "react";
-import Pages_notFound from "../pagesui/Pages_notFound";
+import Pages_notFound from "../../ui/Pages_/atoms/Pages_notFound";
 
 const Info_howitworks = () => {
   return (

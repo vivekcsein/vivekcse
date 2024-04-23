@@ -4,7 +4,6 @@ import MenuNav from "./MenuNav";
 import { getMenubarAPI } from "../../../libs/apis/serverlessAPI";
 import { Loader } from "frnz-ui";
 
-// let menuData: MenuData;
 const MenuBar = async () => {
   const navData: Array<menuProductData> = [];
   const menuJSON: Promise<MenuData> = getMenubarAPI();

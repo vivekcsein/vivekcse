@@ -1,10 +1,13 @@
 import React from "react";
-import Pages_ParentUI from "../pagesui/Pages_ParentUI";
+import Pages_productUI from "../../ui/Pages_/Pages_ProductUI";
 
-const WebDevelopment = () => {
+type WebDevelopmentProps = {
+  apislug: pagesRouteProductsElem;
+};
+const WebDevelopment = ({ apislug }: WebDevelopmentProps) => {
   return (
     <>
-      <Pages_ParentUI apislug={"webdevelopment"} />
+      <Pages_productUI apislug={apislug} />
     </>
   );
 };

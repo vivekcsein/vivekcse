@@ -1,18 +1,13 @@
-import {
-  endpoint_rootLayout,
-  endpoint_menubar,
-  endpoint_projects,
-  endpoint_pages,
-} from "../utils/endpoints";
-// export const revalidateTime = 24 * 3600;
+import { endpointConfig } from "../utils/endpointsConfig";
+export const revalidateTime = 24 * 3600;
 
 const fetchAPI = async (endpoint: string) => {
   try {
     let res = await fetch(`${endpoint}`, {
       method: "GET",
-      cache: "no-cache",
+      // cache: "no-cache",
       // Revalidate every 60 seconds
-      // next: { revalidate: revalidateTime },
+      next: { revalidate: revalidateTime },
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -26,20 +21,24 @@ const fetchAPI = async (endpoint: string) => {
 };
 
 export const getRootLayoutAPI = async () => {
-  const data = await fetchAPI(endpoint_rootLayout);
+  const data = await fetchAPI(endpointConfig.rootLayout);
   return data.rootLayoutData;
 };
 
 export const getMenubarAPI = async () => {
-  const data = await fetchAPI(endpoint_menubar);
+  const data = await fetchAPI(endpointConfig.endpoint_menubar);
   return data.MenuData;
 };
 export const getProjectsAPI = async () => {
-  const data = await fetchAPI(endpoint_projects);
+  const data = await fetchAPI(endpointConfig.endpoint_projects);
   return data.projectdata;
 };
 
 export const getPagesAPI = async (params: string) => {
-  const data = await fetchAPI(`${endpoint_pages}/${params}`);
-  return data.infoPages;
+  const data = await fetchAPI(`${endpointConfig.pagesRoutes}/${params}`);
+  return data.pagesRoute;
+};
+export const getInterviewAPI = async (params: string) => {
+  const data = await fetchAPI(`${endpointConfig.endpoint_interview}/${params}`);
+  return data.interviewData;
 };

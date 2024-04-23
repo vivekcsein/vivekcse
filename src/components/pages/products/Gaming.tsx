@@ -1,9 +1,13 @@
 import React from "react";
-import Pages_ParentUI from "../pagesui/Pages_ParentUI";
-const Gaming = () => {
+import Pages_productUI from "../../ui/Pages_/Pages_ProductUI";
+
+type GamingProps = {
+  apislug: pagesRouteProductsElem;
+};
+const Gaming = ({ apislug }: GamingProps) => {
   return (
     <>
-      <Pages_ParentUI apislug={"gaming"} />
+      <Pages_productUI apislug={apislug} />
     </>
   );
 };
