@@ -1,0 +1,529 @@
+/* ========================================
+   CloakShield Form Controls
+   ======================================== */
+
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ========================================
+   Input Label
+   ======================================== */
+
+.input-label {
+  color: var(--foreground);
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+
+  cursor: pointer;
+}
+
+.input-label::after {
+  content: "";
+}
+
+/* ========================================
+   Base Input
+   ======================================== */
+
+.input {
+  width: 100%;
+  min-width: 0;
+  height: 2.75rem;
+
+  padding: 0.625rem 0.875rem;
+
+  border: 1px solid var(--input);
+  border-radius: 0.5rem;
+
+  outline: none;
+
+  background: color-mix(in oklch, var(--background) 82%, transparent);
+
+  color: var(--foreground);
+
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  box-shadow: inset 0 1px 0
+    color-mix(in oklch, var(--foreground) 3%, transparent);
+
+  transition:
+    border-color var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    box-shadow var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    background-color var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.input::placeholder {
+  color: var(--muted-foreground);
+
+  opacity: 0.7;
+}
+
+.input:hover:not(:disabled) {
+  border-color: color-mix(in oklch, var(--primary) 25%, var(--input));
+}
+
+.input:focus {
+  border-color: var(--ring);
+
+  background: color-mix(in oklch, var(--background) 92%, transparent);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 12%, transparent);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+}
+
+/* ========================================
+   Input Error
+   ======================================== */
+
+.input.input-error {
+  border-color: var(--destructive);
+}
+
+.input.input-error:focus {
+  border-color: var(--destructive);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 12%, transparent);
+}
+
+.input-error-text {
+  margin-top: 0.125rem;
+
+  color: var(--destructive);
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* ========================================
+   Input With Right Icon
+   ======================================== */
+
+.input-field {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+}
+
+.input.with-icon-right {
+  padding-right: 2.875rem;
+}
+
+/* ========================================
+   Password Visibility Button
+   ======================================== */
+
+.input-icon-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.375rem;
+
+  display: inline-flex;
+
+  width: 2rem;
+  height: 2rem;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  border: 0;
+  border-radius: 0.375rem;
+
+  outline: none;
+
+  background: transparent;
+  color: var(--muted-foreground);
+
+  cursor: pointer;
+
+  transition:
+    color var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    background-color var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.input-icon-btn:hover {
+  color: var(--accent-foreground);
+}
+
+.input-icon-btn:focus-visible {
+  color: var(--primary);
+
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--ring) 30%, transparent);
+}
+
+.input-icon-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.input-icon-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ========================================
+   Checkbox
+   ======================================== */
+
+.checkbox-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.checkbox-wrapper > label {
+  position: relative;
+
+  display: inline-flex;
+  flex-shrink: 0;
+
+  width: 1.125rem;
+  height: 1.125rem;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.checkbox-input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   Checkbox Box
+   ======================================== */
+
+.checkbox-box {
+  display: flex;
+
+  width: 1.125rem;
+  height: 1.125rem;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--input);
+  border-radius: 0.3rem;
+
+  background: var(--background);
+
+  transition:
+    background-color var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    border-color var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    box-shadow var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    transform var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+/* ========================================
+   Checkbox Hover
+   ======================================== */
+
+.checkbox-wrapper > label:hover .checkbox-box {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 8%, transparent);
+}
+
+/* ========================================
+   Checkbox Checked
+   ======================================== */
+
+.checkbox-input:checked + .checkbox-box {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  box-shadow: 0 0 14px color-mix(in oklch, var(--primary) 18%, transparent);
+}
+
+/* ========================================
+   Checkbox Check
+   ======================================== */
+
+.checkbox-check {
+  width: 0.8rem;
+  height: 0.8rem;
+
+  fill: none;
+
+  stroke: var(--primary-foreground);
+  stroke-width: 2.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0;
+
+  transform: scale(0.7);
+
+  transition:
+    opacity var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    transform var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.checkbox-input:checked + .checkbox-box .checkbox-check {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+/* ========================================
+   Checkbox Focus
+   ======================================== */
+
+.checkbox-input:focus-visible + .checkbox-box {
+  border-color: var(--ring);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 15%, transparent);
+}
+
+/* ========================================
+   Checkbox Disabled
+   ======================================== */
+
+.checkbox-input:disabled + .checkbox-box {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.checkbox-wrapper:has(.checkbox-input:disabled) {
+  opacity: 0.6;
+}
+
+.checkbox-wrapper:has(.checkbox-input:disabled) > label {
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Checkbox Label
+   ======================================== */
+
+.checkbox-label {
+  color: var(--muted-foreground);
+
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label:hover {
+  color: var(--foreground);
+}
+
+/* ========================================
+   Checkbox Error
+   ======================================== */
+
+.checkbox-error {
+  color: var(--destructive);
+}
+
+/* ========================================
+   Date Input
+   ------------------------------------------
+   The native calendar-picker glyph renders
+   near-black by default, which is invisible
+   against this theme's dark inputs — invert +
+   brighten it so it's actually visible, and
+   recolor on hover/focus to match `--primary`.
+   ======================================== */
+
+.input-date::-webkit-calendar-picker-indicator {
+  padding: 0.25rem;
+
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+  filter: invert(0.7) brightness(1.4);
+
+  transition: filter var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.input-date:hover::-webkit-calendar-picker-indicator,
+.input-date:focus::-webkit-calendar-picker-indicator {
+  filter: invert(0.7) brightness(1.4) sepia(1) saturate(4) hue-rotate(165deg);
+}
+
+.input-date::-webkit-datetime-edit {
+  color: var(--foreground);
+}
+
+.input-date::-webkit-datetime-edit-fields-wrapper {
+  color: var(--foreground);
+}
+
+.input-date:disabled::-webkit-calendar-picker-indicator {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ========================================
+   Select
+   ======================================== */
+
+.select-wrapper {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+}
+
+.select-input {
+  width: 100%;
+  min-width: 0;
+  height: 2.75rem;
+
+  padding: 0.625rem 2.25rem 0.625rem 0.875rem;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 1px solid var(--input);
+  border-radius: 0.5rem;
+
+  outline: none;
+
+  background:
+    color-mix(in oklch, var(--background) 82%, transparent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 0.75rem center / 1rem 1rem;
+
+  color: var(--foreground);
+
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  box-shadow: inset 0 1px 0
+    color-mix(in oklch, var(--foreground) 3%, transparent);
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    box-shadow var(--motion-fast, 200ms) var(--motion-ease, ease-out),
+    background-color var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.select-input:hover:not(:disabled) {
+  border-color: color-mix(in oklch, var(--primary) 25%, var(--input));
+}
+
+.select-input:focus {
+  border-color: var(--ring);
+
+  background-color: color-mix(in oklch, var(--background) 92%, transparent);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 12%, transparent);
+}
+
+.select-input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+}
+
+.select-input option {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.select-input.select-error {
+  border-color: var(--destructive);
+}
+
+.select-input.select-error:focus {
+  border-color: var(--destructive);
+
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 12%, transparent);
+}
+
+.select-error-message {
+  margin-top: 0.125rem;
+
+  color: var(--destructive);
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* ========================================
+   Form Links
+   ======================================== */
+
+.form-link {
+  color: var(--muted-foreground);
+
+  font-size: 0.875rem;
+
+  text-decoration: none;
+
+  transition: color var(--motion-fast, 200ms) var(--motion-ease, ease-out);
+}
+
+.form-link:hover {
+  color: var(--primary);
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 640px) {
+  .input {
+    height: 2.75rem;
+
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .input.with-icon-right {
+    padding-right: 2.75rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .input-icon-btn,
+  .checkbox-box,
+  .checkbox-check,
+  .select-input,
+  .form-link {
+    transition: none;
+  }
+
+  .input-icon-btn:active {
+    transform: translateY(-50%);
+  }
+}

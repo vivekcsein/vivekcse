@@ -1,0 +1,102 @@
+{
+  "name": "vivekcsein",
+  "version": "5.0.0",
+  "description": "A portfolio for Vivek CSE, a passionate software developer and technology enthusiast.",
+  "private": true,
+  "scripts": {
+    "themes:build": "bun run src/packages/scripts/build-themes.ts",
+    "models:sync": "bun run src/packages/scripts/models-sync.ts",
+    "models:optimize": "bun run src/packages/scripts/models-optimize.ts",
+    "predev": "bun run themes:build && bun run models:sync",
+    "prebuild": "bun run themes:build && bun run models:sync",
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "bun run src/packages/scripts/secure-export.ts",
+    "start": "next start",
+    "preview": "bunx serve out -l 4173",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "check": "biome check --fix .",
+    "check:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "verify": "bun run lint:fix && bun run format && bun run check && bun run typecheck",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^5.9.1",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "axios": "^1.20.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "geist": "^1.7.2",
+    "github-slugger": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.52.0",
+    "next": "16.4.0",
+    "next-themes": "^0.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.89.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "three": "^0.186.1",
+    "zod": "^4.6.5",
+    "zod-validation-error": "^5.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.2",
+    "@tailwindcss/turbopack": "^4.3.3",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "babel-plugin-react-compiler": "1.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/three": "^0.186.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "meshoptimizer": "^1.3.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,jsonc}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
+  "packageManager": "bun@1.4.2",
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "author": "@vivekcsein",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivekcsein/vivekcse.xyz.git"
+  },
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "bun",
+    "biome"
+  ]
+}

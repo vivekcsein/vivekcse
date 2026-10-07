@@ -1,0 +1,62 @@
+/*
+ * Global scrollbar — thin, primary-colour-based, applied to every
+ * scrollable element in the app (not just the sidebar).
+ *
+ * To opt an element OUT (native scrollbar instead), add `.native-scrollbar`.
+ * To hide a scrollbar entirely, add `.no-scrollbar` (defined below too).
+ */
+
+:root {
+  --scrollbar-size: 8px;
+  --scrollbar-thumb: color-mix(in oklab, var(--primary) 55%, transparent);
+  --scrollbar-thumb-hover: color-mix(in oklab, var(--primary) 80%, transparent);
+  --scrollbar-track: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Escape hatch: keep the OS default scrollbar on a specific element. */
+.native-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+.native-scrollbar::-webkit-scrollbar,
+.native-scrollbar::-webkit-scrollbar-track,
+.native-scrollbar::-webkit-scrollbar-thumb {
+  all: unset;
+}
+
+/* Fully hidden scrollbar (content still scrolls). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

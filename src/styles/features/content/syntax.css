@@ -1,0 +1,97 @@
+/* Fenced code blocks: chrome + syntax colours (highlight.js class names). */
+.prose-docs .code-block {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+
+.prose-docs .code-block pre {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.prose-docs .code-block pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+/* Token colours (--hl-*) are derived from the theme in colors.css. */
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-type {
+  color: var(--hl-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-link {
+  color: var(--hl-string);
+}
+
+.hljs-number,
+.hljs-variable,
+.hljs-bullet {
+  color: var(--hl-number);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-title.function_,
+.hljs-title.class_ {
+  color: var(--hl-title);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-name,
+.hljs-built_in,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-property {
+  color: var(--hl-attr);
+}
+
+.hljs-meta,
+.hljs-punctuation {
+  color: var(--hl-meta);
+}
+
+.hljs-addition {
+  color: var(--hl-addition);
+}
+
+.hljs-deletion {
+  color: var(--hl-deletion);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}

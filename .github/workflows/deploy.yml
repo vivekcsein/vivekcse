@@ -1,0 +1,98 @@
+name: Deploy (GitHub Pages)
+
+# Static export (`output: "export"` → ./out) published with the official Pages actions.
+# One-time repo setup: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# See DEPLOYMENT.md.
+
+on:
+  push:
+    branches: [main]
+  pull_request: # build + all checks, but never deploys
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: the build job can only read the repo. Only the deploy job
+# gets the two extra scopes Pages needs.
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'deploy' }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.9 # keep in sync with packageManager in package.json
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+          restore-keys: bun-${{ runner.os }}-
+
+      # --ignore-scripts: dependency install scripts never run in CI.
+      - run: bun install --frozen-lockfile --ignore-scripts
+
+      - run: bun run lint
+
+      # The ONLY required setting is the public URL of the site.
+      #   1. repo variable NEXT_PUBLIC_SITE_URL, if you set one
+      #   2. otherwise https://<contents of public/CNAME>  (custom domain)
+      # Otherwise the build stops here instead of shipping localhost URLs.
+      - name: Resolve site URL
+        env:
+          SITE_URL_VAR: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+        run: |
+          if [ -n "${SITE_URL_VAR}" ]; then
+            url="${SITE_URL_VAR}"
+          elif [ -s public/CNAME ]; then
+            url="https://$(tr -d '[:space:]' < public/CNAME)"
+          else
+            echo "::error::Set the repository variable NEXT_PUBLIC_SITE_URL (Settings → Secrets and variables → Actions → Variables) or add public/CNAME."
+            exit 1
+          fi
+          echo "NEXT_PUBLIC_SITE_URL=${url}" >> "$GITHUB_ENV"
+          echo "Site URL: ${url}"
+
+      # `bun run build` = themes:build + models:sync → next build → postbuild
+      # (postbuild injects the CSP and, because CI=true, FAILS the build on:
+      #  localhost URLs, a CNAME that doesn't match the site URL, missing
+      #  404.html/.nojekyll/robots.txt/sitemap.xml, inline handlers,
+      #  javascript: URLs or unexpected third-party scripts).
+      - run: bun run build
+        env:
+          # All optional — blank/unset means "use the default".
+          NEXT_PUBLIC_GH_PROJECT_PAGES: ${{ vars.NEXT_PUBLIC_GH_PROJECT_PAGES }}
+          NEXT_PUBLIC_GOOGLE_VERIFICATION: ${{ vars.NEXT_PUBLIC_GOOGLE_VERIFICATION }}
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ vars.NEXT_PUBLIC_ADSENSE_CLIENT }}
+          NEXT_PUBLIC_ADSENSE_SLOT_RAIL: ${{ vars.NEXT_PUBLIC_ADSENSE_SLOT_RAIL }}
+          NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE: ${{ vars.NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE }}
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: out
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

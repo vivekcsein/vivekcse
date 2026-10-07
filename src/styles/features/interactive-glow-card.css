@@ -1,0 +1,67 @@
+/* ========================================
+   Glow Card
+   ------------------------------------------
+   Standalone hover/focus border-shine effect
+   owned entirely by Card.tsx (applied via the
+   `glow-card` class on every Card instance).
+   Works on its own wherever Card is used —
+   does NOT depend on `.form-card` or any other
+   consumer setting `--shine-x`/`--shine-y`.
+   `useCardInteractive.ts` updates those two
+   custom properties on pointer move; they default
+   to a centered glow here so hover/focus still
+   shows something even before the first move
+   (or when reduced-motion skips the JS entirely).
+   ======================================== */
+
+.glow-card {
+  --shine-x: 50%;
+  --shine-y: 50%;
+
+  box-shadow:
+    0 20px 80px color-mix(in oklch, var(--background) 70%, transparent),
+    0 0 40px color-mix(in oklch, var(--primary) 8%, transparent);
+}
+
+.glow-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  border-radius: inherit;
+  padding: 1px;
+
+  content: "";
+
+  background: radial-gradient(
+    240px circle at var(--shine-x) var(--shine-y),
+    color-mix(in oklch, var(--primary) 90%, var(--paper) 10%),
+    transparent 70%
+  );
+
+  opacity: 0;
+
+  transition: opacity var(--motion-fast, 250ms) var(--motion-ease, ease-out);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+.glow-card:hover::after,
+.glow-card:focus-within::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-card::after {
+    transition: none;
+  }
+}

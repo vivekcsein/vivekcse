@@ -1,0 +1,172 @@
+/* -----------------------------------------------------------------------------
+   Site footer (components/layouts/Footer.tsx + features/navigation/footer/*).
+
+   Layout
+   - < 768px : brand block, then an accordion of link groups, then the
+               copyright bar. Everything left-aligned.
+   - >= 768px: brand block on the left, three link columns on the right
+               (one grid), copyright bar underneath.
+
+   Links use a text-only underline (background-size trick) so it hugs the
+   words even when they wrap — same left-in / right-out motion as the header.
+   ----------------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  color: var(--card-foreground);
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.site-footer-inner {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.site-footer-top {
+  display: grid;
+  gap: 2rem;
+}
+
+/* ---------- Brand ---------- */
+
+.site-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 22rem;
+}
+
+.site-footer-tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Links (shared by columns + accordion) ---------- */
+
+.site-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer-link {
+  --link-underline-offset: 0px;
+
+  display: inline-block;
+  padding-bottom: 2px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 100% calc(100% - var(--link-underline-offset));
+  background-size: 0% 1px;
+  transition:
+    color 200ms ease,
+    background-size 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-footer-link:hover,
+.site-footer-link:focus-visible {
+  color: var(--foreground);
+  background-position: 0% calc(100% - var(--link-underline-offset));
+  background-size: 100% 1px;
+}
+
+.site-footer-link:focus-visible {
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+/* ---------- Columns (desktop) ---------- */
+
+.site-footer-columns {
+  display: none;
+}
+
+.site-footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-footer-heading {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+/* ---------- Accordion (mobile) ---------- */
+
+.site-footer-accordion {
+  border-top: 1px solid var(--border);
+}
+
+.site-footer-accordion .site-footer-links {
+  gap: 0;
+}
+
+.site-footer-accordion .site-footer-link {
+  --link-underline-offset: 0.4rem;
+
+  padding-block: 0.5rem 0.55rem;
+}
+
+/* ---------- Bottom bar ---------- */
+
+.site-footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer-copyright {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    padding-block: 4rem 1.75rem;
+  }
+
+  .site-footer-top {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 2.7fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .site-footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .site-footer-accordion {
+    display: none;
+  }
+
+  .site-footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+}

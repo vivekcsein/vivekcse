@@ -1,0 +1,135 @@
+/*
+ * Styles scoped to /marketplace only (imported from marketplace/layout.tsx,
+ * not globals.css, so nothing here leaks into the knowledge-base pages).
+ * Category color comes from an inline `--mkt-color` custom property — see
+ * packages/utils/marketplace-style.ts.
+ */
+
+.mkt-shell {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ---------- Category badge / card tint ---------- */
+
+.mkt-badge {
+  background: color-mix(in oklab, var(--mkt-color) 88%, var(--ink) 4%);
+  color: var(--paper);
+}
+
+.mkt-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mkt-card:hover {
+  border-color: color-mix(in oklab, var(--mkt-color) 55%, transparent);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -20px
+    color-mix(in oklab, var(--mkt-color) 70%, transparent);
+}
+
+.mkt-card-arrow {
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mkt-card:hover .mkt-card-arrow {
+  background: var(--mkt-color);
+  border-color: transparent;
+  color: var(--paper);
+  transform: translateX(2px);
+}
+
+/* ---------- Mini "browser window" preview on each card ---------- */
+
+.mkt-browser {
+  position: relative;
+  overflow: hidden;
+  /* Represents the product's own (dark) UI — fixed, independent of the
+     site's light/dark theme, the way a real screenshot would be. */
+  background: linear-gradient(
+    165deg,
+    color-mix(in oklab, var(--mkt-color) 30%, var(--mkt-screen-dark)) 0%,
+    var(--mkt-screen-dark) 78%
+  );
+}
+
+.mkt-browser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    65% 55% at 18% 0%,
+    color-mix(in oklab, var(--mkt-color) 38%, transparent),
+    transparent 70%
+  );
+}
+
+.mkt-browser--light {
+  background: linear-gradient(
+    165deg,
+    color-mix(in oklab, var(--mkt-color) 10%, var(--mkt-screen-light)) 0%,
+    var(--mkt-screen-light) 78%
+  );
+}
+.mkt-browser--light::before {
+  background: radial-gradient(
+    65% 55% at 18% 0%,
+    color-mix(in oklab, var(--mkt-color) 16%, transparent),
+    transparent 70%
+  );
+}
+
+/* ---------- Hero illustration: two overlapping tilted mockups ---------- */
+
+.mkt-hero-glow {
+  background:
+    radial-gradient(
+      45% 60% at 70% 30%,
+      color-mix(in oklab, var(--primary) 30%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 45% at 40% 70%,
+      color-mix(in oklab, var(--brand-to) 22%, transparent),
+      transparent 70%
+    );
+  filter: blur(2px);
+}
+
+.mkt-mock {
+  border: 1px solid color-mix(in oklab, var(--primary) 35%, var(--border));
+  box-shadow: 0 30px 80px -30px
+    color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+.mkt-mock-back {
+  transform: rotate(-4deg) translateY(4%);
+}
+
+.mkt-mock-front {
+  transform: rotate(3deg) translate(6%, 10%);
+}
+
+@media (max-width: 64rem) {
+  .mkt-mock-back,
+  .mkt-mock-front {
+    transform: none;
+  }
+}
+
+.mkt-annotation {
+  font-family: "Segoe Script", "Bradley Hand", cursive, var(--font-sans);
+  color: color-mix(in oklab, var(--primary) 70%, var(--foreground));
+  transform: rotate(-4deg);
+}

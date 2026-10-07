@@ -1,0 +1,1703 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tax Guru — GST, ITR &amp; Trademark Filing, Done Fast</title>
+  <meta name="description"
+    content="The Tax Guru — GST registration, trademark filing, ITR returns, MSME &amp; IEC registration. Kanpur &amp; Delhi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-2: #0f1524;
+      --card: #141b2e;
+      --card-2: #1a2238;
+      --line: rgba(255, 255, 255, 0.08);
+      --white: #f6f8fc;
+      --mute: #8b96ae;
+
+      /* --- theme colors: edit these --- */
+      --green: #22d3ee;
+      /* was emerald green → now cyan (primary) */
+      --green-2: #0ea5c7;
+      /* darker cyan, used for hover/shadow states */
+      --indigo: #14b8a6;
+      /* was indigo → now teal (secondary) */
+      --gold: #ffc94a;
+      /* tertiary accent, unchanged */
+      --pink: #ff6fa5;
+      /* tertiary accent, unchanged */
+
+      --sans: "Inter", -apple-system, sans-serif;
+      --disp: "Space Grotesk", "Inter", sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-brd: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* background blobs — animated aurora mesh */
+    .blob-field {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.35;
+      will-change: transform;
+    }
+
+    .blob-1 {
+      width: 520px;
+      height: 520px;
+      background: var(--green);
+      top: -180px;
+      right: -120px;
+      animation: drift1 22s ease-in-out infinite;
+    }
+
+    .blob-2 {
+      width: 460px;
+      height: 460px;
+      background: var(--indigo);
+      top: 420px;
+      left: -200px;
+      opacity: 0.28;
+      animation: drift2 26s ease-in-out infinite;
+    }
+
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      background: var(--gold);
+      bottom: -160px;
+      right: 10%;
+      opacity: 0.2;
+      animation: drift3 30s ease-in-out infinite;
+    }
+
+    @keyframes drift1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-60px, 60px) scale(1.15);
+      }
+    }
+
+    @keyframes drift2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(70px, -40px) scale(1.1);
+      }
+    }
+
+    @keyframes drift3 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-40px, -50px) scale(1.2);
+      }
+    }
+
+    /* film grain texture — adds tactile depth over the flat gradients */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* cursor-reactive glow, desktop only */
+    .cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45, 227, 140, 0.13), transparent 70%);
+      pointer-events: none;
+      z-index: 3;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    section,
+    header,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 14, 23, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .brand .dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--green), var(--indigo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #06120b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--mute);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14.5px;
+      padding: 12px 24px;
+      border-radius: 100px;
+      border: 1px solid transparent;
+      transition:
+        transform 0.2s var(--ease),
+        box-shadow 0.2s var(--ease),
+        background 0.2s,
+        border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-grad {
+      background: linear-gradient(135deg, var(--green), #19c97a);
+      color: #06180f;
+      box-shadow: 0 8px 24px -8px rgba(45, 227, 140, 0.6);
+    }
+
+    .btn-grad:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -8px rgba(45, 227, 140, 0.75);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--white);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    /* ---------- marquee ---------- */
+    .marquee {
+      background: linear-gradient(90deg, var(--green), var(--indigo));
+      color: #06120b;
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 11px 0;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: scroll 26s linear infinite;
+    }
+
+    .marquee-track span {
+      padding: 0 26px;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      padding: 110px 0 90px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(45, 227, 140, 0.1);
+      border: 1px solid rgba(45, 227, 140, 0.3);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .badge .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(1.3);
+      }
+    }
+
+    h1.hero-h {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    h1.hero-h .grad {
+      background: linear-gradient(105deg, var(--green) 10%, var(--indigo) 60%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--mute);
+      max-width: 52ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn-lg {
+      padding: 17px 32px;
+      font-size: 16px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      padding: 0 32px 0 0;
+      margin-right: 32px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat .n {
+      font-family: var(--disp);
+      font-size: 34px;
+      font-weight: 700;
+      background: linear-gradient(120deg, var(--gold), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .stat .l {
+      font-size: 13px;
+      color: var(--mute);
+      margin-top: 4px;
+    }
+
+    /* ---------- pricing bold cards ---------- */
+    .pricing {
+      padding: 70px 0 100px;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .price-card {
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-brd);
+      border-radius: 24px;
+      padding: 36px 30px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.35s var(--ease),
+        border-color 0.35s,
+        background 0.35s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .price-card::before {
+      content: "";
+      position: absolute;
+      top: -60%;
+      right: -40%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+    }
+
+    .price-card.c1::before {
+      background: var(--green);
+    }
+
+    .price-card.c2::before {
+      background: var(--indigo);
+    }
+
+    .price-card.c3::before {
+      background: var(--gold);
+    }
+
+    .price-card .ptag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--mute);
+      margin-bottom: 18px;
+    }
+
+    .price-card h3 {
+      font-family: var(--disp);
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .price-card .amt {
+      font-family: var(--disp);
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .price-card .amt sup {
+      font-size: 20px;
+      top: -1em;
+    }
+
+    .price-card .amt small {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mute);
+    }
+
+    .price-card p {
+      font-size: 14.5px;
+      color: var(--mute);
+      margin: 16px 0 24px;
+      line-height: 1.6;
+    }
+
+    .price-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ---------- bento grid ---------- */
+    .bento {
+      padding: 20px 0 100px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 170px;
+      gap: 18px;
+    }
+
+    .bento-cell {
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-brd);
+      border-radius: 22px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition:
+        transform 0.35s var(--ease),
+        border-color 0.35s;
+    }
+
+    .bento-cell:hover {
+      transform: translateY(-4px);
+      border-color: rgba(45, 227, 140, 0.4);
+    }
+
+    .bento-cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .bento-cell.wide {
+      grid-column: span 2;
+    }
+
+    .bento-cell .bk {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--green);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .bento-cell h4 {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+
+    .bento-cell.big h4 {
+      font-size: 30px;
+    }
+
+    .bento-cell p {
+      font-size: 13.5px;
+      color: var(--mute);
+      line-height: 1.6;
+    }
+
+    .bento-cell .glow {
+      position: absolute;
+      top: -40%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    .bento-cell.n1 .glow {
+      background: var(--green);
+    }
+
+    .bento-cell.n2 .glow {
+      background: var(--indigo);
+    }
+
+    .bento-cell.n3 .glow {
+      background: var(--gold);
+    }
+
+    .bento-cell.n4 .glow {
+      background: var(--pink);
+    }
+
+    .bento-cell.n5 .glow {
+      background: var(--green);
+    }
+
+    .bento-big-num {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 52px;
+      line-height: 1;
+      background: linear-gradient(120deg, var(--green), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
+
+    /* ---------- services bold grid ---------- */
+    .services {
+      padding: 40px 0 100px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .section-tag::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    .section-head h2 {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      color: var(--mute);
+      font-size: 16px;
+      max-width: 56ch;
+      margin-bottom: 56px;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .svc-card {
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-brd);
+      border-radius: 20px;
+      padding: 30px 26px;
+      transition:
+        transform 0.3s var(--ease),
+        background 0.3s,
+        border-color 0.3s;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(45, 227, 140, 0.4);
+    }
+
+    .svc-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #06120b;
+    }
+
+    .svc-card:nth-child(6n + 1) .svc-icon {
+      background: linear-gradient(135deg, var(--green), #17a868);
+    }
+
+    .svc-card:nth-child(6n + 2) .svc-icon {
+      background: linear-gradient(135deg, var(--indigo), #5b4bd6);
+      color: #fff;
+    }
+
+    .svc-card:nth-child(6n + 3) .svc-icon {
+      background: linear-gradient(135deg, var(--gold), #e0a72e);
+    }
+
+    .svc-card:nth-child(6n + 4) .svc-icon {
+      background: linear-gradient(135deg, var(--pink), #e24c8a);
+      color: #fff;
+    }
+
+    .svc-card:nth-child(6n + 5) .svc-icon {
+      background: linear-gradient(135deg, var(--green), var(--indigo));
+      color: #fff;
+    }
+
+    .svc-card:nth-child(6n + 6) .svc-icon {
+      background: linear-gradient(135deg, var(--indigo), var(--pink));
+      color: #fff;
+    }
+
+    .svc-card h3 {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .svc-card p {
+      font-size: 14px;
+      color: var(--mute);
+      line-height: 1.65;
+    }
+
+    /* ---------- CTA banner ---------- */
+    .cta-banner {
+      padding: 0 0 100px;
+    }
+
+    .cta-inner {
+      background: linear-gradient(120deg, #0f2e22, #101637 55%, #2b1d33);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 64px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px 300px at 50% 0%,
+          rgba(45, 227, 140, 0.22),
+          transparent 60%);
+    }
+
+    .cta-inner h2 {
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      position: relative;
+      z-index: 1;
+      max-width: 20ch;
+      margin: 0 auto 18px;
+    }
+
+    .cta-inner p {
+      color: var(--mute);
+      font-size: 16px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 32px;
+    }
+
+    .cta-inner .hero-actions {
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- form ---------- */
+    .form-section {
+      padding: 0 0 100px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .form-copy .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 15px;
+      color: var(--mute);
+    }
+
+    .form-copy .contact-item .ic {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(45, 227, 140, 0.1);
+      border: 1px solid rgba(45, 227, 140, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    form.filing-form {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--mute);
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 14.5px;
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green);
+      outline: none;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .filing-form .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 15px;
+      margin-top: 4px;
+    }
+
+    /* ---------- testimonials ---------- */
+    .testimonials {
+      padding: 0 0 100px;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .test-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 26px;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .test-card p {
+      font-size: 14.5px;
+      color: #d6dcea;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .test-who {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--disp);
+      font-weight: 700;
+      font-size: 14px;
+      color: #06120b;
+    }
+
+    .test-name {
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+
+    .test-role {
+      font-size: 12px;
+      color: var(--mute);
+    }
+
+    /* ---------- offices ---------- */
+    .offices {
+      padding: 0 0 100px;
+    }
+
+    .off-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .off-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 26px;
+    }
+
+    .off-card .otag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .off-card h4 {
+      font-family: var(--disp);
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .off-card p {
+      font-size: 13.5px;
+      color: var(--mute);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .off-card a {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .map-embed {
+      grid-column: 1/-1;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 280px;
+      border: 1px solid var(--line);
+      filter: grayscale(0.2) invert(0.92) contrast(0.9);
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 48px 0 28px;
+    }
+
+    .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .foot-links {
+      display: flex;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    .foot-links h5 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .foot-links a {
+      display: block;
+      font-size: 13.5px;
+      color: var(--mute);
+      padding: 5px 0;
+    }
+
+    .foot-links a:hover {
+      color: var(--white);
+    }
+
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 22px;
+      font-size: 12.5px;
+      color: var(--mute);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.7s var(--ease),
+        transform 0.7s var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+
+      .price-grid,
+      .svc-grid,
+      .off-grid,
+      .test-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-stats {
+        gap: 0;
+      }
+
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 150px;
+      }
+
+      .bento-cell.big {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .price-grid,
+      .svc-grid,
+      .off-grid,
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        padding: 44px 26px;
+      }
+
+      .stat {
+        margin-right: 22px;
+        padding-right: 22px;
+      }
+
+      section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+      }
+
+      .bento-cell {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 150px;
+      }
+
+      .cursor-glow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob-field">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <header>
+    <nav class="nav wrap">
+      <a href="#top" class="brand">
+        <span class="dot">TG</span>
+        The Tax Guru
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Offices</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+919305468480" class="btn btn-ghost">Call Now</a>
+        <a href="#file-now" class="btn btn-grad">Start Filing →</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>★ GST REGISTRATION</span><span>★ TRADEMARK FILING</span><span>★ INCOME TAX RETURNS</span><span>★ MSME
+        REGISTRATION</span><span>★ IEC CODE</span><span>★ EPF UAN</span> <span>★ GST REGISTRATION</span><span>★
+        TRADEMARK FILING</span><span>★ INCOME TAX RETURNS</span><span>★ MSME REGISTRATION</span><span>★ IEC
+        CODE</span><span>★ EPF UAN</span>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="badge">
+          <span class="live-dot"></span> Now filing for Kanpur &amp; Delhi businesses
+        </div>
+        <h1 class="hero-h">Tax filing that actually <span class="grad">moves fast.</span></h1>
+        <p class="hero-sub">
+          GST, trademark, ITR, MSME and IEC — filed, tracked and cleared by a dedicated team. No
+          confusing jargon, no missed deadlines, just your certificate in hand.
+        </p>
+        <div class="hero-actions">
+          <a href="#file-now" class="btn btn-grad btn-lg">Get Free Consultation</a>
+          <a href="tel:+919305468480" class="btn btn-ghost btn-lg">📞 +91-93054 68480</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="n">₹499</div>
+            <div class="l">GST Registration</div>
+          </div>
+          <div class="stat">
+            <div class="n">₹999</div>
+            <div class="l">Trademark Filing</div>
+          </div>
+          <div class="stat">
+            <div class="n">24 hr</div>
+            <div class="l">Avg. response time</div>
+          </div>
+          <div class="stat">
+            <div class="n">2 cities</div>
+            <div class="l">Kanpur &amp; Delhi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO / WHY US -->
+    <section class="bento">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Why The Tax Guru</div>
+          <h2>Built like a product, run like a firm</h2>
+          <p>
+            Every filing is tracked from submission to certificate — here's what that actually
+            looks like.
+          </p>
+        </div>
+        <div class="bento-grid reveal">
+          <div class="bento-cell big n1">
+            <div class="glow"></div>
+            <div class="bento-big-num">6</div>
+            <h4>Registrations under one roof</h4>
+            <p>
+              GST, ITR, Trademark, MSME, EPF UAN and IEC — filed by the same team, so nothing
+              falls between the cracks.
+            </p>
+          </div>
+          <div class="bento-cell n2">
+            <div class="glow"></div>
+            <div class="bk">Speed</div>
+            <h4>24 hr callback</h4>
+            <p>Every consultation request gets a response within one business day.</p>
+          </div>
+          <div class="bento-cell n3">
+            <div class="glow"></div>
+            <div class="bk">Pricing</div>
+            <h4>Flat, upfront rates</h4>
+            <p>₹499–₹999 per filing. No surprise add-ons after you've signed on.</p>
+          </div>
+          <div class="bento-cell wide n4">
+            <div class="glow"></div>
+            <div class="bk">Reach</div>
+            <h4>Kanpur &amp; Delhi, serving clients nationwide</h4>
+            <p>Two physical offices, remote filing support anywhere in India.</p>
+          </div>
+          <div class="bento-cell n5">
+            <div class="glow"></div>
+            <div class="bk">Trust</div>
+            <h4>Tracked, not black-boxed</h4>
+            <p>Real ARN numbers and status updates at every stage of your filing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Transparent Pricing</div>
+          <h2>No hidden fees. Ever.</h2>
+          <p>
+            Flat rates on our most-filed services — pay once, we handle the rest until it's
+            cleared.
+          </p>
+        </div>
+        <div class="price-grid reveal">
+          <div class="price-card c1">
+            <span class="ptag">Most popular</span>
+            <h3>GST Registration</h3>
+            <div class="amt"><sup>₹</sup>499</div>
+            <p>Complete GST registration with guidance on invoicing, rates and HSN codes.</p>
+            <a href="#file-now" class="btn btn-grad">Get Started</a>
+          </div>
+          <div class="price-card c2">
+            <span class="ptag">Brand protection</span>
+            <h3>Trademark Registration</h3>
+            <div class="amt"><sup>₹</sup>999</div>
+            <p>Secure your business name or logo with a full trademark filing.</p>
+            <a href="#file-now" class="btn btn-ghost">Get Started</a>
+          </div>
+          <div class="price-card c3">
+            <span class="ptag">Monthly compliance</span>
+            <h3>GST Return &amp; ITR</h3>
+            <div class="amt"><sup>₹</sup>499</div>
+            <p>Recurring GST returns and income tax filing, handled every cycle.</p>
+            <a href="#file-now" class="btn btn-ghost">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Full Service Range</div>
+          <h2>Everything your business needs to stay compliant</h2>
+          <p>
+            Six core filings, one team — so you're never juggling multiple consultants for one
+            registration.
+          </p>
+        </div>
+        <div class="svc-grid reveal">
+          <div class="svc-card">
+            <div class="svc-icon">GST</div>
+            <h3>GST Registration</h3>
+            <p>
+              The fastest, most affordable GST registration service in India — handled by
+              specialists end-to-end.
+            </p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">ITR</div>
+            <h3>Income Tax</h3>
+            <p>
+              Legally minimise your tax liability with accurate calculations and on-time refunds.
+            </p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">MSME</div>
+            <h3>MSME Registration</h3>
+            <p>Get your Udyog Aadhar-based MSME certificate through one simple, guided form.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">™</div>
+            <h3>Trademark Registration</h3>
+            <p>
+              Protect your name, logo or mark with filing handled directly by our specialists.
+            </p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">PF</div>
+            <h3>EPF UAN Registration</h3>
+            <p>Get your unique EPFO number and unlock every EPF service online.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">IEC</div>
+            <h3>IEC Code Registration</h3>
+            <p>Required before any import/export activity — trusted by traders across India.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="wrap">
+        <div class="cta-inner reveal">
+          <h2>Stop guessing. Start filing with confidence.</h2>
+          <p>Talk to a consultant today — free, no obligation, no jargon.</p>
+          <div class="hero-actions">
+            <a href="#file-now" class="btn btn-grad btn-lg">Get Free Consultation</a>
+            <a href="tel:+919305468480" class="btn btn-ghost btn-lg">Call +91-93054 68480</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="form-section" id="file-now">
+      <div class="wrap form-grid">
+        <div class="form-copy reveal">
+          <div class="section-tag">Get in Touch</div>
+          <h2 style="
+                font-family: var(--disp);
+                font-weight: 700;
+                font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+                letter-spacing: -0.02em;
+                margin-bottom: 16px;
+              ">
+            Tell us what needs filing
+          </h2>
+          <p style="color: var(--mute); font-size: 16px; max-width: 42ch">
+            Share a few details and a consultant calls you back with clear scope and pricing —
+            usually within a day.
+          </p>
+          <div class="contact-item"><span class="ic">✉</span> info@thetaxguru.in</div>
+          <div class="contact-item">
+            <span class="ic">☎</span> +91-9305468480 · +91-8299404744
+          </div>
+          <div class="contact-item"><span class="ic">📍</span> Kanpur, U.P. &amp; New Delhi</div>
+        </div>
+
+        <form class="filing-form reveal" onsubmit="return handleSubmit(event);">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile number</label>
+              <input id="mobile" name="mobile" type="tel" placeholder="+91" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="service">Required service</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Please select a service</option>
+              <option>GST Registration</option>
+              <option>Trademark Registration</option>
+              <option>GST &amp; ITR Return</option>
+              <option>MSME Registration</option>
+              <option>PF/ESI Registration</option>
+              <option>IEC Registration</option>
+              <option>FSSAI Registration</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="query">Query <span style="font-weight: 400; color: var(--mute)">(optional)</span></label>
+            <textarea id="query" name="query" rows="3" placeholder="Tell us a bit more"></textarea>
+          </div>
+          <button type="submit" class="btn btn-grad">Submit Request →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Client Reviews</div>
+          <h2>Loved by business owners across India</h2>
+        </div>
+        <div class="test-grid reveal">
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              They were very helpful during my company's partnership registration — would
+              certainly recommend to others.
+            </p>
+            <div class="test-who">
+              <span class="avatar" style="background: linear-gradient(135deg, var(--green), #17a868)">NG</span>
+              <div>
+                <div class="test-name">Naresh Gupta</div>
+                <div class="test-role">Partnership Registration</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              True professionals with expert knowledge and experience. Got my GST work done within
+              a single day.
+            </p>
+            <div class="test-who">
+              <span class="avatar" style="background: linear-gradient(135deg, var(--indigo), #5b4bd6)">KG</span>
+              <div>
+                <div class="test-name">Kiran Gujjar</div>
+                <div class="test-role">GST Registration</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              Their consultants are very supportive and guided me at every step while getting my
+              Import Export code.
+            </p>
+            <div class="test-who">
+              <span class="avatar" style="background: linear-gradient(135deg, var(--pink), #e24c8a)">SM</span>
+              <div>
+                <div class="test-name">Simran Makwana</div>
+                <div class="test-role">IEC Registration</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICES -->
+    <section class="offices" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-tag">Our Offices</div>
+          <h2>Walk in, call, or write</h2>
+        </div>
+        <div class="off-grid reveal">
+          <div class="off-card">
+            <div class="otag">Kanpur · Head Office</div>
+            <h4>Ganesh Nagar, Rawatpur</h4>
+            <p>116/652, Ganesh Nagar, Rawatpur, Kanpur – 208019, U.P.</p>
+            <p>
+              <a href="tel:+919305468480">+91-9305468480</a> ·
+              <a href="tel:+918299404744">+91-8299404744</a>
+            </p>
+          </div>
+          <div class="off-card">
+            <div class="otag">New Delhi · Branch Office</div>
+            <h4>Nihal Vihar, Nangloi</h4>
+            <p>RFZ-32, Nihal Vihar, Nangloi, New Delhi, Delhi 110041</p>
+            <p><a href="tel:+918299329104">+91-8299329104</a></p>
+          </div>
+          <div class="off-card">
+            <div class="otag">Hours</div>
+            <h4>Mon – Sun</h4>
+            <p>10:00 AM – 7:00 PM, seven days a week</p>
+            <p><a href="mailto:info@thetaxguru.in">info@thetaxguru.in</a></p>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28570.876850360128!2d80.282818!3d26.476364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x502c6b08ec24da05!2sGUPTA%20ASSOCIATES!5e0!3m2!1sen!2sin!4v1620395622233!5m2!1sen!2sin"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office location map"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <a href="#top" class="brand"><span class="dot">TG</span> The Tax Guru</a>
+        <div class="foot-links">
+          <div>
+            <h5>Site</h5>
+            <a href="#top">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div>
+            <h5>Registrations</h5>
+            <a href="#services">GST Registration</a>
+            <a href="#services">Trademark Filing</a>
+            <a href="#services">MSME Registration</a>
+            <a href="#services">IEC Registration</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 The Tax Guru. All rights reserved.</span>
+        <span>Kanpur, U.P. · New Delhi</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
+    toggle.addEventListener("click", () => {
+      const open = navLinks.style.display === "flex";
+      navLinks.style.cssText = open
+        ? ""
+        : "display:flex; flex-direction:column; position:fixed; top:78px; left:0; right:0; background:#0F1524; padding:24px 28px; gap:18px; border-bottom:1px solid var(--line); z-index:49;";
+    });
+
+    // cursor-reactive glow (desktop / fine-pointer only)
+    const glow = document.getElementById("cursorGlow");
+    if (window.matchMedia("(pointer:fine)").matches) {
+      window.addEventListener("mousemove", (e) => {
+        glow.style.opacity = "1";
+        glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+      });
+      document.addEventListener("mouseleave", () => {
+        glow.style.opacity = "0";
+      });
+    }
+
+    // magnetic buttons — subtle pull toward cursor
+    document.querySelectorAll(".btn").forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.25;
+        const y = (e.clientY - r.top - r.height / 2) * 0.35;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
+      });
+    });
+
+    const revealEls = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    revealEls.forEach();
+
+    function _handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = "Request received ✓";
+      setTimeout(() => {
+        btn.textContent = original;
+        e.target.reset();
+      }, 2600);
+      return false;
+    }
+  </script>
+</body>
+
+</html>

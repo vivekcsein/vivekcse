@@ -1,0 +1,123 @@
+/* -----------------------------------------------------------------------------
+   Accordion — used by the mobile nav drawer and the mobile footer
+   (components/ui/accordion/AccordionItem.tsx). Same motion language as the
+   desktop nav: a left-to-right primary underline on the title, easing from
+   animation tokens (cubic-bezier(0.16, 1, 0.3, 1)).
+   ----------------------------------------------------------------------------- */
+
+.accordion-item {
+  --accordion-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --accordion-duration: 380ms;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.25rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--foreground);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 200ms ease;
+}
+
+.accordion-trigger:hover,
+.accordion-item[data-open="true"] > .accordion-trigger {
+  color: var(--primary);
+}
+
+.accordion-trigger:focus-visible {
+  outline: none;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+/* Underline hugs the title text only (not the full row) */
+.accordion-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.accordion-title::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--accordion-duration) var(--accordion-easing);
+}
+
+.accordion-item[data-open="true"] .accordion-title::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.accordion-chevron {
+  flex-shrink: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.25rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--accordion-duration) var(--accordion-easing);
+}
+
+.accordion-item[data-open="true"] .accordion-chevron {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+/* Height animation via grid rows: 0fr -> 1fr animates to the content's
+   real height, no measured max-height. Exactly ONE child of the grid
+   (the inner wrapper) — extra children would create extra rows. */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--accordion-duration) var(--accordion-easing),
+    visibility 0s linear var(--accordion-duration);
+}
+
+.accordion-item[data-open="true"] > .accordion-panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.accordion-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.accordion-panel-content {
+  padding: 0.25rem 0.25rem 1rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 220ms ease,
+    transform var(--accordion-duration) var(--accordion-easing);
+}
+
+.accordion-item[data-open="true"] .accordion-panel-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 60ms;
+}

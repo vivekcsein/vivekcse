@@ -1,0 +1,142 @@
+/* ============================================================
+   colors.css  (rename later, e.g. tokens.css)
+
+   EXTRA design tokens that sit on top of the tweakcn themes.
+   - Never edit the theme files: everything here is either
+       (a) DERIVED from theme variables (--primary, --muted, ...), so
+           it follows every theme + light/dark automatically, or
+       (b) one of the few deliberate theme-independent constants
+           (--paper, --ink, --brand-whatsapp).
+   - Components use the Tailwind names mapped in @theme inline below
+     (bg-paper, text-ink, to-brand-to, text-topic-amber, bg-mkt-dark ...)
+     or the raw variables in CSS.
+   ============================================================ */
+
+:root {
+  /* Single source of truth for the sticky header height (navigation.css aliases it). */
+  --header-h: 4rem;
+
+  /* ---- (b) deliberate constants -------------------------------------
+     Fixed light/dark "ink on paper", independent of the active theme.
+     Used for text on saturated accents, backdrop scrims and mixing. */
+  --paper: oklch(1 0 0);
+  --ink: oklch(0 0 0);
+  --scrim: color-mix(in oklab, var(--ink) 50%, transparent);
+  /* Third-party brand colour (WhatsApp checkout button) */
+  --brand-whatsapp: oklch(0.77 0.2 150);
+
+  /* ---- (a) derived from the theme ---------------------------------- */
+
+  /* Code surface: a hair off the page background */
+  --code-bg: color-mix(in oklab, var(--muted) 70%, var(--background));
+
+  /* Brand gradient: the theme's primary, hue-shifted (blue -> primary -> magenta
+     on violet themes; adapts to any theme). */
+  --brand-from: oklch(from var(--primary) calc(l + 0.14) c calc(h - 35));
+  --brand-via: oklch(from var(--primary) calc(l + 0.1) c h);
+  --brand-to: oklch(from var(--primary) calc(l + 0.1) c calc(h + 40));
+
+  /* Topic accents: fixed hue per topic (they must stay distinguishable),
+     lightness clamped from the theme's primary, fixed chroma. */
+  --topic-sky: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.15 235);
+  --topic-green: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.15 160);
+  --topic-orange: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.16 55);
+  --topic-violet: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.17 285);
+  --topic-magenta: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.2 325);
+  --topic-blue: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.17 260);
+  --topic-rose: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.17 10);
+  --topic-teal: oklch(from var(--primary) clamp(0.68, l, 0.8) 0.12 185);
+  --topic-amber: oklch(from var(--primary) clamp(0.68, l, 0.82) 0.15 85);
+
+  /* Marketplace category accents (same idea) */
+  --mkt-violet: oklch(from var(--primary) clamp(0.6, l, 0.72) 0.2 290);
+  --mkt-teal: oklch(from var(--primary) clamp(0.6, l, 0.72) 0.12 180);
+  --mkt-indigo: oklch(from var(--primary) clamp(0.6, l, 0.72) 0.18 275);
+  --mkt-pink: oklch(from var(--primary) clamp(0.6, l, 0.72) 0.2 350);
+  --mkt-blue: oklch(from var(--primary) clamp(0.6, l, 0.72) 0.17 255);
+
+  /* Fake "product screenshots" on marketplace cards / hero */
+  --mkt-screen-dark: color-mix(in oklab, var(--primary) 10%, var(--ink));
+  --mkt-screen-light: color-mix(in oklab, var(--primary) 6%, var(--paper));
+
+  /* Status (missing from the tweakcn themes) */
+  --success: oklch(0.6 0.17 150);
+  --success-foreground: var(--paper);
+
+  /* Syntax highlighting: chart colours pulled toward the text colour so
+     they keep contrast on the code surface in light and dark. */
+  --hl-comment: var(--muted-foreground);
+  --hl-meta: var(--muted-foreground);
+  --hl-keyword: color-mix(in oklab, var(--chart-1) 72%, var(--foreground));
+  --hl-title: color-mix(in oklab, var(--chart-2) 72%, var(--foreground));
+  --hl-string: color-mix(in oklab, var(--chart-3) 72%, var(--foreground));
+  --hl-number: color-mix(in oklab, var(--chart-4) 72%, var(--foreground));
+  --hl-attr: color-mix(in oklab, var(--chart-5) 72%, var(--foreground));
+  --hl-addition: color-mix(in oklab, var(--chart-3) 72%, var(--foreground));
+  --hl-deletion: var(--destructive);
+}
+
+.dark {
+  --success: oklch(0.72 0.17 150);
+  --success-foreground: var(--ink);
+}
+
+/* Browsers without relative colour syntax: everything falls back to the
+   theme's primary (still on-theme, just not multi-hue). */
+@supports not (color: oklch(from red l c h)) {
+  :root {
+    --brand-from: var(--primary);
+    --brand-via: var(--primary);
+    --brand-to: var(--primary);
+    --topic-sky: var(--primary);
+    --topic-green: var(--primary);
+    --topic-orange: var(--primary);
+    --topic-violet: var(--primary);
+    --topic-magenta: var(--primary);
+    --topic-blue: var(--primary);
+    --topic-rose: var(--primary);
+    --topic-teal: var(--primary);
+    --topic-amber: var(--primary);
+    --mkt-violet: var(--primary);
+    --mkt-teal: var(--primary);
+    --mkt-indigo: var(--primary);
+    --mkt-pink: var(--primary);
+    --mkt-blue: var(--primary);
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-code: var(--code-bg);
+  --color-whatsapp: var(--brand-whatsapp);
+
+  --color-brand-from: var(--brand-from);
+  --color-brand-via: var(--brand-via);
+  --color-brand-to: var(--brand-to);
+
+  --color-topic-sky: var(--topic-sky);
+  --color-topic-green: var(--topic-green);
+  --color-topic-orange: var(--topic-orange);
+  --color-topic-violet: var(--topic-violet);
+  --color-topic-magenta: var(--topic-magenta);
+  --color-topic-blue: var(--topic-blue);
+  --color-topic-rose: var(--topic-rose);
+  --color-topic-teal: var(--topic-teal);
+  --color-topic-amber: var(--topic-amber);
+
+  --color-mkt-dark: var(--mkt-screen-dark);
+  --color-mkt-light: var(--mkt-screen-light);
+
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* `shadow-pop` was used in 5 places but never defined (no shadow rendered) */
+  --shadow-pop: var(--shadow-xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}

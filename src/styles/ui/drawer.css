@@ -1,0 +1,143 @@
+/* -----------------------------------------------------------------------------
+   Drawer — generic slide-in panel (cart, filters, notifications, or
+   anywhere else that needs one). Mobile-first: full-height overlay.
+
+   z-index sits above the header (9999 in navigation.css) since it needs
+   to cover a sticky header while open.
+   ----------------------------------------------------------------------------- */
+
+.drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.drawer-root.is-open {
+  pointer-events: auto;
+}
+
+.drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  /* Fixed dark scrim (--scrim in colors.css) — reads as "dimmed" in both modes. */
+  background: var(--scrim);
+
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.drawer-root.is-open .drawer-backdrop {
+  opacity: 1;
+}
+
+.drawer-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 85vw;
+  max-width: 360px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 0 0 40px color-mix(in oklch, var(--foreground) 15%, transparent);
+
+  transition: transform 400ms ease;
+}
+
+.drawer-panel-right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.drawer-panel-left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.drawer-root.is-open .drawer-panel {
+  transform: translateX(0);
+}
+
+.drawer-panel:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring) inset;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.drawer-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+}
+
+.drawer-close-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: pointer;
+
+  transition: background-color 150ms ease;
+}
+
+.drawer-close-btn:hover {
+  background: var(--accent);
+}
+
+.drawer-close-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+/* Same pure-CSS-lines technique as the header's hamburger button — two
+   rotated bars forming an X, no icon import needed inside this
+   Client Component (LucideIcon is server-only, see AGENTS.md). */
+.drawer-close-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  background: var(--card-foreground);
+}
+
+.drawer-close-btn span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.drawer-close-btn span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+.drawer-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border);
+}

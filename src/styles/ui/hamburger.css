@@ -1,0 +1,112 @@
+/* -----------------------------------------------------------------------------
+   Hamburger — mobile menu toggle (components/ui/hamburger/Hamburger.tsx).
+   Tweak the custom properties below; nothing else needs to change.
+   Hidden at/above 1024px, where the desktop nav takes over.
+   ----------------------------------------------------------------------------- */
+
+.hamburger {
+  --hamburger-size: 2.75rem;
+  --hamburger-bar-width: 1.375rem;
+  --hamburger-bar-height: 2px;
+  --hamburger-bar-gap: 6px;
+  --hamburger-color: var(--foreground);
+  --hamburger-hover-bg: var(--accent);
+  --hamburger-duration: 400ms;
+  --hamburger-easing: cubic-bezier(0.16, 1, 0.3, 1);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--hamburger-size);
+  height: var(--hamburger-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--hamburger-color);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background-color 200ms ease;
+}
+
+.hamburger:hover {
+  background: var(--hamburger-hover-bg);
+}
+
+.hamburger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger-bars {
+  position: relative;
+  display: block;
+  width: var(--hamburger-bar-width);
+  height: var(--hamburger-bar-height);
+}
+
+.hamburger-bar {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: var(--hamburger-bar-height);
+  border-radius: 9999px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform var(--hamburger-duration) var(--hamburger-easing),
+    width var(--hamburger-duration) var(--hamburger-easing),
+    opacity 200ms ease;
+}
+
+/* All three bars sit centered on the same line; the outer two are then
+   offset by one bar-height + gap. Rotation happens around each bar's own
+   center, so the X forms exactly where the middle bar was. */
+.hamburger-bar:nth-child(1) {
+  top: calc(50% - var(--hamburger-bar-height) / 2);
+  transform: translateY(
+    calc(-1 * (var(--hamburger-bar-gap) + var(--hamburger-bar-height)))
+  );
+}
+
+.hamburger-bar:nth-child(2) {
+  top: calc(50% - var(--hamburger-bar-height) / 2);
+  width: 68%;
+}
+
+.hamburger-bar:nth-child(3) {
+  top: calc(50% - var(--hamburger-bar-height) / 2);
+  transform: translateY(
+    calc(var(--hamburger-bar-gap) + var(--hamburger-bar-height))
+  );
+}
+
+/* Hover hint: the short middle bar extends to full width */
+.hamburger:hover .hamburger-bar:nth-child(2) {
+  width: 100%;
+}
+
+/* Open -> X */
+.hamburger[data-open="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.hamburger[data-open="true"] .hamburger-bar:nth-child(2) {
+  width: 100%;
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger[data-open="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}

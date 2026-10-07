@@ -1,0 +1,23 @@
+.screen-height {
+  width: 100%;
+  min-height: calc(100svh - var(--header-h));
+  height: auto;
+}
+
+.gradient {
+  background: linear-gradient(
+    90deg,
+    var(--brand-from) 0%,
+    var(--brand-via) 50%,
+    var(--brand-to) 100%
+  );
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

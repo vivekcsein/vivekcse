@@ -1,0 +1,36 @@
+/* ========================================
+   Autofill (browser/password-manager)
+   ------------------------------------------
+   Keeps auto filled fields visually identical
+   to the normal input while forcing readable
+   text color in both light and dark themes.
+
+   NOTES:
+   - Covering box-shadow layer (blocks Chrome's
+     native autofill paint) must be FULLY OPAQUE —
+     var(--background) with no color-mix/transparent —
+     or the browser's own fill color bleeds through.
+   - Selectors are doubled (.input.input) to bump
+     specificity above conflicting rules, avoiding
+     !important everywhere except one property.
+   - -webkit-text-fill-color needs !important:
+     Chrome's internal UA autofill style for text
+     color out-competes normal author CSS even at
+     high specificity — this is a documented Chrome
+     quirk, not fixable via specificity/@layer alone.
+   - Text color uses var(--foreground) so it tracks
+     the theme; .dark overrides included as a safety
+     net in case your tokens don't auto-resolve when
+     .dark is applied to a root/html/body element.
+   ======================================== */
+/** biome-ignore-all lint/complexity/noImportantStyles: <> */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;
+  /* Change #ffffff to your desired background color */
+  -webkit-text-fill-color: var(--foreground) !important;
+  /* Change #000000 to your desired text color */
+  transition: background-color 9999s ease-in-out 0s;
+}

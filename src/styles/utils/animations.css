@@ -1,0 +1,393 @@
+/* -----------------------------------------------------------------------------
+   Shared animations — Stage 5 calls for fade, scale, slide, accordion, and
+   skeleton-loading motion, all living in one file so timing stays consistent
+   instead of every component inventing its own duration/easing.
+
+   Durations below mirror MOTION_DURATION in packages/configs/theme.config.ts
+   (instant 100ms / fast 150ms / base 250ms / slow 400ms) — if you change one,
+   change the other so JS-driven and CSS-driven motion don't drift apart.
+
+   `prefers-reduced-motion` is already handled globally in typography.css
+   (collapses all animation/transition durations to ~0), so these keyframes
+   don't need their own reduced-motion guard.
+   ----------------------------------------------------------------------------- */
+
+/* Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-48px);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+
+/* Zoom */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Scale */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Rotate */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-15deg) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotate(15deg) scale(0.95);
+  }
+}
+
+/* Flip */
+@keyframes flipX {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateX(90deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0);
+  }
+}
+
+@keyframes flipY {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(90deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0);
+  }
+}
+
+/* Bounce */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  70% {
+    transform: scale(0.96);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceOut {
+  20% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+/* Blur */
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(16px);
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes blurOut {
+  from {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(16px);
+  }
+}
+
+/* Attention */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  15% {
+    transform: translateX(-12px) rotate(-5deg);
+  }
+
+  30% {
+    transform: translateX(10px) rotate(3deg);
+  }
+
+  45% {
+    transform: translateX(-8px) rotate(-3deg);
+  }
+
+  60% {
+    transform: translateX(6px) rotate(2deg);
+  }
+
+  75% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scaleX(1.15) scaleY(0.85);
+  }
+
+  50% {
+    transform: scaleX(0.9) scaleY(1.1);
+  }
+
+  75% {
+    transform: scaleX(1.05) scaleY(0.95);
+  }
+}

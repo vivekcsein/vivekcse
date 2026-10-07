@@ -1,0 +1,121 @@
+.hero-scene {
+  --spread-x: 1;
+  --spread-y: 1;
+  --main-size: clamp(280px, 60%, 640px);
+  --icon-size: max(11%, 52px);
+
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  /* never taller than the viewport */
+  height: min(760px, 80vw, 90svh);
+  min-height: 360px;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+/* tilt: whole stage rotates in 3D (driven by gsap) */
+.hero-stage {
+  position: relative;
+  width: min(1000px, 92%);
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ---- icons -------------------------------------------------------- */
+
+/* outer box: placement. rotation moves it (orbit), static mode uses left/top. */
+.hero-item {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* rotation: every icon gets the same square box at the stage centre;
+   the orbit hook then moves it out onto the ellipse */
+.hero-scene.is-rotating .hero-item {
+  left: 50%;
+  top: 50%;
+  width: var(--icon-size);
+  aspect-ratio: 1;
+  margin: calc(var(--icon-size) / -2) 0 0 calc(var(--icon-size) / -2);
+}
+
+/* depth + pointer shift are applied by gsap on this element */
+.hero-layer {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-item > .hero-layer {
+  width: 100%;
+  height: 100%;
+}
+
+/* slow in-place drift is applied by gsap on this element */
+.hero-drift {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 14px rgb(0 0 0 / 10%))
+    drop-shadow(0 3px 5px rgb(0 0 0 / 6%));
+}
+
+/* ---- main image --------------------------------------------------- */
+
+/* 4:3 image, centred on the stage */
+.hero-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--main-size);
+  margin-left: calc(var(--main-size) / -2);
+  margin-top: calc(var(--main-size) * -0.375);
+}
+
+/* rotation: planes are flat, so paint order decides front / back */
+.hero-scene.is-rotating .hero-main {
+  z-index: 20;
+}
+
+.hero-main .hero-drift,
+.hero-main .hero-img {
+  height: auto;
+}
+
+.hero-main .hero-img {
+  filter: drop-shadow(0 22px 22px rgb(0 0 0 / 8%))
+    drop-shadow(0 5px 8px rgb(0 0 0 / 5%));
+}
+
+/* soft ground ellipse behind everything */
+.hero-shadow {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  width: 60%;
+  height: 10%;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 7%);
+  filter: blur(18px);
+  transform: translate3d(-50%, 0, -100px);
+}
+
+@media (max-width: 768px) {
+  .hero-scene:not(.is-rotating) .hero-item .hero-layer {
+    scale: 0.7;
+  }
+}

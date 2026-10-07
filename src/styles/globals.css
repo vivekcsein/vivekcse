@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Shared UI components */
+@import "./ui/drawer.css";
+@import "./ui/hamburger.css";
+@import "./ui/accordian.css";
+@import "./ui/navigation.css";
+@import "./ui/footer.css";
+@import "./ui/scrollbar.css";
+
+/* Knowledge base: sidebar/topic tints/panels, article typography, code blocks.
+   These were never imported, so the sidebar had no width, articles had no
+   heading/table/code styles, and topic dots/panels were unstyled. */
+@import "./features/content/knowledge.css";
+@import "./features/content/prose.css";
+@import "./features/content/syntax.css";
+
+/* Shared theming engine: @theme inline mapping + base layer. No colors. */
+@import "./utils/animations.css";
+@import "./utils/base.css";
+@import "./utils/app.css";
+@import "./utils/colors.css";
+@import "./utils/theme.css";
+
+/*
+ * Auto-generated list of `@import "../themes/<name>.css";` lines — one per
+ * file in styles/themes/. Never edit this import list by hand; it's
+ * rewritten by scripts/build-themes.ts every time a theme file is added,
+ * removed, or renamed. See styles/README.md.
+ */
+@import "./.generated/theme-imports.css";
+
+@custom-variant dark (&:is(.dark *));

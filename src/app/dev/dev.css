@@ -1,0 +1,489 @@
+/* -----------------------------------------------------------------------------
+   /dev — internal design-system reference shell.
+
+   The sidebar uses the dedicated --sidebar-* token set from globals.css —
+   a permanently dark navy surface in BOTH light and dark app themes (by
+   design, same pattern as Linear/Vercel-style dashboards). It was defined
+   from the start but never actually used anywhere until this page — a
+   deliberate choice to finally put it to work rather than reach for
+   another token.
+   ----------------------------------------------------------------------------- */
+
+.dev-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  color: var(--foreground);
+}
+
+/* min-height only at desktop widths, where the sticky sidebar needs the
+   full viewport to look right. Below that the sidebar collapses to a
+   toggle button, so forcing 100vh here on top of the layout's own
+   `.screen-height` main wrapper just doubles up the reserved height and
+   leaves a large blank gap before the footer on short panels (Marquee). */
+@media (min-width: 1024px) {
+  .dev-shell {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dev-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Sidebar ---------- */
+
+.dev-sidebar {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+  .dev-sidebar-desktop {
+    display: none;
+  }
+}
+
+.dev-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.5rem;
+}
+
+.dev-sidebar-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sidebar-primary);
+}
+
+.dev-sidebar-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--sidebar-primary);
+}
+
+.dev-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dev-nav-label {
+  padding: 0 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: color-mix(in oklch, var(--sidebar-foreground) 55%, transparent);
+}
+
+.dev-nav-link.active {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.dev-nav-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--sidebar-foreground) 35%, transparent);
+  flex-shrink: 0;
+}
+
+.dev-nav-link.active .dev-nav-dot {
+  background: var(--primary);
+}
+
+.dev-sidebar-footer {
+  margin-top: auto;
+  padding: 0.75rem 0.5rem 0;
+  border-top: 1px solid var(--sidebar-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dev-sidebar-back {
+  font-size: 0.8125rem;
+  color: color-mix(in oklch, var(--sidebar-foreground) 70%, transparent);
+  text-decoration: none;
+}
+
+.dev-sidebar-back:hover {
+  color: var(--sidebar-foreground);
+}
+
+/* ---------- Mobile nav toggle + Drawer ----------
+   Regenerated with the shared <Drawer> (components/ui/drawer) instead
+   of the old CSS-only stacked-sidebar trick. The toggle only shows
+   below 900px — the desktop sidebar (.dev-sidebar-desktop) is hidden
+   there instead (see above). The drawer panel is re-themed to the
+   same --sidebar-* tokens so it reads identically to the desktop nav. */
+
+.dev-nav-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.dev-mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .dev-mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background: var(--sidebar);
+    border: none;
+    border-bottom: 1px solid var(--sidebar-border);
+    cursor: pointer;
+  }
+}
+
+.dev-mobile-nav-toggle:hover .dev-sidebar-eyebrow,
+.dev-mobile-nav-toggle:focus-visible .dev-sidebar-eyebrow {
+  color: var(--sidebar-primary);
+}
+
+.dev-mobile-nav-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring) inset;
+}
+
+.dev-mobile-nav-root .drawer-panel {
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+}
+
+.dev-mobile-nav-root .drawer-header {
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.dev-mobile-nav-root .drawer-title {
+  color: var(--sidebar-foreground);
+}
+
+.dev-mobile-nav-root .drawer-close-btn span {
+  background: var(--sidebar-foreground);
+}
+
+.dev-mobile-nav-root .drawer-footer {
+  border-top: 1px solid var(--sidebar-border);
+}
+
+/* ---------- Content ---------- */
+
+.dev-content {
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  max-width: 1180px;
+}
+
+.dev-page-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dev-page-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.dev-page-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dev-page-lede {
+  margin-top: 0.85rem;
+  font-size: 1.0625rem;
+  color: var(--muted-foreground);
+  max-width: 46rem;
+  line-height: 1.6;
+}
+
+.dev-section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 2rem;
+}
+
+.dev-section-heading {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.dev-section-description {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+  max-width: 42rem;
+}
+
+/* ---------- Stat blocks (overview page) ---------- */
+
+.dev-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.dev-stat {
+  background: var(--card);
+  padding: 1.25rem 1.5rem;
+}
+
+.dev-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  font-family: var(--font-mono, monospace);
+}
+
+.dev-stat-label {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Overview nav cards ---------- */
+
+.dev-nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.dev-nav-card {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font: inherit;
+  text-decoration: none;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.dev-nav-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.dev-nav-card:hover {
+  border-color: color-mix(in oklch, var(--ring) 45%, var(--border));
+  box-shadow: 0 10px 24px color-mix(in oklch, var(--foreground) 8%, transparent);
+  transform: translateY(-2px);
+}
+
+.dev-nav-card-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dev-nav-card-desc {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* ---------- Token / color swatches ---------- */
+
+.dev-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.dev-token-swatch {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+
+.dev-token-color {
+  height: 64px;
+  width: 100%;
+}
+
+.dev-token-meta {
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dev-token-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.dev-token-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  transition: color 150ms ease;
+}
+
+.dev-token-value:hover {
+  color: var(--foreground);
+}
+
+/* ---------- Component preview blocks ---------- */
+
+.dev-preview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  margin-bottom: 1.5rem;
+}
+
+.dev-preview-stage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  background: color-mix(in oklch, var(--muted) 45%, var(--card));
+}
+
+.dev-preview-stage.dev-preview-stage-column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dev-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+.dev-preview-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.dev-preview-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Typography specimen ---------- */
+
+.dev-type-specimen {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  margin-bottom: 0.85rem;
+}
+
+.dev-type-specimen-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.dev-type-specimen-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono, monospace);
+}
+
+.dev-type-specimen-size {
+  font-size: 0.6875rem;
+  color: color-mix(in oklch, var(--muted-foreground) 80%, transparent);
+}
+
+.dev-font-card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.dev-font-card-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin-bottom: 0.9rem;
+}
+
+.dev-font-card-sample {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+.dev-font-card-meta {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}

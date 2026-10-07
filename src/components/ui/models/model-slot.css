@@ -1,0 +1,30 @@
+.model-slot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+}
+
+/*
+ * Visible boundary so it's clear where a 3D model will sit before the
+ * asset exists — this is the "reserved space" the model slot leaves,
+ * not a placeholder graphic. The text label inside is dev-only.
+ */
+[data-model-slot] {
+  border: 1px dashed color-mix(in oklch, var(--border) 80%, transparent);
+}
+
+.model-slot-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
