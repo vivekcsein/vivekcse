@@ -212,7 +212,7 @@ export function Hero3D({
                 height={256}
                 draggable={false}
                 className="hero-img"
-                loading="lazy"
+                loading="eager"
               />
             </Layer>
           </div>
@@ -232,7 +232,7 @@ export function Hero3D({
             alt={heroMain.alt}
             width={heroMain.width}
             height={heroMain.height}
-            loading="lazy"
+            loading="eager"
             draggable={false}
             className="hero-img"
           />
