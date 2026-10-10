@@ -39,7 +39,7 @@ const ProjectsSection = () => {
                 rel="noreferrer"
                 className="group flex h-full flex-col overflow-hidden rounded-lg"
               >
-                <div className="relative flex aspect-video items-center justify-center bg-linear-to-br from-primary/20 via-muted to-fuchsia-400/10">
+                <div className="relative flex aspect-video items-center justify-center bg-linear-to-br from-primary/20 via-muted to-primary/10">
                   {project.coverImage && (
                     <Image
                       id={`showcase-item-${project.title}`}

@@ -19,9 +19,10 @@ const backendApps = [
       "auth",
       "template",
     ],
-    href: `${appConfig.social.github}/create-hono-app`,
+    href: `${appConfig.social.github.handle}/create-hono-app`,
     createdAt: "30/07/2026",
     updatedAt: "05/08/2026",
+    coverImage: "/images/cover/backend-cover.jpg",
   },
   {
     key: "create-fastify-app",
@@ -42,6 +43,7 @@ const backendApps = [
     href: "https://fastify-auth.vercel.app/",
     createdAt: "02/09/2025",
     updatedAt: "08/09/2025",
+    coverImage: "/images/cover/backend-cover.jpg",
   },
 ] satisfies Project[];
 

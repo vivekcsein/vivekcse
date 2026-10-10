@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": [
+    "src/app/**/*.{js,jsx,ts,tsx}",
+    "src/middleware.{js,ts}",
+    "middleware.{js,ts}",
+    "next.config.{js,mjs,ts}",
+    "instrumentation.{js,ts}"
+  ],
+  "project": ["src/**/*.{js,jsx,ts,tsx}"],
+  "ignore": ["src/**/*.d.ts"],
+  "ignoreDependencies": []
+}

@@ -8,6 +8,23 @@ import reactApps from "./projects/reactApps";
 import webApps from "./projects/webApps";
 
 const projectsConfig = {
+  /**
+   * Which full-stack project is featured at the top of /projects.
+   * Change this ONE number: 1 = the first project in `projects/fullstackApps.ts`,
+   * 2 = the second, and so on. Out of range falls back to the first.
+   */
+  featuredFullStackProject: 3,
+
+  /** Hero on /projects (same design as the Knowledge Base hero). */
+  hero: {
+    eyebrow: "Projects",
+    title: "Things I’ve created",
+    highlightPrefix: "building",
+    highlight: "on the web.",
+    subtitle:
+      "A growing collection of products, systems, experiments and immersive experiences, each one a live site you can open.",
+  },
+
   eyebrow: "Selected Work",
 
   title: "Engineering through projects",
@@ -23,6 +40,7 @@ const projectsConfig = {
   projects: [
     {
       key: "full-stack",
+      color: "violet",
       title: "Full-Stack Products",
       eyebrow: "Product Engineering",
 
@@ -66,6 +84,7 @@ const projectsConfig = {
 
     {
       key: "web",
+      color: "sky",
       title: "Web Applications",
       eyebrow: "Frontend Engineering",
       cta: {
@@ -90,7 +109,7 @@ const projectsConfig = {
 
       stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
 
-      icon: "layout",
+      icon: "layout-grid",
 
       stats: [
         { label: "Focus", value: "UX & Performance" },
@@ -102,6 +121,7 @@ const projectsConfig = {
 
     {
       key: "backend",
+      color: "teal",
       title: "Backend & APIs",
       eyebrow: "Systems Engineering",
       cta: {
@@ -144,6 +164,7 @@ const projectsConfig = {
 
     {
       key: "3d-ar",
+      color: "magenta",
       title: "3D & AR Experiences",
       eyebrow: "Creative Engineering",
       cta: {
@@ -179,6 +200,7 @@ const projectsConfig = {
 
     {
       key: "experiments",
+      color: "amber",
       title: "Experiments & Tools",
       eyebrow: "Exploration",
       cta: {

@@ -28,6 +28,7 @@ import {
   Database,
   Diamond,
   Download,
+  ExternalLink,
   FileText,
   Flag,
   Flame,
@@ -142,6 +143,8 @@ export const lucideIcons = {
   monitor: Monitor,
   container: Container,
   box: Box,
+  flask: FlaskConical,
+  "external-link": ExternalLink,
   boxes: Boxes,
   layers: Layers,
 
