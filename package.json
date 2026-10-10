@@ -55,7 +55,7 @@
     "zod-validation-error": "^5.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.2",
+    "@biomejs/biome": "2.5.15",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@gltf-transform/core": "^4.5.1",
