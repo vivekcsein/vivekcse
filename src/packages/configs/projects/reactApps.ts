@@ -20,30 +20,10 @@ const reactApps = [
       "template",
       "auth",
     ],
-    href: `${appConfig.social.github}/create-next-template`,
+    href: `${appConfig.social.github.handle}/create-next-template`,
     createdAt: "12/06/2026",
     updatedAt: "24/08/2026",
-  },
-  {
-    key: "create-next-navigations",
-    title: "Create Next Navigations",
-    role: "Frontend Developer",
-    client: "self",
-    description:
-      "A config-driven navigation system for Next.js: namespaced providers, a mega-menu desktop nav, a mobile drawer, and a collapsible dashboard sidebar from a single config.",
-    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
-    keywords: [
-      "react",
-      "nextjs",
-      "typescript",
-      "tailwindcss",
-      "navigation",
-      "sidebar",
-      "navbar",
-    ],
-    href: `${appConfig.social.github}/create-next-navigations`,
-    createdAt: "12/06/2026",
-    updatedAt: "24/08/2026",
+    coverImage: "/images/cover/vivekcsein-cover.jpg",
   },
   {
     key: "next-design-app",
@@ -64,6 +44,7 @@ const reactApps = [
     href: "https://next-theme-app.vercel.app/",
     createdAt: "21/07/2026",
     updatedAt: "09/08/2026",
+    coverImage: "/images/cover/theme-cover.jpg",
   },
   {
     key: "learn-advanced-react",
@@ -106,9 +87,8 @@ const reactApps = [
     href: "https://www.npmjs.com/package/frnz-ui",
     createdAt: "13/01/2023",
     updatedAt: "11/02/2024",
-    screenshots: [
-      "https://raw.githubusercontent.com/vivekcsein/githost/main/images/frnz/fav_icon.png",
-    ],
+    screenshots: ["/images/cover/frnz-ui-cover.jpg"],
+    coverImage: "/images/cover/frnz-ui-cover.jpg",
   },
 ] satisfies Project[];
 

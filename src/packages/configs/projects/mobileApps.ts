@@ -19,9 +19,9 @@ const mobileApps = [
       "zod",
       "template",
     ],
-    href: `${appConfig.social.github}/create-expo-app`,
-    createdAt: "12/06/2026",
-    updatedAt: "24/08/2026",
+    href: `${appConfig.social.github.handle}/create-expo-app`,
+    createdAt: "07/06/2026",
+    updatedAt: "ongoing",
   },
 ] satisfies Project[];
 

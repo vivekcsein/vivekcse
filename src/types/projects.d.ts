@@ -102,3 +102,24 @@ export interface Project {
 
   href: string;
 }
+
+/** A project plus its category, flattened for lists, cards and filters (serializable). */
+export interface ProjectListItem extends Project {
+  categoryKey: string;
+  categoryTitle: string;
+  categoryColor: import("@/packages/configs/content.config").TopicColor;
+  categoryIcon: import("@/components/ui").IconName;
+  /** Normalised ISO dates (config dates are dd/mm/yyyy). */
+  createdAtISO: string;
+  updatedAtISO: string;
+  /** `updatedAt: "ongoing"` in the config — still being worked on. */
+  ongoing: boolean;
+}
+
+export interface ProjectsHeroStats {
+  projects: number;
+  categories: number;
+  technologies: number;
+  /** ISO 8601 of the most recently updated project. */
+  lastUpdated?: string;
+}

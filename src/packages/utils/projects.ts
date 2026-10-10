@@ -210,3 +210,101 @@ export const getProjectKeys = (): string[] => {
     ),
   ];
 };
+
+// ---------------------------------------------------------------------------
+// Dates, list items, featured project and hero stats (used by /projects)
+// ---------------------------------------------------------------------------
+
+import type { ProjectListItem, ProjectsHeroStats } from "@/types/projects";
+import { compareNewest } from "./project-sort";
+
+/**
+ * Project dates in the config are written dd/mm/yyyy. Returns an ISO string
+ * (UTC midnight); ISO input passes through; anything unparseable → epoch.
+ */
+export const toProjectISODate = (value: string): string => {
+  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(value.trim());
+  const date = match
+    ? new Date(
+        Date.UTC(Number(match[3]), Number(match[2]) - 1, Number(match[1])),
+      )
+    : new Date(value);
+
+  return Number.isNaN(date.getTime())
+    ? new Date(0).toISOString()
+    : date.toISOString();
+};
+
+const isOngoing = (value: string) => value.trim().toLowerCase() === "ongoing";
+
+/** Every project flattened with its category, newest first. */
+export const getProjectListItems = (): ProjectListItem[] =>
+  projectsConfig.projects
+    .flatMap((category) =>
+      (category.projectList as readonly Project[]).map(
+        (project): ProjectListItem => {
+          const ongoing = isOngoing(project.updatedAt);
+          return {
+            ...project,
+            categoryKey: category.key,
+            categoryTitle: category.title,
+            categoryColor: category.color,
+            categoryIcon: category.icon,
+            ongoing,
+            createdAtISO: toProjectISODate(project.createdAt),
+            // "ongoing" has no date: fall back to when it started
+            updatedAtISO: toProjectISODate(
+              ongoing ? project.createdAt : project.updatedAt,
+            ),
+          };
+        },
+      ),
+    )
+    .sort(compareNewest);
+
+export const getProjectListItemsByCategory = (
+  category: string,
+): ProjectListItem[] =>
+  getProjectListItems().filter((item) => item.categoryKey === category);
+
+/**
+ * The featured project on /projects: the Nth full-stack project, where N is
+ * `featuredFullStackProject` in projects.config.ts (1 = first).
+ */
+export const getFeaturedProject = (): ProjectListItem | undefined => {
+  const fullStack = projectsConfig.projects.find((c) => c.key === "full-stack");
+  const list = (fullStack?.projectList ?? []) as readonly Project[];
+  const picked = list[projectsConfig.featuredFullStackProject - 1] ?? list[0];
+
+  return getProjectListItems().find((item) => item.key === picked?.key);
+};
+
+/** Tags with how many projects use each, most used first. */
+export const getProjectTagCounts = (
+  items: readonly ProjectListItem[] = getProjectListItems(),
+): { tag: string; count: number }[] => {
+  const counts = new Map<string, number>();
+  for (const item of items) {
+    for (const tag of item.tags ?? []) {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+};
+
+export const getProjectsHeroStats = (
+  items: readonly ProjectListItem[] = getProjectListItems(),
+  categories = projectsConfig.projects.length,
+): ProjectsHeroStats => ({
+  projects: items.length,
+  categories,
+  technologies: getProjectTagCounts(items).length,
+  // Only real dates: "ongoing" projects do not count as an update date.
+  lastUpdated: items
+    .filter((item) => !item.ongoing)
+    .map((item) => item.updatedAtISO)
+    .sort()
+    .at(-1),
+});

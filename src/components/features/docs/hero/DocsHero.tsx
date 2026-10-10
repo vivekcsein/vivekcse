@@ -117,18 +117,52 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
 });
 
-type DocsHeroProps = {
-  stats: KnowledgeStats;
+export type HeroCopy = {
+  eyebrow: string;
+  title: string;
+  highlightPrefix: string;
+  highlight: string;
+  subtitle: string;
 };
 
-export const DocsHero = ({ stats }: DocsHeroProps) => {
-  const articles = useCountUp(stats.articles, { duration: 1000 });
-  const topics = useCountUp(stats.topics, { duration: 1100 });
-  const words = useCountUp(stats.words, { duration: 1300 });
+export type HeroStatItem = {
+  icon: IconName;
+  color: Tone;
+  label: string;
+  /** Numbers count up on mount; strings render as-is. */
+  value: number | string;
+  /** Show the label above the value (used for dates). */
+  labelFirst?: boolean;
+  /** Format the animated number (e.g. 96000 → "96K"). */
+  format?: (value: number) => string;
+  /** Count-up duration in ms. */
+  duration?: number;
+};
 
-  const image = imagesConfig.heroImages.contentImages[0];
-  const { article: hero } = siteConfig.hero;
+const AnimatedStat = ({ value, format, duration, ...rest }: HeroStatItem) => {
+  const counted = useCountUp(typeof value === "number" ? value : 0, {
+    duration: duration ?? 1000,
+  });
+  const top =
+    typeof value === "number" ? (format?.(counted) ?? String(counted)) : value;
 
+  return <HeroStat {...rest} bottom={rest.label} top={top} />;
+};
+
+type PageHeroProps = {
+  copy: HeroCopy;
+  stats: HeroStatItem[];
+  /** Defaults to the shared content hero image. */
+  image?: { src: string; alt: string; priority?: boolean };
+};
+
+/** The hero shared by the Knowledge Base and Projects. Copy and stats are data. */
+export const PageHero = ({
+  copy: hero,
+  stats,
+  image: imageProp,
+}: PageHeroProps) => {
+  const image = imageProp ?? imagesConfig.heroImages.contentImages[0];
   return (
     <section
       className="
@@ -245,33 +279,9 @@ export const DocsHero = ({ stats }: DocsHeroProps) => {
               sm:gap-x-7
             "
           >
-            <HeroStat
-              bottom="Articles"
-              color="sky"
-              icon="file-text"
-              top={String(articles)}
-            />
-            <HeroStat
-              bottom="Topics"
-              color="teal"
-              icon="layers"
-              top={String(topics)}
-            />
-            <HeroStat
-              bottom="Words"
-              color="green"
-              icon="book-open"
-              top={formatWords(words)}
-            />
-            {stats.lastUpdated && (
-              <HeroStat
-                bottom={dateFormatter.format(new Date(stats.lastUpdated))}
-                color="rose"
-                icon="calendar"
-                labelFirst
-                top="Last Updated"
-              />
-            )}
+            {stats.map((stat) => (
+              <AnimatedStat key={stat.label} {...stat} />
+            ))}
           </div>
         </div>
       </div>
@@ -284,3 +294,49 @@ export const DocsHero = ({ stats }: DocsHeroProps) => {
     </section>
   );
 };
+
+type DocsHeroProps = {
+  stats: KnowledgeStats;
+};
+
+/** Knowledge Base hero ("Things I've learned"). */
+export const DocsHero = ({ stats }: DocsHeroProps) => (
+  <PageHero
+    copy={siteConfig.hero.article}
+    stats={[
+      {
+        label: "Articles",
+        color: "sky",
+        icon: "file-text",
+        value: stats.articles,
+        duration: 1000,
+      },
+      {
+        label: "Topics",
+        color: "teal",
+        icon: "layers",
+        value: stats.topics,
+        duration: 1100,
+      },
+      {
+        label: "Words",
+        color: "green",
+        icon: "book-open",
+        value: stats.words,
+        duration: 1300,
+        format: formatWords,
+      },
+      ...(stats.lastUpdated
+        ? [
+            {
+              label: dateFormatter.format(new Date(stats.lastUpdated)),
+              color: "rose" as const,
+              icon: "calendar" as const,
+              value: "Last Updated",
+              labelFirst: true,
+            },
+          ]
+        : []),
+    ]}
+  />
+);

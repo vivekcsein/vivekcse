@@ -19,8 +19,9 @@ const webApps = [
       "blog",
     ],
     href: "https://www.myroleplay.life",
-    createdAt: "12/06/2026",
-    updatedAt: "24/08/2026",
+    createdAt: "18/06/2025",
+    updatedAt: "05/09/2026",
+    coverImage: "/images/cover/lifeinvader-cover.jpg",
   },
   {
     key: "rastaa-web-page",
@@ -42,6 +43,7 @@ const webApps = [
     href: "https://frenzzofficial.github.io/rastaa/",
     createdAt: "16/08/2026",
     updatedAt: "17/08/2026",
+    coverImage: "/images/cover/rastaa-cover.jpg",
   },
   {
     key: "ad-monetization",
@@ -61,9 +63,10 @@ const webApps = [
       "ssr",
       "performance",
     ],
-    href: "https://my-daily-blogs-app.vercel.app/",
+    href: "https://ads-monetization.vercel.app/",
     createdAt: "08/08/2026",
     updatedAt: "18/08/2026",
+    coverImage: "/images/cover/ad-monetization-cover.jpg",
   },
 ] satisfies Project[];
 

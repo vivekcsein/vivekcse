@@ -16,6 +16,8 @@ const arApps = [
     screenshots: [
       "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/techkilla/metawalk_tk.png",
     ],
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/techkilla/metawalk_tk.png",
   },
   {
     key: "retro-run",
@@ -29,6 +31,8 @@ const arApps = [
     href: "https://www.snapchat.com/lens/80f946497b0741d4af49647eed220931",
     createdAt: "11/07/2021",
     updatedAt: "21/07/2021",
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/projectsImages/alivenow/retro_run.png",
   },
   {
     key: "flipkart-football-game",
@@ -40,8 +44,10 @@ const arApps = [
     tags: ["AR", "JavaScript", "Gaming", "Branded Experience"],
     keywords: ["ar", "flipkart", "football", "javascript", "gaming", "branded"],
     href: "https://www.flipkart.com/camera-filters?lensId=7314b6a2-8e42-4399-9d9c-c0ed236ded99",
-    createdAt: "09/10/2021",
+    createdAt: "09/09/2021",
     updatedAt: "31/10/2021",
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/projectsImages/alivenow/flipkart_football_game.png",
   },
   {
     key: "pineapple-run",
@@ -53,8 +59,10 @@ const arApps = [
     tags: ["AR", "Snapchat Lens", "JavaScript", "Gaming"],
     keywords: ["ar", "snapchat", "lens", "javascript", "gaming", "platformer"],
     href: "https://www.snapchat.com/lens/a21eb1ab36df4a74bf31c522be8b031f",
-    createdAt: "12/08/2021",
-    updatedAt: "24/08/2021",
+    createdAt: "12/07/2021",
+    updatedAt: "27/08/2021",
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/projectsImages/alivenow/pineapple_run.png",
   },
   {
     key: "cadbury-hand-tracking-game",
@@ -78,6 +86,8 @@ const arApps = [
     screenshots: [
       "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/alivenow/cadbury_game.png",
     ],
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/projectsImages/alivenow/cadbury_game.png",
   },
   {
     key: "lets-learn-asl",
@@ -102,6 +112,8 @@ const arApps = [
     screenshots: [
       "https://raw.githubusercontent.com/vivekcsein/githost/main/images/projectsImages/spotar/sign_lang.png",
     ],
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/projectsImages/spotar/sign_lang.png",
   },
 ] satisfies Project[];
 

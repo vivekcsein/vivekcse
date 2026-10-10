@@ -1,5 +1,4 @@
 import type { Project } from "@/types/projects";
-import appConfig from "../app.config";
 
 const creativeApps = [
   {
@@ -19,9 +18,10 @@ const creativeApps = [
       "gsap",
       "animation",
     ],
-    href: `${appConfig.social.github}/create-react-3d`,
-    createdAt: "24/08/2026",
-    updatedAt: "24/08/2026",
+    href: "https://vivekcsein.github.io/create-hero-3d/",
+    createdAt: "4/10/2026",
+    updatedAt: "10/10/2026",
+    coverImage: "/images/cover/react-3d-cover.jpg",
   },
   {
     key: "gsap-animations",
@@ -33,11 +33,13 @@ const creativeApps = [
     tags: ["GSAP", "Swiper", "TypeScript"],
     keywords: ["gsap", "swiper", "animations", "slider", "typescript"],
     href: "https://vivekcsein.github.io/gsap-animations",
-    createdAt: "28/12/2023",
+    createdAt: "17/12/2023",
     updatedAt: "28/12/2023",
     screenshots: [
       "https://raw.githubusercontent.com/vivekcsein/githost/main/images/vivekcse/projects/swiper_anim.png",
     ],
+    coverImage:
+      "https://raw.githubusercontent.com/vivekcsein/githost/main/images/vivekcse/projects/swiper_anim.png",
   },
 ] satisfies Project[];
 
