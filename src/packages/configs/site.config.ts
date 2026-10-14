@@ -180,7 +180,7 @@ export const siteConfig = {
     stats: [
       {
         label: "Experience",
-        value: "2+ Years",
+        value: "5+ Years",
         icon: "calendar",
       },
       {
@@ -205,7 +205,7 @@ export const siteConfig = {
       },
       {
         label: "Handle",
-        value: appConfig.author.name,
+        value: appConfig.author.handle,
         icon: "at-sign",
       },
     ],
