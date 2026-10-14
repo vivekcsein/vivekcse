@@ -14,6 +14,7 @@
 @import "./features/content/knowledge.css";
 @import "./features/content/prose.css";
 @import "./features/content/syntax.css";
+@import "./features/hero/hero.css";
 
 /* Shared theming engine: @theme inline mapping + base layer. No colors. */
 @import "./utils/animations.css";

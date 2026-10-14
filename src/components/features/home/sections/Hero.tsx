@@ -153,7 +153,7 @@ export const Hero = () => {
             <ul className="flex items-center gap-2">
               {socials.map((social) => (
                 <li key={social.key}>
-                  <SocialButton {...social} />
+                  <SocialButton {...social} key={social.key} />
                 </li>
               ))}
             </ul>

@@ -31,8 +31,6 @@ const About = () => {
             <span className="text-primary">{about.heading[1]}</span>
           </h2>
 
-          <p className="text-muted-foreground">{about.description}</p>
-
           <Experience />
         </Reveal>
       </div>

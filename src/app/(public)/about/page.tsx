@@ -1,7 +1,25 @@
-import UnderDevelopment from "@/components/features/home/UnderDevelopment";
+import type { Metadata } from "next";
+import About from "@/components/features/home/sections/About";
+import Journey from "@/components/features/home/sections/Journey";
+import PageHero from "@/components/layouts/PageHero";
+import { siteConfig } from "@/packages/configs/site.config";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: siteConfig.about.description,
+};
 
 const AboutPage = () => {
-  return <UnderDevelopment />;
+  return (
+    <PageHero
+      badge="About"
+      title="About Me"
+      description={siteConfig.about.description}
+    >
+      <About />
+      <Journey />
+    </PageHero>
+  );
 };
 
 export default AboutPage;
