@@ -126,7 +126,7 @@ function itemStyle(
   };
 }
 
-export function Hero3D({
+const Hero3D = ({
   rotation = true,
   parallax = true,
   drift,
@@ -139,7 +139,7 @@ export function Hero3D({
   orbit,
   motion,
   className,
-}: Hero3DProps) {
+}: Hero3DProps) => {
   const sceneRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -212,7 +212,7 @@ export function Hero3D({
                 height={256}
                 draggable={false}
                 className="hero-img"
-                loading="lazy"
+                loading="eager"
               />
             </Layer>
           </div>
@@ -232,7 +232,7 @@ export function Hero3D({
             alt={heroMain.alt}
             width={heroMain.width}
             height={heroMain.height}
-            loading="lazy"
+            loading="eager"
             draggable={false}
             className="hero-img"
           />
@@ -240,6 +240,6 @@ export function Hero3D({
       </div>
     </div>
   );
-}
+};
 
 export default Hero3D;

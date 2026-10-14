@@ -15,6 +15,8 @@ type CategoryCardProps = {
   icon: IconName;
   color: TopicColor;
   count: number;
+  /** What is being counted. Defaults to articles. */
+  unit?: { singular: string; plural: string };
 };
 
 /** "Browse by Topic" tile. */
@@ -24,6 +26,7 @@ export const CategoryCard = ({
   icon,
   color,
   count,
+  unit = { singular: "article", plural: "articles" },
 }: CategoryCardProps) => {
   const tone = topicPalette[color];
 
@@ -62,7 +65,7 @@ export const CategoryCard = ({
           {title}
         </span>
         <span className="mt-1.5 block text-xs text-muted-foreground">
-          {count} {count === 1 ? "article" : "articles"}
+          {count} {count === 1 ? unit.singular : unit.plural}
         </span>
       </span>
       <Icon

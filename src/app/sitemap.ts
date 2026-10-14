@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import appConfig from "@/packages/configs/app.config";
 import { getAllDocs, getCollections } from "@/packages/utils/loader";
+import { getAllProjectCategories } from "@/packages/utils/projects";
 
 // Static export: this is rendered once at build time into out/sitemap.xml.
 export const dynamic = "force-static";
@@ -15,6 +16,7 @@ const STATIC_ROUTES = [
   "/terms",
   "/marketplace",
   "/content",
+  "/projects",
 ] as const;
 
 // `trailingSlash: true` in next.config.ts → every page is served as /route/
@@ -39,6 +41,10 @@ const sitemap = (): MetadataRoute.Sitemap => {
       priority: path === "/" ? 1 : 0.7,
     })),
     ...sections.map((path) => ({ url: url(path), priority: 0.6 })),
+    ...getAllProjectCategories().map((category) => ({
+      url: url(`/projects/${category.key}`),
+      priority: 0.6,
+    })),
     ...getAllDocs().map((doc) => ({
       url: url(doc.href),
       lastModified: doc.updatedAt ?? doc.createdAt,
