@@ -118,7 +118,7 @@ export type SiteConfig = {
       readonly text: string;
       readonly author: string;
       readonly role: string;
-    };
+    }[];
     readonly subtext: string;
   };
 };
@@ -455,11 +455,23 @@ export const siteConfig = {
       href: "/contact",
     },
 
-    quote: {
-      text: "Vivek is an exceptional developer who delivers high-quality work on time. His expertise in Next.js and backend architecture is top-notch.",
-      author: "Satisfied Client",
-      role: "Founder, Startup",
-    },
+    quote: [
+      {
+        text: "Vivek is an exceptional developer who delivers high-quality work on time. His expertise in Next.js and backend architecture is top-notch.",
+        author: "Sandeep Singh",
+        role: "Salesforce Developer",
+      },
+      {
+        text: "Vivek brings a strong technical mindset and a keen eye for detail to every project. His ability to turn ideas into modern, scalable web experiences makes him a valuable developer to work with.",
+        author: "Yashi Mishra",
+        role: "Co-Founder, Techkilla Technologies",
+      },
+      {
+        text: "Working with Vivek was a great experience. He understands project requirements well and focuses on building clean, responsive, and user-friendly interfaces. His dedication to delivering quality work makes him a reliable developer for freelance projects.",
+        author: "Nilesh Singh",
+        role: "Freelance Client",
+      },
+    ],
 
     subtext: "Building Global Digital Experiences",
   },

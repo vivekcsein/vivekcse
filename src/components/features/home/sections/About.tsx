@@ -1,7 +1,8 @@
 "use client";
 
-import ModelSlot from "@/components/ui/models/ModelSlot";
+import ImageComponent from "@/components/ui/images/ImageComponent";
 import Reveal from "@/components/ui/reveal/Reveal";
+import appConfig from "@/packages/configs/app.config";
 import { siteConfig } from "@/packages/configs/site.config";
 import Experience from "./Experience";
 
@@ -15,9 +16,14 @@ const About = () => {
           direction="left"
           className="w-full max-w-sm aspect-square mx-auto lg:mx-0"
         >
-          <ModelSlot
-            reservedFor="about-avatar"
-            label="3D model — about-avatar"
+          <ImageComponent
+            src={appConfig.author.avatar}
+            id={"vivekcsein official avatar"}
+            alt={"vivekcsein official avatar"}
+            width={512}
+            height={512}
+            className="rounded-2xl"
+            loading="eager"
           />
         </Reveal>
 

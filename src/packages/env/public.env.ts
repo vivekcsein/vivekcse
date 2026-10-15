@@ -69,6 +69,12 @@ const parsedEnvSchema = z.object({
 
   NEXT_PUBLIC_AUTHOR_EMAIL: z.email().default("ivivekcse@gmail.com"),
 
+  NEXT_PUBLIC_AVATAR: z
+    .string()
+    .trim()
+    .min(1)
+    .default("https://avatars.githubusercontent.com/u/54096095"),
+
   NEXT_PUBLIC_AUTHOR_QUOTE: z
     .string()
     .trim()
@@ -105,6 +111,7 @@ const source = {
   NEXT_PUBLIC_AUTHOR_NAME: process.env.NEXT_PUBLIC_AUTHOR_NAME,
   NEXT_PUBLIC_AUTHOR_HANDLE: process.env.NEXT_PUBLIC_AUTHOR_HANDLE,
   NEXT_PUBLIC_AUTHOR_EMAIL: process.env.NEXT_PUBLIC_AUTHOR_EMAIL,
+  NEXT_PUBLIC_AVATAR: process.env.NEXT_PUBLIC_AVATAR,
   NEXT_PUBLIC_AUTHOR_QUOTE: process.env.NEXT_PUBLIC_AUTHOR_QUOTE,
   NEXT_PUBLIC_GOOGLE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
 };
@@ -138,6 +145,7 @@ export const envPublicConfig = Object.freeze({
   AUTHOR_NAME: parsedEnv.NEXT_PUBLIC_AUTHOR_NAME,
   AUTHOR_HANDLE: parsedEnv.NEXT_PUBLIC_AUTHOR_HANDLE,
   AUTHOR_EMAIL: parsedEnv.NEXT_PUBLIC_AUTHOR_EMAIL,
+  AVATAR: parsedEnv.NEXT_PUBLIC_AVATAR,
   AUTHOR_QUOTE: parsedEnv.NEXT_PUBLIC_AUTHOR_QUOTE,
 
   // Google Verification

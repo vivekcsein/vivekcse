@@ -34,6 +34,7 @@ const appConfig = {
     handle: envPublicConfig.AUTHOR_HANDLE,
     email: envPublicConfig.AUTHOR_EMAIL,
     quote: envPublicConfig.AUTHOR_QUOTE,
+    avatar: envPublicConfig.AVATAR,
   },
 
   // Social Profiles
