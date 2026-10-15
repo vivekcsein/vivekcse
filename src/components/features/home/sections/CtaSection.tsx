@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/ui";
 import { siteConfig } from "@/packages/configs/site.config";
+import QuoteSlider from "./QuoteSlider";
 
 const CtaSection = () => {
   const { cta } = siteConfig;
@@ -33,13 +34,7 @@ const CtaSection = () => {
           </Reveal>
 
           <Reveal direction="right" className="flex flex-col gap-4">
-            <blockquote className="rounded-2xl border border-border bg-card/70 p-6 text-sm text-muted-foreground italic">
-              “{cta.quote.text}”
-              <footer className="mt-3 text-xs font-medium text-foreground not-italic">
-                — {cta.quote.author}, {cta.quote.role}
-              </footer>
-            </blockquote>
-
+            <QuoteSlider quotes={cta.quote} />
             <p className="text-center text-xs tracking-wide text-muted-foreground uppercase">
               {cta.subtext}
             </p>
