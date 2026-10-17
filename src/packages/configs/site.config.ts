@@ -54,6 +54,32 @@ export type ShowcaseItem = {
   readonly description: string;
 };
 
+export type FaqPoint = {
+  label: string;
+  text: string;
+};
+
+export type FaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+  points?: readonly FaqPoint[];
+};
+
+export type FaqGroup = {
+  id: string;
+  title: string;
+  items: readonly FaqItem[];
+};
+
+export type FaqConfig = {
+  heading: string;
+  description: string;
+  allowMultiple: boolean;
+  defaultOpenId: string | null;
+  groups: readonly FaqGroup[];
+};
+
 export type SiteConfig = {
   readonly hero: {
     readonly main: {
@@ -121,6 +147,8 @@ export type SiteConfig = {
     }[];
     readonly subtext: string;
   };
+
+  readonly faqs: FaqConfig;
 };
 
 export const siteConfig = {
@@ -474,5 +502,81 @@ export const siteConfig = {
     ],
 
     subtext: "Building Global Digital Experiences",
+  },
+
+  faqs: {
+    heading: "Frequently asked questions",
+    description: "How I think, build, and ship.",
+    allowMultiple: false,
+    defaultOpenId: "engineering-approach",
+    groups: [
+      {
+        id: "engineering",
+        title: "Engineering",
+        items: [
+          {
+            id: "engineering-approach",
+            question: "What makes my engineering approach different?",
+            answer: "A few habits show up in every codebase I touch.",
+            points: [
+              {
+                label: "Architectural discipline",
+                text: "GSAP/ScrollTrigger and Framer Motion live in separate 'use client' leaves and never share a tree.",
+              },
+              {
+                label: "Single source of truth",
+                text: "Handles and social links come from one constants file instead of being scattered across components.",
+              },
+              {
+                label: "Forward planning",
+                text: "The hero reserves space for a future dependency-graph canvas, so the layout never needs rebuilding.",
+              },
+              {
+                label: "Taste calibration",
+                text: "I benchmark against Linear, Vercel, and Stripe, and frame the site as a documentation-inspired engineering hub, not a resume.",
+              },
+              {
+                label: "Execution discipline",
+                text: "I scope work explicitly and build in deliberate passes instead of everything at once.",
+              },
+              {
+                label: "Stack fluency",
+                text: "Next.js App Router, strict TypeScript, Tailwind v4 CSS-first theming, Bun, and Lenis driven by GSAP's ticker instead of its default rAF loop.",
+              },
+            ],
+          },
+          {
+            id: "stack",
+            question: "What stack do I build with?",
+            answer: "Next.js, TypeScript, Bun, Hono, and React.",
+          },
+          {
+            id: "lenis-gsap-ticker",
+            question:
+              "Why do you drive Lenis from GSAP's ticker instead of its default loop?",
+            answer:
+              "Lenis and GSAP each run their own requestAnimationFrame loop by default. Two loops means two update orders per frame, so ScrollTrigger can fall out of step with the scroll position Lenis just applied. I run both from one clock so every frame has a single, predictable order.",
+            points: [
+              {
+                label: "One clock",
+                text: "Lenis's autoRaf is off and gsap.ticker calls lenis.raf(), so smooth scroll and animation update in the same tick.",
+              },
+              {
+                label: "Synced triggers",
+                text: "lenis.on('scroll', ScrollTrigger.update) keeps ScrollTrigger reading the position Lenis just set.",
+              },
+              {
+                label: "Lag smoothing off",
+                text: "gsap.ticker.lagSmoothing(0) stops GSAP from skipping time after a dropped frame, so scroll-linked animation stays aligned.",
+              },
+              {
+                label: "The rest of the stack",
+                text: "Next.js App Router, strict TypeScript, Tailwind v4 CSS-first theming, and Bun, with each concern owned in exactly one place.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 } satisfies SiteConfig;
