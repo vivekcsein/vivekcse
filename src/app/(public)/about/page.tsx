@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import About from "@/components/features/home/sections/About";
+import { FaqAccordion } from "@/components/features/home/sections/Faqs";
 import Journey from "@/components/features/home/sections/Journey";
 import PageHero from "@/components/layouts/PageHero";
 import { siteConfig } from "@/packages/configs/site.config";
@@ -18,6 +19,7 @@ const AboutPage = () => {
     >
       <About />
       <Journey />
+      <FaqAccordion />
     </PageHero>
   );
 };

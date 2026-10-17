@@ -1,4 +1,3 @@
-import MarqueePanel from "@/app/dev/panels/MarqueePanel";
 import CtaSection from "./sections/CtaSection";
 import FeaturedArticleHome from "./sections/FeaturedArticleHome";
 import { Hero } from "./sections/Hero";
@@ -19,7 +18,7 @@ export default function HomePage() {
       <Journey />
       <Showcase />
       <CtaSection />
-      <MarqueePanel />
+      <div className="h-10"></div>
     </>
   );
 }
